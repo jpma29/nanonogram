@@ -1,0 +1,301 @@
+{
+  "schema": "nanonogram.corpus.rules/1",
+  "generatedBy": "packages/shared-tests/src/generate.ts",
+  "cases": [
+    {
+      "id": "ru-0001",
+      "label": "RF-MOD-2: penalty for error 1 on the default ladder",
+      "kind": "penalty",
+      "errorNumber": 1,
+      "expect": 30000
+    },
+    {
+      "id": "ru-0002",
+      "label": "RF-MOD-2: penalty for error 2 on the default ladder",
+      "kind": "penalty",
+      "errorNumber": 2,
+      "expect": 60000
+    },
+    {
+      "id": "ru-0003",
+      "label": "RF-MOD-2: penalty for error 3 on the default ladder",
+      "kind": "penalty",
+      "errorNumber": 3,
+      "expect": 120000
+    },
+    {
+      "id": "ru-0004",
+      "label": "RF-MOD-2: penalty for error 4 on the default ladder",
+      "kind": "penalty",
+      "errorNumber": 4,
+      "expect": 240000
+    },
+    {
+      "id": "ru-0005",
+      "label": "RF-MOD-2: penalty for error 5 on the default ladder",
+      "kind": "penalty",
+      "errorNumber": 5,
+      "expect": 480000
+    },
+    {
+      "id": "ru-0006",
+      "label": "RF-MOD-2: penalty for error 6 on the default ladder",
+      "kind": "penalty",
+      "errorNumber": 6,
+      "expect": 480000
+    },
+    {
+      "id": "ru-0007",
+      "label": "RF-MOD-2: penalty for error 12 on the default ladder",
+      "kind": "penalty",
+      "errorNumber": 12,
+      "expect": 480000
+    },
+    {
+      "id": "ru-0008",
+      "label": "RF-MOD-2: penalty for error 100 on the default ladder",
+      "kind": "penalty",
+      "errorNumber": 100,
+      "expect": 480000
+    },
+    {
+      "id": "ru-0009",
+      "label": "RF-MOD-2: a custom ladder still repeats its last rung",
+      "kind": "penalty",
+      "errorNumber": 5,
+      "ladder": [
+        1000,
+        2000
+      ],
+      "expect": 2000
+    },
+    {
+      "id": "ru-0010",
+      "label": "RF-MOD-1: verifications allowed on 1x1",
+      "kind": "checks",
+      "width": 1,
+      "height": 1,
+      "expect": 1
+    },
+    {
+      "id": "ru-0011",
+      "label": "RF-MOD-1: verifications allowed on 5x5",
+      "kind": "checks",
+      "width": 5,
+      "height": 5,
+      "expect": 1
+    },
+    {
+      "id": "ru-0012",
+      "label": "RF-MOD-1: verifications allowed on 10x10",
+      "kind": "checks",
+      "width": 10,
+      "height": 10,
+      "expect": 1
+    },
+    {
+      "id": "ru-0013",
+      "label": "RF-MOD-1: verifications allowed on 11x11",
+      "kind": "checks",
+      "width": 11,
+      "height": 11,
+      "expect": 2
+    },
+    {
+      "id": "ru-0014",
+      "label": "RF-MOD-1: verifications allowed on 15x15",
+      "kind": "checks",
+      "width": 15,
+      "height": 15,
+      "expect": 2
+    },
+    {
+      "id": "ru-0015",
+      "label": "RF-MOD-1: verifications allowed on 16x16",
+      "kind": "checks",
+      "width": 16,
+      "height": 16,
+      "expect": 3
+    },
+    {
+      "id": "ru-0016",
+      "label": "RF-MOD-1: verifications allowed on 20x20",
+      "kind": "checks",
+      "width": 20,
+      "height": 20,
+      "expect": 3
+    },
+    {
+      "id": "ru-0017",
+      "label": "RF-MOD-1: verifications allowed on 21x21",
+      "kind": "checks",
+      "width": 21,
+      "height": 21,
+      "expect": 4
+    },
+    {
+      "id": "ru-0018",
+      "label": "RF-MOD-1: verifications allowed on 25x25",
+      "kind": "checks",
+      "width": 25,
+      "height": 25,
+      "expect": 4
+    },
+    {
+      "id": "ru-0019",
+      "label": "RF-MOD-1: verifications allowed on 26x26",
+      "kind": "checks",
+      "width": 26,
+      "height": 26,
+      "expect": 5
+    },
+    {
+      "id": "ru-0020",
+      "label": "RF-MOD-1: verifications allowed on 30x30",
+      "kind": "checks",
+      "width": 30,
+      "height": 30,
+      "expect": 5
+    },
+    {
+      "id": "ru-0021",
+      "label": "RF-MOD-1: verifications allowed on 50x50",
+      "kind": "checks",
+      "width": 50,
+      "height": 50,
+      "expect": 5
+    },
+    {
+      "id": "ru-0022",
+      "label": "RF-MOD-1: verifications allowed on 100x100",
+      "kind": "checks",
+      "width": 100,
+      "height": 100,
+      "expect": 5
+    },
+    {
+      "id": "ru-0023",
+      "label": "RF-MOD-1: verifications allowed on 5x40",
+      "kind": "checks",
+      "width": 5,
+      "height": 40,
+      "expect": 5
+    },
+    {
+      "id": "ru-0024",
+      "label": "RF-MOD-1: verifications allowed on 40x5",
+      "kind": "checks",
+      "width": 40,
+      "height": 5,
+      "expect": 5
+    },
+    {
+      "id": "ru-0025",
+      "label": "RF-MOD-4: crown with 0 errors, 0 checks, unique=true",
+      "kind": "crown",
+      "errors": 0,
+      "checksUsed": 0,
+      "uniqueSolution": true,
+      "expect": true
+    },
+    {
+      "id": "ru-0026",
+      "label": "RF-MOD-4: crown with 0 errors, 0 checks, unique=false",
+      "kind": "crown",
+      "errors": 0,
+      "checksUsed": 0,
+      "uniqueSolution": false,
+      "expect": false
+    },
+    {
+      "id": "ru-0027",
+      "label": "RF-MOD-4: crown with 0 errors, 1 checks, unique=true",
+      "kind": "crown",
+      "errors": 0,
+      "checksUsed": 1,
+      "uniqueSolution": true,
+      "expect": false
+    },
+    {
+      "id": "ru-0028",
+      "label": "RF-MOD-4: crown with 0 errors, 1 checks, unique=false",
+      "kind": "crown",
+      "errors": 0,
+      "checksUsed": 1,
+      "uniqueSolution": false,
+      "expect": false
+    },
+    {
+      "id": "ru-0029",
+      "label": "RF-MOD-4: crown with 1 errors, 0 checks, unique=true",
+      "kind": "crown",
+      "errors": 1,
+      "checksUsed": 0,
+      "uniqueSolution": true,
+      "expect": false
+    },
+    {
+      "id": "ru-0030",
+      "label": "RF-MOD-4: crown with 1 errors, 0 checks, unique=false",
+      "kind": "crown",
+      "errors": 1,
+      "checksUsed": 0,
+      "uniqueSolution": false,
+      "expect": false
+    },
+    {
+      "id": "ru-0031",
+      "label": "RF-MOD-4: crown with 1 errors, 1 checks, unique=true",
+      "kind": "crown",
+      "errors": 1,
+      "checksUsed": 1,
+      "uniqueSolution": true,
+      "expect": false
+    },
+    {
+      "id": "ru-0032",
+      "label": "RF-MOD-4: crown with 1 errors, 1 checks, unique=false",
+      "kind": "crown",
+      "errors": 1,
+      "checksUsed": 1,
+      "uniqueSolution": false,
+      "expect": false
+    },
+    {
+      "id": "ru-0033",
+      "label": "RF-MOD-4: crown with 3 errors, 0 checks, unique=true",
+      "kind": "crown",
+      "errors": 3,
+      "checksUsed": 0,
+      "uniqueSolution": true,
+      "expect": false
+    },
+    {
+      "id": "ru-0034",
+      "label": "RF-MOD-4: crown with 3 errors, 0 checks, unique=false",
+      "kind": "crown",
+      "errors": 3,
+      "checksUsed": 0,
+      "uniqueSolution": false,
+      "expect": false
+    },
+    {
+      "id": "ru-0035",
+      "label": "RF-MOD-4: crown with 3 errors, 1 checks, unique=true",
+      "kind": "crown",
+      "errors": 3,
+      "checksUsed": 1,
+      "uniqueSolution": true,
+      "expect": false
+    },
+    {
+      "id": "ru-0036",
+      "label": "RF-MOD-4: crown with 3 errors, 1 checks, unique=false",
+      "kind": "crown",
+      "errors": 3,
+      "checksUsed": 1,
+      "uniqueSolution": false,
+      "expect": false
+    }
+  ]
+}

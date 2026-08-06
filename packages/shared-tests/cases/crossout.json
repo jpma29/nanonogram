@@ -1,0 +1,1654 @@
+{
+  "schema": "nanonogram.corpus.crossout/1",
+  "generatedBy": "packages/shared-tests/src/generate.ts",
+  "cases": [
+    {
+      "id": "co-0001",
+      "label": "a block closed by the border and a cross is crossed out",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "11---",
+      "expect": [
+        true
+      ]
+    },
+    {
+      "id": "co-0002",
+      "label": "a block closed by crosses on both sides is crossed out",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "-11--",
+      "expect": [
+        true
+      ]
+    },
+    {
+      "id": "co-0003",
+      "label": "two clues each pinned to their own closed block",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-11-1-",
+      "expect": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "co-0004",
+      "label": "RF-AYU-2 critical case: a closed block that could be either of two equal clues stays quiet",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "..-1-..",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0005",
+      "label": "the same ambiguity with blocks of two",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "..-11-....",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0006",
+      "label": "ruling out the alternative resolves the ambiguity",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "---1-..",
+      "expect": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "co-0007",
+      "label": "a pinned but open-ended block is not crossed out",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": "111..",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0008",
+      "label": "an open left edge is enough to stay quiet",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": ".11--",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0009",
+      "label": "a dot does not close a block",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-1?--",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0010",
+      "label": "a cross does close it",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-1---",
+      "expect": [
+        true
+      ]
+    },
+    {
+      "id": "co-0011",
+      "label": "nothing is crossed out on a contradictory line",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "11111",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0012",
+      "label": "nothing is crossed out on a doubly contradictory line",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "11-11-11",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0013",
+      "label": "an untouched line crosses out nothing",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": ".....",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0014",
+      "label": "an empty clue list yields an empty result",
+      "colors": 2,
+      "clues": [],
+      "cells": "-----",
+      "expect": []
+    },
+    {
+      "id": "co-0015",
+      "label": "a clue filling the whole line is crossed out",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 5,
+          "color": 1
+        }
+      ],
+      "cells": "11111",
+      "expect": [
+        true
+      ]
+    },
+    {
+      "id": "co-0016",
+      "label": "a completed line crosses everything out",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "11-1-",
+      "expect": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "co-0017",
+      "label": "a middle clue pinned between two ambiguous ones",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".-111-.",
+      "expect": [
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "id": "co-0018",
+      "label": "adjacent colours close each other",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 2
+        }
+      ],
+      "cells": "1122",
+      "expect": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "co-0019",
+      "label": "a block drawn in the wrong colour is not crossed out",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "-22-",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0020",
+      "label": "a colour block closed by crosses",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        }
+      ],
+      "cells": "-2--",
+      "expect": [
+        true
+      ]
+    },
+    {
+      "id": "co-0021",
+      "label": "generated crossout 0: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "1-?.--.",
+      "expect": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "co-0022",
+      "label": "generated crossout 1: 5 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": ".1..-",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0023",
+      "label": "generated crossout 2: 11 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "1-1-1---?1.",
+      "expect": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0024",
+      "label": "generated crossout 3: 12 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-.-1.1-1....",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0025",
+      "label": "generated crossout 4: 10 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "?1--1.-..-",
+      "expect": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0026",
+      "label": "generated crossout 5: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "?.-.--.",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0027",
+      "label": "generated crossout 6: 5 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "1?..-",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0028",
+      "label": "generated crossout 7: 5 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-??1.",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0029",
+      "label": "generated crossout 8: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-...1.-",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0030",
+      "label": "generated crossout 9: 4 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        }
+      ],
+      "cells": "-2-.",
+      "expect": [
+        true
+      ]
+    },
+    {
+      "id": "co-0031",
+      "label": "generated crossout 10: 11 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 2
+        }
+      ],
+      "cells": "1-..-21.2-.",
+      "expect": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0032",
+      "label": "generated crossout 11: 5 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".1--1",
+      "expect": [
+        false,
+        true
+      ]
+    },
+    {
+      "id": "co-0033",
+      "label": "generated crossout 12: 5 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "1--.-",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0034",
+      "label": "generated crossout 13: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": "?-..1?----.11",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0035",
+      "label": "generated crossout 14: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "1?--..-.-.1..",
+      "expect": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0036",
+      "label": "generated crossout 15: 12 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 6,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-?1....1-1--",
+      "expect": [
+        false,
+        true
+      ]
+    },
+    {
+      "id": "co-0037",
+      "label": "generated crossout 16: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "..-...-11.1..",
+      "expect": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0038",
+      "label": "generated crossout 17: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": ".1.?1-111....",
+      "expect": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0039",
+      "label": "generated crossout 18: 8 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 4,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "1111-11-",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0040",
+      "label": "generated crossout 19: 8 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".---.--.",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0041",
+      "label": "generated crossout 20: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 5,
+          "color": 1
+        }
+      ],
+      "cells": "-.11?.1",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0042",
+      "label": "generated crossout 21: 5 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "2-.--",
+      "expect": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "co-0043",
+      "label": "generated crossout 22: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": ".-1--.1",
+      "expect": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "co-0044",
+      "label": "generated crossout 23: 11 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 4,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".1.-.1.--.-",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0045",
+      "label": "generated crossout 24: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": ".1.-.-1---1.?",
+      "expect": [
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "id": "co-0046",
+      "label": "generated crossout 25: 10 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "??.1-1-1-.",
+      "expect": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0047",
+      "label": "generated crossout 26: 12 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": ".1-1..1-11-.",
+      "expect": [
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "id": "co-0048",
+      "label": "generated crossout 27: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".1...1.",
+      "expect": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0049",
+      "label": "generated crossout 28: 10 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "--?.1---.-",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0050",
+      "label": "generated crossout 29: 10 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".--.-..-.-",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0051",
+      "label": "generated crossout 30: 5 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "-.1-1",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0052",
+      "label": "generated crossout 31: 6 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 2,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "?.?21-",
+      "expect": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0053",
+      "label": "generated crossout 32: 9 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        }
+      ],
+      "cells": "...21..2.",
+      "expect": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0054",
+      "label": "generated crossout 33: 10 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": "..----1?..",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0055",
+      "label": "generated crossout 34: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-?-?1-.",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0056",
+      "label": "generated crossout 35: 14 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-.-.-?---.1-..",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0057",
+      "label": "generated crossout 36: 10 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "..1..---1.",
+      "expect": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0058",
+      "label": "generated crossout 37: 10 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 4,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        }
+      ],
+      "cells": "211-1---..",
+      "expect": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0059",
+      "label": "generated crossout 38: 12 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "111.---...-.",
+      "expect": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0060",
+      "label": "generated crossout 39: 11 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 4,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "-1..1.11-11",
+      "expect": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "id": "co-0061",
+      "label": "generated crossout 40: 8 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "1----.1.",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0062",
+      "label": "generated crossout 41: 10 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 5,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "?11.11-1?-",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0063",
+      "label": "generated crossout 42: 8 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "..1.?-..",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0064",
+      "label": "generated crossout 43: 10 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 4,
+          "color": 1
+        }
+      ],
+      "cells": "-1..1.1111",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0065",
+      "label": "generated crossout 44: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": "-1...1--1.1--",
+      "expect": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0066",
+      "label": "generated crossout 45: 10 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 4,
+          "color": 1
+        }
+      ],
+      "cells": ".--111.11.",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0067",
+      "label": "generated crossout 46: 10 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "1----1..--",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0068",
+      "label": "generated crossout 47: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "1-.-..-",
+      "expect": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "co-0069",
+      "label": "generated crossout 48: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": ".111-.1",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0070",
+      "label": "generated crossout 49: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-...1-.",
+      "expect": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0071",
+      "label": "generated crossout 50: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 4,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-..11.?",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0072",
+      "label": "generated crossout 51: 11 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "--1?.-.-.1.",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0073",
+      "label": "generated crossout 52: 8 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "111...-1",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0074",
+      "label": "generated crossout 53: 4 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "?-?1",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0075",
+      "label": "generated crossout 54: 5 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "...1.",
+      "expect": [
+        false
+      ]
+    },
+    {
+      "id": "co-0076",
+      "label": "generated crossout 55: 14 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 2
+        }
+      ],
+      "cells": "-...--?.2..-.?",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0077",
+      "label": "generated crossout 56: 9 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".-.--.1?.",
+      "expect": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0078",
+      "label": "generated crossout 57: 9 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "-11?...?.",
+      "expect": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0079",
+      "label": "generated crossout 58: 8 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": "..--?11?",
+      "expect": [
+        false,
+        false
+      ]
+    },
+    {
+      "id": "co-0080",
+      "label": "generated crossout 59: 12 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".-1.-?-.-1.-",
+      "expect": [
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  ]
+}

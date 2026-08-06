@@ -1,0 +1,22 @@
+{
+  "name": "@nanonogram/core",
+  "version": "0.0.0",
+  "description": "Nonogram game engine. Pure TypeScript, zero runtime dependencies, no DOM.",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc --build"
+  }
+}

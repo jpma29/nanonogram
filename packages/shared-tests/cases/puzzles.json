@@ -1,0 +1,6701 @@
+{
+  "schema": "nanonogram.corpus.puzzles/1",
+  "generatedBy": "packages/shared-tests/src/generate.ts",
+  "cases": [
+    {
+      "id": "PZ0001",
+      "label": "a 1x1 filled cell",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0001",
+        "title": "a 1x1 filled cell",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0001",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 1,
+        "height": 1,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZ0002",
+      "label": "a 1x1 empty cell",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0002",
+        "title": "a 1x1 empty cell",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0002",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 1,
+        "height": 1,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            []
+          ],
+          "cols": [
+            []
+          ]
+        },
+        "solution": [
+          "."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZ0003",
+      "label": "an entirely empty 4x4",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0003",
+        "title": "an entirely empty 4x4",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0003",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 4,
+        "height": 4,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [],
+            [],
+            [],
+            []
+          ],
+          "cols": [
+            [],
+            [],
+            [],
+            []
+          ]
+        },
+        "solution": [
+          "....",
+          "....",
+          "....",
+          "...."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZ0004",
+      "label": "an entirely filled 4x4",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0004",
+        "title": "an entirely filled 4x4",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0004",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 4,
+        "height": 4,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XXXX",
+          "XXXX",
+          "XXXX",
+          "XXXX"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZ0005",
+      "label": "a plus sign, line-solvable",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0005",
+        "title": "a plus sign, line-solvable",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0005",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 3,
+        "height": 3,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          ".X.",
+          "XXX",
+          ".X."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZ0006",
+      "label": "the classic ambiguous diagonal pair",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0006",
+        "title": "the classic ambiguous diagonal pair",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0006",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 2,
+        "height": 2,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X.",
+          ".X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": 3,
+        "rejectReason": "the clues admit more than one solution"
+      }
+    },
+    {
+      "id": "PZ0007",
+      "label": "a heart",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0007",
+        "title": "a heart",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0007",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 5,
+        "height": 5,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          ".X.X.",
+          "XXXXX",
+          "XXXXX",
+          ".XXX.",
+          "..X.."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZ0008",
+      "label": "a frame",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0008",
+        "title": "a frame",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0008",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 5,
+        "height": 5,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XXXXX",
+          "X...X",
+          "X...X",
+          "X...X",
+          "XXXXX"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZ0009",
+      "label": "a checkerboard, deeply ambiguous at small size",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0009",
+        "title": "a checkerboard, deeply ambiguous at small size",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0009",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 3,
+        "height": 3,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X.X",
+          ".X.",
+          "X.X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZ0010",
+      "label": "an arrow",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0010",
+        "title": "an arrow",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0010",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 5,
+        "height": 5,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "..X..",
+          ".XXX.",
+          "XXXXX",
+          "..X..",
+          "..X.."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZ0011",
+      "label": "a diagonal line",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0011",
+        "title": "a diagonal line",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0011",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 5,
+        "height": 5,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X....",
+          ".X...",
+          "..X..",
+          "...X.",
+          "....X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": null,
+        "rejectReason": "the declared solution does not satisfy the clues"
+      }
+    },
+    {
+      "id": "PZ0012",
+      "label": "a 10x10 spiral",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0012",
+        "title": "a 10x10 spiral",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0012",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 10,
+        "height": 10,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 10,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 6,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 4,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 8,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            []
+          ],
+          "cols": [
+            [
+              {
+                "count": 9,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 5,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 7,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 9,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XXXXXXXXXX",
+          "X........X",
+          "X.XXXXXX.X",
+          "X.X....X.X",
+          "X.X.XX.X.X",
+          "X.X..X.X.X",
+          "X.XXXX.X.X",
+          "X......X.X",
+          "XXXXXXXX.X",
+          ".........."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZ0013",
+      "label": "a 8x8 with sparse clues",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0013",
+        "title": "a 8x8 with sparse clues",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0013",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 8,
+        "height": 8,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X......X",
+          "........",
+          "..X..X..",
+          "........",
+          "........",
+          "..X..X..",
+          "........",
+          "X......X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": null,
+        "rejectReason": "the declared solution does not satisfy the clues"
+      }
+    },
+    {
+      "id": "PZ0014",
+      "label": "a single long row",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0014",
+        "title": "a single long row",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0014",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 10,
+        "height": 1,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 10,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XXXXXXXXXX"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZ0015",
+      "label": "a single long column",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZ0015",
+        "title": "a single long column",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZ0015",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 1,
+        "height": 8,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 8,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0000",
+      "label": "generated puzzle 0: 6x7",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0000",
+        "title": "generated puzzle 0: 6x7",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0000",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 6,
+        "height": 7,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 6,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          ".X.XX.",
+          "XX.X..",
+          ".X.XXX",
+          "XX...X",
+          "X.....",
+          "XXXXXX",
+          ".X.X.X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0001",
+      "label": "generated puzzle 1: 7x8",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0001",
+        "title": "generated puzzle 1: 7x8",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0001",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 7,
+        "height": 8,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XXXX...",
+          ".X.....",
+          "...XX..",
+          ".XXX...",
+          ".X..XX.",
+          "..XX.X.",
+          ".XX.X.X",
+          "...XX.X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0002",
+      "label": "generated puzzle 2: 6x8",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0002",
+        "title": "generated puzzle 2: 6x8",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0002",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 6,
+        "height": 8,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          ".X..X.",
+          ".X....",
+          "...X.X",
+          "..X...",
+          "...XX.",
+          "....XX",
+          "X..XX.",
+          "X..X.."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": null,
+        "rejectReason": "the declared solution does not satisfy the clues"
+      }
+    },
+    {
+      "id": "PZG0003",
+      "label": "generated puzzle 3: 8x3",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0003",
+        "title": "generated puzzle 3: 8x3",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0003",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 8,
+        "height": 3,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X..XXXX.",
+          "XXXXX.XX",
+          ".X..XXX."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": 3,
+        "rejectReason": "the clues admit more than one solution"
+      }
+    },
+    {
+      "id": "PZG0004",
+      "label": "generated puzzle 4: 5x6",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0004",
+        "title": "generated puzzle 4: 5x6",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0004",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 5,
+        "height": 6,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XXX..",
+          "..X.X",
+          "X..X.",
+          "...XX",
+          "XX...",
+          "XX..X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0005",
+      "label": "generated puzzle 5: 4x6",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0005",
+        "title": "generated puzzle 5: 4x6",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0005",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 4,
+        "height": 6,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XXX.",
+          "..X.",
+          "..X.",
+          "XX..",
+          "...X",
+          "X..."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0006",
+      "label": "generated puzzle 6: 8x3",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0006",
+        "title": "generated puzzle 6: 8x3",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0006",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 8,
+        "height": 3,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "..X.XX..",
+          ".XX.XX.X",
+          "X.XXX.XX"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0007",
+      "label": "generated puzzle 7: 3x7",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0007",
+        "title": "generated puzzle 7: 3x7",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0007",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 3,
+        "height": 7,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 6,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X.X",
+          ".X.",
+          "XX.",
+          "XXX",
+          "XXX",
+          "XXX",
+          ".XX"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": 3,
+        "rejectReason": "the clues admit more than one solution"
+      }
+    },
+    {
+      "id": "PZG0008",
+      "label": "generated puzzle 8: 9x8",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0008",
+        "title": "generated puzzle 8: 9x8",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0008",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 9,
+        "height": 8,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 6,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 8,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 8,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XX.XX.XXX",
+          "X.XX..XXX",
+          "..XX..X.X",
+          "XXXXX....",
+          "XXXXXX...",
+          ".X.XX..XX",
+          "..XX..X..",
+          ".XXXXXXXX"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0009",
+      "label": "generated puzzle 9: 8x7",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0009",
+        "title": "generated puzzle 9: 8x7",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0009",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 8,
+        "height": 7,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 8,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 6,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 6,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          ".X...XXX",
+          "XXXX.XX.",
+          "X..XXXX.",
+          "...XXX.X",
+          "XX.X.X.X",
+          "XXXXXXXX",
+          "X.XXX.X."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": 3,
+        "rejectReason": "the clues admit more than one solution"
+      }
+    },
+    {
+      "id": "PZG0010",
+      "label": "generated puzzle 10: 5x8",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0010",
+        "title": "generated puzzle 10: 5x8",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0010",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 5,
+        "height": 8,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XXX..",
+          "X...X",
+          "X.X.X",
+          ".....",
+          "X..X.",
+          ".XX.X",
+          "XX.XX",
+          "..XX."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0011",
+      "label": "generated puzzle 11: 7x9",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0011",
+        "title": "generated puzzle 11: 7x9",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0011",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 7,
+        "height": 9,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XX.....",
+          ".X.XXX.",
+          "....X..",
+          "..XXXXX",
+          "...X...",
+          "XXX...X",
+          ".X.X..X",
+          ".......",
+          "..XX.XX"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0012",
+      "label": "generated puzzle 12: 8x5",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0012",
+        "title": "generated puzzle 12: 8x5",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0012",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 8,
+        "height": 5,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "...X..X.",
+          "XX.X....",
+          ".XXXX.X.",
+          "..X..X.X",
+          "..X.X..X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": 4,
+        "rejectReason": "the clues admit more than one solution"
+      }
+    },
+    {
+      "id": "PZG0013",
+      "label": "generated puzzle 13: 7x6",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0013",
+        "title": "generated puzzle 13: 7x6",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0013",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 7,
+        "height": 6,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 6,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 7,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 6,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 6,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 6,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XXXXXX.",
+          "X.XXX.X",
+          "XXXXXXX",
+          "X..X...",
+          "X.XXXX.",
+          "XXXXXX."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0014",
+      "label": "generated puzzle 14: 9x4",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0014",
+        "title": "generated puzzle 14: 9x4",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0014",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 9,
+        "height": 4,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            []
+          ]
+        },
+        "solution": [
+          "X....X.X.",
+          "..XX..X..",
+          "..X...XX.",
+          ".X......."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": null,
+        "rejectReason": "the declared solution does not satisfy the clues"
+      }
+    },
+    {
+      "id": "PZG0015",
+      "label": "generated puzzle 15: 3x4",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0015",
+        "title": "generated puzzle 15: 3x4",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0015",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 3,
+        "height": 4,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XX.",
+          ".XX",
+          "XX.",
+          "XX."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0016",
+      "label": "generated puzzle 16: 4x3",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0016",
+        "title": "generated puzzle 16: 4x3",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0016",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 4,
+        "height": 3,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X.XX",
+          "XXXX",
+          "XXXX"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0017",
+      "label": "generated puzzle 17: 3x4",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0017",
+        "title": "generated puzzle 17: 3x4",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0017",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 3,
+        "height": 4,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "...",
+          "...",
+          "..X",
+          "X.."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": 3,
+        "rejectReason": "the clues admit more than one solution"
+      }
+    },
+    {
+      "id": "PZG0018",
+      "label": "generated puzzle 18: 3x7",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0018",
+        "title": "generated puzzle 18: 3x7",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0018",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 3,
+        "height": 7,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X.X",
+          "..X",
+          "XX.",
+          "XX.",
+          "...",
+          "...",
+          "..X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0019",
+      "label": "generated puzzle 19: 7x9",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0019",
+        "title": "generated puzzle 19: 7x9",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0019",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 7,
+        "height": 9,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 4,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XXXX..X",
+          ".XX....",
+          "XXXXX.X",
+          ".X.....",
+          ".X.XX.X",
+          "X..X.X.",
+          ".X..XX.",
+          "....X.X",
+          "..X.XX."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": 3,
+        "rejectReason": "the clues admit more than one solution"
+      }
+    },
+    {
+      "id": "PZG0020",
+      "label": "generated puzzle 20: 3x5",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0020",
+        "title": "generated puzzle 20: 3x5",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0020",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 3,
+        "height": 5,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          ".X.",
+          "..X",
+          "XX.",
+          "XXX",
+          "X.."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0021",
+      "label": "generated puzzle 21: 4x5",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0021",
+        "title": "generated puzzle 21: 4x5",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0021",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 4,
+        "height": 5,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            []
+          ],
+          "cols": [
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X.XX",
+          "X..X",
+          "X.XX",
+          "X.XX",
+          "...."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0022",
+      "label": "generated puzzle 22: 4x5",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0022",
+        "title": "generated puzzle 22: 4x5",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0022",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 4,
+        "height": 5,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "..X.",
+          ".XX.",
+          "..XX",
+          "X...",
+          "X..."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": 3,
+        "rejectReason": "the clues admit more than one solution"
+      }
+    },
+    {
+      "id": "PZG0023",
+      "label": "generated puzzle 23: 9x9",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0023",
+        "title": "generated puzzle 23: 9x9",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0023",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 9,
+        "height": 9,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XX..XXXX.",
+          ".XX...X..",
+          "X....X...",
+          "X..X.X.XX",
+          ".XXX....X",
+          "XXX.XX.XX",
+          "XXXX..XXX",
+          "XXXX.X...",
+          "X.XXX...."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0024",
+      "label": "generated puzzle 24: 9x4",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0024",
+        "title": "generated puzzle 24: 9x4",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0024",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 9,
+        "height": 4,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XX....XXX",
+          ".XXXXX...",
+          "XXXXX.X.X",
+          "XX.XXXXX."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0025",
+      "label": "generated puzzle 25: 8x5",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0025",
+        "title": "generated puzzle 25: 8x5",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0025",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 8,
+        "height": 5,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 4,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XX.X.XXX",
+          "X.XXXX.X",
+          "XXX.XXX.",
+          ".XXXX..X",
+          "XXX.X..X"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0026",
+      "label": "generated puzzle 26: 7x8",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0026",
+        "title": "generated puzzle 26: 7x8",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0026",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 7,
+        "height": 8,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X....X.",
+          ".X.X.X.",
+          ".X.XX.X",
+          "X.X..X.",
+          ".XX.XXX",
+          "..X..XX",
+          "....XXX",
+          "...X.X."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0027",
+      "label": "generated puzzle 27: 6x3",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0027",
+        "title": "generated puzzle 27: 6x3",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0027",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 6,
+        "height": 3,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "X.X.XX",
+          "XXX.XX",
+          "X...XX"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    },
+    {
+      "id": "PZG0028",
+      "label": "generated puzzle 28: 6x6",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0028",
+        "title": "generated puzzle 28: 6x6",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0028",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 6,
+        "height": 6,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 4,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 5,
+                "color": "X"
+              }
+            ]
+          ],
+          "cols": [
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          "XXXX..",
+          "..X.X.",
+          ".XXX.X",
+          "X...XX",
+          "..XXX.",
+          ".XXXXX"
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 2,
+        "unique": false,
+        "verified": false,
+        "difficulty": 3,
+        "rejectReason": "the clues admit more than one solution"
+      }
+    },
+    {
+      "id": "PZG0029",
+      "label": "generated puzzle 29: 3x8",
+      "puzzle": {
+        "schema": "nanonogram.puzzle/1",
+        "id": "PZG0029",
+        "title": "generated puzzle 29: 3x8",
+        "hide_title": false,
+        "author": null,
+        "source": "nanonogram/shared-tests",
+        "source_id": "PZG0029",
+        "license": "CC0-1.0",
+        "copyright": null,
+        "width": 3,
+        "height": 8,
+        "palette": [
+          {
+            "key": ".",
+            "name": "white",
+            "hex": "ffffff",
+            "background": true
+          },
+          {
+            "key": "X",
+            "name": "black",
+            "hex": "000000",
+            "background": false
+          }
+        ],
+        "clues": {
+          "rows": [
+            [
+              {
+                "count": 2,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [],
+            [
+              {
+                "count": 3,
+                "color": "X"
+              }
+            ],
+            []
+          ],
+          "cols": [
+            [
+              {
+                "count": 3,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ],
+            [
+              {
+                "count": 2,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              },
+              {
+                "count": 1,
+                "color": "X"
+              }
+            ]
+          ]
+        },
+        "solution": [
+          ".XX",
+          "X.X",
+          "X..",
+          "X.X",
+          ".X.",
+          "...",
+          "XXX",
+          "..."
+        ],
+        "difficulty": null,
+        "verified": false,
+        "unique": null,
+        "published": false,
+        "distributable": true,
+        "content_flags": [],
+        "created_at": null
+      },
+      "expect": {
+        "solutionCount": 1,
+        "unique": true,
+        "verified": true,
+        "difficulty": 1,
+        "rejectReason": null
+      }
+    }
+  ]
+}

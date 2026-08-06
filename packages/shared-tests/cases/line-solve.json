@@ -1,0 +1,3049 @@
+{
+  "schema": "nanonogram.corpus.line-solve/1",
+  "generatedBy": "packages/shared-tests/src/generate.ts",
+  "cases": [
+    {
+      "id": "ls-0001",
+      "label": "an empty clue list forces the whole line to background",
+      "colors": 2,
+      "clues": [],
+      "cells": ".....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "startCount": [],
+        "firstStart": []
+      }
+    },
+    {
+      "id": "ls-0002",
+      "label": "a clue spanning the line fills it",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 5,
+          "color": 1
+        }
+      ],
+      "cells": ".....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "startCount": [
+          1
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0003",
+      "label": "the classic overlap: 4 in 5 forces the middle three",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 4,
+          "color": 1
+        }
+      ],
+      "cells": ".....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          2,
+          2,
+          2,
+          3
+        ],
+        "startCount": [
+          2
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0004",
+      "label": "a loose 1 in 5 deduces nothing",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          5
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0005",
+      "label": "two 3s in 7 leave no slack at all",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": ".......",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          2,
+          2,
+          1,
+          2,
+          2,
+          2
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "id": "ls-0006",
+      "label": "two 3s in 9 force only the middle of each block",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": ".........",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          2,
+          3,
+          3
+        ],
+        "startCount": [
+          3,
+          3
+        ],
+        "firstStart": [
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "id": "ls-0007",
+      "label": "same-colour clues need a separating gap",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "...",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          1,
+          2
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "id": "ls-0008",
+      "label": "a cross at the edge shifts the only placement",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 4,
+          "color": 1
+        }
+      ],
+      "cells": "-....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        "startCount": [
+          1
+        ],
+        "firstStart": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "ls-0009",
+      "label": "one filled cell propagates the whole block",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": "1....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          2,
+          2,
+          1,
+          1
+        ],
+        "startCount": [
+          1
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0010",
+      "label": "a dot constrains nothing",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": "?????",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          2,
+          3,
+          3
+        ],
+        "startCount": [
+          3
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0011",
+      "label": "a fully crossed line cannot hold a clue",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": "-----",
+      "expect": {
+        "feasible": false
+      }
+    },
+    {
+      "id": "ls-0012",
+      "label": "a clue longer than the line is infeasible",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 6,
+          "color": 1
+        }
+      ],
+      "cells": ".....",
+      "expect": {
+        "feasible": false
+      }
+    },
+    {
+      "id": "ls-0013",
+      "label": "blocks the player drew that contradict the clues are infeasible",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "1-1-1",
+      "expect": {
+        "feasible": false
+      }
+    },
+    {
+      "id": "ls-0014",
+      "label": "a solved line stays solved",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "11-1-",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          2,
+          1,
+          2,
+          1
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ls-0015",
+      "label": "a 1x1 line with a 1-clue",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2
+        ],
+        "startCount": [
+          1
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0016",
+      "label": "a 1x1 line with no clue",
+      "colors": 2,
+      "clues": [],
+      "cells": ".",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1
+        ],
+        "startCount": [],
+        "firstStart": []
+      }
+    },
+    {
+      "id": "ls-0017",
+      "label": "crosses in the middle split the line into two halves",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "..---..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "id": "ls-0018",
+      "label": "a long line with a single small clue",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "..............",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          13
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0019",
+      "label": "adjacent different colours need no gap",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 2
+        }
+      ],
+      "cells": "....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          2,
+          4,
+          4
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "id": "ls-0020",
+      "label": "same colour twice still needs a gap, even in a colour puzzle",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": ".....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          2,
+          1,
+          2,
+          2
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ls-0021",
+      "label": "a colour line partially drawn",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".2.",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          4,
+          2
+        ],
+        "startCount": [
+          1,
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "ls-0022",
+      "label": "three colours in a row",
+      "colors": 4,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 3
+        }
+      ],
+      "cells": "...",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          4,
+          8
+        ],
+        "startCount": [
+          1,
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "ls-0023",
+      "label": "generated line 0: 10 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "....-1..1-",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1
+        ],
+        "startCount": [
+          2,
+          2,
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          2,
+          5,
+          7
+        ]
+      }
+    },
+    {
+      "id": "ls-0024",
+      "label": "generated line 1: 14 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "1.....21.--1.1",
+      "expect": {
+        "feasible": false
+      }
+    },
+    {
+      "id": "ls-0025",
+      "label": "generated line 2: 9 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 2
+        }
+      ],
+      "cells": "-?.1.2...",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          1,
+          1,
+          2,
+          5,
+          4,
+          5,
+          1,
+          1
+        ],
+        "startCount": [
+          1,
+          2
+        ],
+        "firstStart": [
+          3,
+          4
+        ]
+      }
+    },
+    {
+      "id": "ls-0026",
+      "label": "generated line 3: 10 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "......1...",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          5,
+          3
+        ],
+        "firstStart": [
+          0,
+          6
+        ]
+      }
+    },
+    {
+      "id": "ls-0027",
+      "label": "generated line 4: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "..--.....-...",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          1,
+          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          4,
+          4,
+          5
+        ],
+        "firstStart": [
+          0,
+          4,
+          7
+        ]
+      }
+    },
+    {
+      "id": "ls-0028",
+      "label": "generated line 5: 10 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "....-...-.",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          7,
+          1,
+          7,
+          7,
+          7,
+          1,
+          3
+        ],
+        "startCount": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "firstStart": [
+          0,
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    {
+      "id": "ls-0029",
+      "label": "generated line 6: 12 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "??.......1.-",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          1,
+          2,
+          1,
+          1
+        ],
+        "startCount": [
+          5,
+          5,
+          1
+        ],
+        "firstStart": [
+          0,
+          3,
+          9
+        ]
+      }
+    },
+    {
+      "id": "ls-0030",
+      "label": "generated line 7: 14 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-?..1-....1..1",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          3,
+          2,
+          3,
+          1,
+          2
+        ],
+        "startCount": [
+          1,
+          2,
+          1
+        ],
+        "firstStart": [
+          2,
+          9,
+          13
+        ]
+      }
+    },
+    {
+      "id": "ls-0031",
+      "label": "generated line 8: 11 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".1....-..-1",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          2,
+          1,
+          3,
+          3,
+          3,
+          1,
+          2,
+          2,
+          1,
+          2
+        ],
+        "startCount": [
+          1,
+          3,
+          1,
+          1
+        ],
+        "firstStart": [
+          1,
+          3,
+          7,
+          10
+        ]
+      }
+    },
+    {
+      "id": "ls-0032",
+      "label": "generated line 9: 11 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "-..11..-..1",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          3,
+          9
+        ]
+      }
+    },
+    {
+      "id": "ls-0033",
+      "label": "generated line 10: 15 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "...-..1.....-..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3
+        ],
+        "startCount": [
+          4,
+          6,
+          7
+        ],
+        "firstStart": [
+          0,
+          4,
+          6
+        ]
+      }
+    },
+    {
+      "id": "ls-0034",
+      "label": "generated line 11: 15 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "..-.1.......-..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          1,
+          1,
+          3,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3
+        ],
+        "startCount": [
+          2,
+          5,
+          3
+        ],
+        "firstStart": [
+          3,
+          7,
+          9
+        ]
+      }
+    },
+    {
+      "id": "ls-0035",
+      "label": "generated line 12: 12 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "..---2-..-..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          5,
+          5,
+          1,
+          1,
+          1,
+          4,
+          1,
+          7,
+          7,
+          1,
+          7,
+          3
+        ],
+        "startCount": [
+          3,
+          4,
+          4
+        ],
+        "firstStart": [
+          0,
+          5,
+          7
+        ]
+      }
+    },
+    {
+      "id": "ls-0036",
+      "label": "generated line 13: 3 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "...",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          3
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0037",
+      "label": "generated line 14: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "1.1-...?-...1",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          2,
+          2,
+          1,
+          3,
+          3,
+          3,
+          3,
+          1,
+          3,
+          1,
+          2,
+          2
+        ],
+        "startCount": [
+          1,
+          3,
+          2,
+          1
+        ],
+        "firstStart": [
+          0,
+          4,
+          7,
+          11
+        ]
+      }
+    },
+    {
+      "id": "ls-0038",
+      "label": "generated line 15: 3 cells, 2 colours",
+      "colors": 2,
+      "clues": [],
+      "cells": "...",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          1,
+          1
+        ],
+        "startCount": [],
+        "firstStart": []
+      }
+    },
+    {
+      "id": "ls-0039",
+      "label": "generated line 16: 9 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        }
+      ],
+      "cells": "..2-.?.--",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          5,
+          3,
+          4,
+          1,
+          3,
+          7,
+          5,
+          1,
+          1
+        ],
+        "startCount": [
+          2,
+          3,
+          3
+        ],
+        "firstStart": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "ls-0040",
+      "label": "generated line 17: 5 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": ".....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          2,
+          3,
+          3
+        ],
+        "startCount": [
+          3
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0041",
+      "label": "generated line 18: 9 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 2,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-..-1....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          4,
+          4,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          1,
+          4
+        ]
+      }
+    },
+    {
+      "id": "ls-0042",
+      "label": "generated line 19: 8 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": "-2..1..-",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          4,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1
+        ],
+        "startCount": [
+          1,
+          1,
+          1
+        ],
+        "firstStart": [
+          1,
+          2,
+          4
+        ]
+      }
+    },
+    {
+      "id": "ls-0043",
+      "label": "generated line 20: 5 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "....1",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "startCount": [
+          1
+        ],
+        "firstStart": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "ls-0044",
+      "label": "generated line 21: 8 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "..-....-",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          2,
+          1,
+          3,
+          3,
+          3,
+          3,
+          1
+        ],
+        "startCount": [
+          1,
+          2,
+          2
+        ],
+        "firstStart": [
+          0,
+          3,
+          5
+        ]
+      }
+    },
+    {
+      "id": "ls-0045",
+      "label": "generated line 22: 9 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "..-...-..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          1,
+          3,
+          3,
+          3,
+          1,
+          2,
+          2
+        ],
+        "startCount": [
+          3,
+          3,
+          1
+        ],
+        "firstStart": [
+          0,
+          3,
+          7
+        ]
+      }
+    },
+    {
+      "id": "ls-0046",
+      "label": "generated line 23: 11 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".1...1.1..?",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          2,
+          2,
+          3,
+          1,
+          2,
+          2,
+          2,
+          1,
+          3,
+          3
+        ],
+        "startCount": [
+          2,
+          1,
+          2
+        ],
+        "firstStart": [
+          0,
+          5,
+          9
+        ]
+      }
+    },
+    {
+      "id": "ls-0047",
+      "label": "generated line 24: 3 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "?..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          2,
+          3
+        ],
+        "startCount": [
+          2
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0048",
+      "label": "generated line 25: 9 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "....?-...",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          6,
+          6
+        ],
+        "firstStart": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "id": "ls-0049",
+      "label": "generated line 26: 9 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "....-....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          5,
+          4
+        ],
+        "firstStart": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "id": "ls-0050",
+      "label": "generated line 27: 6 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "......",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          2,
+          2,
+          2
+        ],
+        "firstStart": [
+          0,
+          2,
+          4
+        ]
+      }
+    },
+    {
+      "id": "ls-0051",
+      "label": "generated line 28: 13 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 2,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "22-......-.1.",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          4,
+          4,
+          1,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          1,
+          5,
+          2,
+          1
+        ],
+        "startCount": [
+          1,
+          7,
+          1
+        ],
+        "firstStart": [
+          0,
+          3,
+          11
+        ]
+      }
+    },
+    {
+      "id": "ls-0052",
+      "label": "generated line 29: 6 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "...1..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          1,
+          2,
+          2,
+          1,
+          2
+        ],
+        "startCount": [
+          1,
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          2,
+          5
+        ]
+      }
+    },
+    {
+      "id": "ls-0053",
+      "label": "generated line 30: 8 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 5,
+          "color": 1
+        }
+      ],
+      "cells": "-....1..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ls-0054",
+      "label": "generated line 31: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        }
+      ],
+      "cells": "....?1-...-.-",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          1,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "startCount": [
+          3,
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          5,
+          7
+        ]
+      }
+    },
+    {
+      "id": "ls-0055",
+      "label": "generated line 32: 11 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "2.1......1.",
+      "expect": {
+        "feasible": false
+      }
+    },
+    {
+      "id": "ls-0056",
+      "label": "generated line 33: 4 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "1--.",
+      "expect": {
+        "feasible": false
+      }
+    },
+    {
+      "id": "ls-0057",
+      "label": "generated line 34: 6 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 5,
+          "color": 1
+        }
+      ],
+      "cells": ".1.1..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          2,
+          2,
+          2,
+          2,
+          3
+        ],
+        "startCount": [
+          2
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0058",
+      "label": "generated line 35: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".?...........",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "firstStart": [
+          0,
+          2,
+          5,
+          7,
+          9,
+          11
+        ]
+      }
+    },
+    {
+      "id": "ls-0059",
+      "label": "generated line 36: 4 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 2
+        }
+      ],
+      "cells": "-2-2",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          4,
+          1,
+          4
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ls-0060",
+      "label": "generated line 37: 6 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "......",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          3,
+          3
+        ],
+        "firstStart": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ls-0061",
+      "label": "generated line 38: 9 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "?........",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          4,
+          4,
+          4
+        ],
+        "firstStart": [
+          0,
+          3,
+          5
+        ]
+      }
+    },
+    {
+      "id": "ls-0062",
+      "label": "generated line 39: 9 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 2,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        }
+      ],
+      "cells": "...1..-12",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          5,
+          4,
+          5,
+          2,
+          4,
+          4,
+          1,
+          2,
+          4
+        ],
+        "startCount": [
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          3,
+          4,
+          7,
+          8
+        ]
+      }
+    },
+    {
+      "id": "ls-0063",
+      "label": "generated line 40: 3 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "1..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          2,
+          1
+        ],
+        "startCount": [
+          1
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "ls-0064",
+      "label": "generated line 41: 14 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".-1-.?....11.-",
+      "expect": {
+        "feasible": false
+      }
+    },
+    {
+      "id": "ls-0065",
+      "label": "generated line 42: 8 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "?.1.11..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          2,
+          4
+        ]
+      }
+    },
+    {
+      "id": "ls-0066",
+      "label": "generated line 43: 15 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 2
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "--..-1.......-.",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          1,
+          5,
+          5,
+          1,
+          2,
+          5,
+          7,
+          7,
+          4,
+          7,
+          2,
+          3,
+          1,
+          1
+        ],
+        "startCount": [
+          2,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        "firstStart": [
+          2,
+          5,
+          6,
+          7,
+          8,
+          10
+        ]
+      }
+    },
+    {
+      "id": "ls-0067",
+      "label": "generated line 44: 12 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "1...........",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          1,
+          6,
+          6
+        ],
+        "firstStart": [
+          0,
+          2,
+          5
+        ]
+      }
+    },
+    {
+      "id": "ls-0068",
+      "label": "generated line 45: 6 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": ".11.-.",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "startCount": [
+          1
+        ],
+        "firstStart": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "ls-0069",
+      "label": "generated line 46: 8 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": ".?..?..-",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          2,
+          2,
+          3,
+          3,
+          2,
+          3,
+          1
+        ],
+        "startCount": [
+          2,
+          2
+        ],
+        "firstStart": [
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "id": "ls-0070",
+      "label": "generated line 47: 6 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        }
+      ],
+      "cells": "......",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          7,
+          7,
+          7,
+          7,
+          5
+        ],
+        "startCount": [
+          5,
+          5
+        ],
+        "firstStart": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "ls-0071",
+      "label": "generated line 48: 11 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 3,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "1...?....-.",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          2,
+          1,
+          3,
+          3,
+          3,
+          2,
+          2,
+          3,
+          1,
+          2
+        ],
+        "startCount": [
+          1,
+          2,
+          2,
+          1
+        ],
+        "firstStart": [
+          0,
+          3,
+          5,
+          10
+        ]
+      }
+    },
+    {
+      "id": "ls-0072",
+      "label": "generated line 49: 10 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "1-..1..--.",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          1,
+          1,
+          3,
+          2,
+          3,
+          3,
+          1,
+          1,
+          3
+        ],
+        "startCount": [
+          1,
+          2,
+          2
+        ],
+        "firstStart": [
+          0,
+          3,
+          6
+        ]
+      }
+    },
+    {
+      "id": "ls-0073",
+      "label": "generated line 50: 6 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "......",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          3,
+          3
+        ],
+        "firstStart": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ls-0074",
+      "label": "generated line 51: 7 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        }
+      ],
+      "cells": "1..1.-.",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          1,
+          3,
+          2,
+          3,
+          1,
+          1
+        ],
+        "startCount": [
+          1,
+          2
+        ],
+        "firstStart": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "id": "ls-0075",
+      "label": "generated line 52: 6 cells, 2 colours",
+      "colors": 2,
+      "clues": [],
+      "cells": "-...--",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "startCount": [],
+        "firstStart": []
+      }
+    },
+    {
+      "id": "ls-0076",
+      "label": "generated line 53: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": ".-..-....?1..",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          1,
+          3
+        ],
+        "startCount": [
+          4,
+          5,
+          4,
+          2
+        ],
+        "firstStart": [
+          0,
+          2,
+          5,
+          10
+        ]
+      }
+    },
+    {
+      "id": "ls-0077",
+      "label": "generated line 54: 11 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 4,
+          "color": 1
+        }
+      ],
+      "cells": "1-...-.1?.1",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        "startCount": [
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          7
+        ]
+      }
+    },
+    {
+      "id": "ls-0078",
+      "label": "generated line 55: 15 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 2,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 2,
+          "color": 2
+        }
+      ],
+      "cells": ".....-..?2--.22",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          5,
+          7,
+          7,
+          7,
+          7,
+          1,
+          7,
+          3,
+          3,
+          4,
+          1,
+          1,
+          1,
+          4,
+          4
+        ],
+        "startCount": [
+          6,
+          5,
+          1,
+          1
+        ],
+        "firstStart": [
+          0,
+          1,
+          9,
+          13
+        ]
+      }
+    },
+    {
+      "id": "ls-0079",
+      "label": "generated line 56: 12 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 2
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "2-.1......-.",
+      "expect": {
+        "feasible": false
+      }
+    },
+    {
+      "id": "ls-0080",
+      "label": "generated line 57: 13 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        },
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "?.-1.--..?...",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          3,
+          3,
+          1,
+          2,
+          1,
+          1,
+          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "startCount": [
+          3,
+          3,
+          4,
+          4
+        ],
+        "firstStart": [
+          0,
+          3,
+          7,
+          9
+        ]
+      }
+    },
+    {
+      "id": "ls-0081",
+      "label": "generated line 58: 4 cells, 2 colours",
+      "colors": 2,
+      "clues": [
+        {
+          "count": 1,
+          "color": 1
+        }
+      ],
+      "cells": "-.--",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "startCount": [
+          1
+        ],
+        "firstStart": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "ls-0082",
+      "label": "generated line 59: 7 cells, 3 colours",
+      "colors": 3,
+      "clues": [
+        {
+          "count": 2,
+          "color": 2
+        }
+      ],
+      "cells": "..?....",
+      "expect": {
+        "feasible": true,
+        "domains": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "startCount": [
+          6
+        ],
+        "firstStart": [
+          0
+        ]
+      }
+    }
+  ]
+}
