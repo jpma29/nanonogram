@@ -13,5 +13,8 @@
   "dependencies": {
     "@nanonogram/core": "workspace:*",
     "@resvg/resvg-js": "^2.6.2"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
   }
 }

@@ -1,0 +1,6125 @@
+[
+ {
+  "key": "pixelarticons",
+  "name": "Pixelarticons",
+  "license": "MIT",
+  "total": 877,
+  "sampled": 60,
+  "accepted": 39,
+  "kept": 39,
+  "rate": 0.65,
+  "gate": {
+   "fidelity": 12,
+   "playability": 3,
+   "logic": 6
+  },
+  "dif": [
+   3,
+   3,
+   6,
+   13,
+   14
+  ],
+  "sizes": {
+   "10": 6,
+   "20": 27,
+   "25": 2,
+   "30": 1,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "zondicons",
+  "name": "Zondicons",
+  "license": "MIT",
+  "total": 297,
+  "sampled": 60,
+  "accepted": 34,
+  "kept": 34,
+  "rate": 0.5666666666666667,
+  "gate": {
+   "fidelity": 21,
+   "playability": 5,
+   "logic": 0
+  },
+  "dif": [
+   3,
+   11,
+   11,
+   6,
+   3
+  ],
+  "sizes": {
+   "10": 5,
+   "15": 1,
+   "20": 21,
+   "25": 3,
+   "30": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "at-icons",
+  "name": "@icons",
+  "license": "MIT",
+  "total": 618,
+  "sampled": 60,
+  "accepted": 32,
+  "kept": 32,
+  "rate": 0.5333333333333333,
+  "gate": {
+   "fidelity": 12,
+   "playability": 15,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   8,
+   9,
+   5,
+   10
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 4,
+   "20": 8,
+   "25": 3,
+   "30": 8,
+   "35": 8
+  },
+  "natives": 0
+ },
+ {
+  "key": "picon",
+  "name": "Pico-icon",
+  "license": "OFL-1.1",
+  "total": 824,
+  "sampled": 60,
+  "accepted": 32,
+  "kept": 32,
+  "rate": 0.5333333333333333,
+  "gate": {
+   "fidelity": 15,
+   "playability": 13,
+   "logic": 0
+  },
+  "dif": [
+   3,
+   5,
+   10,
+   5,
+   9
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 2,
+   "25": 15,
+   "30": 6,
+   "35": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "oi",
+  "name": "Open Iconic",
+  "license": "MIT",
+  "total": 223,
+  "sampled": 60,
+  "accepted": 29,
+  "kept": 29,
+  "rate": 0.48333333333333334,
+  "gate": {
+   "fidelity": 18,
+   "playability": 12,
+   "logic": 1
+  },
+  "dif": [
+   5,
+   7,
+   10,
+   4,
+   3
+  ],
+  "sizes": {
+   "15": 4,
+   "20": 5,
+   "25": 9,
+   "30": 4,
+   "35": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "mi",
+  "name": "Mono Icons",
+  "license": "MIT",
+  "total": 180,
+  "sampled": 60,
+  "accepted": 26,
+  "kept": 25,
+  "rate": 0.4166666666666667,
+  "gate": {
+   "fidelity": 30,
+   "playability": 1,
+   "logic": 3
+  },
+  "dif": [
+   2,
+   6,
+   11,
+   3,
+   3
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 1,
+   "20": 10,
+   "25": 2,
+   "30": 9,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "fe",
+  "name": "Feather Icon",
+  "license": "MIT",
+  "total": 255,
+  "sampled": 60,
+  "accepted": 25,
+  "kept": 25,
+  "rate": 0.4166666666666667,
+  "gate": {
+   "fidelity": 28,
+   "playability": 6,
+   "logic": 1
+  },
+  "dif": [
+   1,
+   7,
+   8,
+   6,
+   3
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 1,
+   "20": 10,
+   "25": 3,
+   "30": 4,
+   "35": 6
+  },
+  "natives": 0
+ },
+ {
+  "key": "uis",
+  "name": "Unicons Solid",
+  "license": "Apache-2.0",
+  "total": 190,
+  "sampled": 60,
+  "accepted": 25,
+  "kept": 25,
+  "rate": 0.4166666666666667,
+  "gate": {
+   "fidelity": 18,
+   "playability": 17,
+   "logic": 0
+  },
+  "dif": [
+   4,
+   6,
+   4,
+   11,
+   0
+  ],
+  "sizes": {
+   "10": 2,
+   "15": 2,
+   "20": 11,
+   "25": 6,
+   "30": 2,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "whh",
+  "name": "WebHostingHub Glyphs",
+  "license": "OFL-1.1",
+  "total": 2125,
+  "sampled": 60,
+  "accepted": 24,
+  "kept": 24,
+  "rate": 0.4,
+  "gate": {
+   "fidelity": 22,
+   "playability": 14,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   4,
+   7,
+   7,
+   6
+  ],
+  "sizes": {
+   "15": 3,
+   "20": 1,
+   "25": 8,
+   "30": 9,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "memory",
+  "name": "Memory Icons",
+  "license": "Apache-2.0",
+  "total": 651,
+  "sampled": 60,
+  "accepted": 24,
+  "kept": 24,
+  "rate": 0.4,
+  "gate": {
+   "fidelity": 25,
+   "playability": 10,
+   "logic": 1
+  },
+  "dif": [
+   1,
+   3,
+   2,
+   8,
+   10
+  ],
+  "sizes": {
+   "20": 15,
+   "30": 1,
+   "35": 8
+  },
+  "natives": 0
+ },
+ {
+  "key": "fa6-solid",
+  "name": "Font Awesome 6 Solid",
+  "license": "CC-BY-4.0",
+  "total": 1402,
+  "sampled": 60,
+  "accepted": 24,
+  "kept": 24,
+  "rate": 0.4,
+  "gate": {
+   "fidelity": 12,
+   "playability": 24,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   4,
+   11,
+   8
+  ],
+  "sizes": {
+   "20": 5,
+   "25": 3,
+   "30": 2,
+   "35": 14
+  },
+  "natives": 0
+ },
+ {
+  "key": "gg",
+  "name": "css.gg",
+  "license": "MIT",
+  "total": 704,
+  "sampled": 60,
+  "accepted": 23,
+  "kept": 23,
+  "rate": 0.38333333333333336,
+  "gate": {
+   "fidelity": 34,
+   "playability": 1,
+   "logic": 2
+  },
+  "dif": [
+   2,
+   8,
+   6,
+   4,
+   3
+  ],
+  "sizes": {
+   "10": 2,
+   "15": 1,
+   "20": 1,
+   "25": 8,
+   "30": 4,
+   "35": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "duo-icons",
+  "name": "Duoicons",
+  "license": "MIT",
+  "total": 91,
+  "sampled": 60,
+  "accepted": 24,
+  "kept": 23,
+  "rate": 0.38333333333333336,
+  "gate": {
+   "fidelity": 14,
+   "playability": 21,
+   "logic": 1
+  },
+  "dif": [
+   8,
+   6,
+   5,
+   2,
+   2
+  ],
+  "sizes": {
+   "5": 1,
+   "15": 3,
+   "20": 5,
+   "25": 4,
+   "30": 5,
+   "35": 6
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-stickies-color",
+  "name": "Stickies color icons",
+  "license": "CC-BY-4.0",
+  "total": 200,
+  "sampled": 60,
+  "accepted": 23,
+  "kept": 23,
+  "rate": 0.38333333333333336,
+  "gate": {
+   "fidelity": 8,
+   "playability": 29,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   5,
+   11,
+   5
+  ],
+  "sizes": {
+   "15": 3,
+   "20": 6,
+   "25": 6,
+   "30": 4,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "pinhead",
+  "name": "Pinhead Map Icons",
+  "license": "CC0-1.0",
+  "total": 2467,
+  "sampled": 60,
+  "accepted": 23,
+  "kept": 23,
+  "rate": 0.38333333333333336,
+  "gate": {
+   "fidelity": 26,
+   "playability": 11,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   6,
+   5,
+   9,
+   2
+  ],
+  "sizes": {
+   "10": 2,
+   "20": 1,
+   "25": 5,
+   "30": 12,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "mono-icons",
+  "name": "Mono Icons",
+  "license": "MIT",
+  "total": 180,
+  "sampled": 60,
+  "accepted": 24,
+  "kept": 23,
+  "rate": 0.38333333333333336,
+  "gate": {
+   "fidelity": 33,
+   "playability": 0,
+   "logic": 3
+  },
+  "dif": [
+   2,
+   4,
+   8,
+   3,
+   6
+  ],
+  "sizes": {
+   "10": 2,
+   "15": 2,
+   "20": 9,
+   "25": 2,
+   "30": 9
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-sharp",
+  "name": "Sharp free icons",
+  "license": "CC-BY-4.0",
+  "total": 1500,
+  "sampled": 60,
+  "accepted": 22,
+  "kept": 22,
+  "rate": 0.36666666666666664,
+  "gate": {
+   "fidelity": 32,
+   "playability": 6,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   8,
+   5,
+   6
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 4,
+   "25": 1,
+   "30": 8,
+   "35": 8
+  },
+  "natives": 0
+ },
+ {
+  "key": "ooui",
+  "name": "OOUI",
+  "license": "MIT",
+  "total": 419,
+  "sampled": 60,
+  "accepted": 22,
+  "kept": 22,
+  "rate": 0.36666666666666664,
+  "gate": {
+   "fidelity": 31,
+   "playability": 7,
+   "logic": 0
+  },
+  "dif": [
+   2,
+   3,
+   10,
+   7,
+   0
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 6,
+   "25": 8,
+   "30": 4,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "ic",
+  "name": "Google Material Icons",
+  "license": "Apache-2.0",
+  "total": 10955,
+  "sampled": 60,
+  "accepted": 22,
+  "kept": 22,
+  "rate": 0.36666666666666664,
+  "gate": {
+   "fidelity": 24,
+   "playability": 14,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   7,
+   8,
+   3,
+   3
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 2,
+   "20": 6,
+   "25": 3,
+   "30": 6,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "subway",
+  "name": "Subway Icon Set",
+  "license": "CC-BY-4.0",
+  "total": 306,
+  "sampled": 60,
+  "accepted": 22,
+  "kept": 22,
+  "rate": 0.36666666666666664,
+  "gate": {
+   "fidelity": 18,
+   "playability": 19,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   3,
+   8,
+   4,
+   7
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 6,
+   "30": 6,
+   "35": 8
+  },
+  "natives": 0
+ },
+ {
+  "key": "material-symbols",
+  "name": "Material Symbols",
+  "license": "Apache-2.0",
+  "total": 15585,
+  "sampled": 60,
+  "accepted": 21,
+  "kept": 21,
+  "rate": 0.35,
+  "gate": {
+   "fidelity": 28,
+   "playability": 11,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   4,
+   7,
+   6,
+   3
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 7,
+   "25": 4,
+   "30": 8,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-block",
+  "name": "Streamline Block",
+  "license": "CC-BY-4.0",
+  "total": 300,
+  "sampled": 60,
+  "accepted": 21,
+  "kept": 21,
+  "rate": 0.35,
+  "gate": {
+   "fidelity": 1,
+   "playability": 38,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   6,
+   6,
+   4,
+   5
+  ],
+  "sizes": {
+   "10": 3,
+   "15": 6,
+   "20": 7,
+   "25": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "maki",
+  "name": "Maki",
+  "license": "CC0-1.0",
+  "total": 215,
+  "sampled": 60,
+  "accepted": 22,
+  "kept": 21,
+  "rate": 0.35,
+  "gate": {
+   "fidelity": 29,
+   "playability": 7,
+   "logic": 2
+  },
+  "dif": [
+   0,
+   3,
+   8,
+   7,
+   3
+  ],
+  "sizes": {
+   "15": 5,
+   "20": 2,
+   "25": 6,
+   "30": 5,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "il",
+  "name": "Icalicons",
+  "license": "MIT",
+  "total": 84,
+  "sampled": 60,
+  "accepted": 21,
+  "kept": 21,
+  "rate": 0.35,
+  "gate": {
+   "fidelity": 15,
+   "playability": 23,
+   "logic": 1
+  },
+  "dif": [
+   2,
+   9,
+   4,
+   4,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 2,
+   "20": 6,
+   "25": 7,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-ultimate-color",
+  "name": "Ultimate color icons",
+  "license": "CC-BY-4.0",
+  "total": 998,
+  "sampled": 60,
+  "accepted": 21,
+  "kept": 21,
+  "rate": 0.35,
+  "gate": {
+   "fidelity": 13,
+   "playability": 25,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   4,
+   5,
+   7,
+   5
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 3,
+   "25": 6,
+   "30": 7,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "heroicons-solid",
+  "name": "HeroIcons v1 Solid",
+  "license": "MIT",
+  "total": 230,
+  "sampled": 60,
+  "accepted": 21,
+  "kept": 21,
+  "rate": 0.35,
+  "gate": {
+   "fidelity": 11,
+   "playability": 28,
+   "logic": 0
+  },
+  "dif": [
+   2,
+   3,
+   6,
+   5,
+   5
+  ],
+  "sizes": {
+   "5": 1,
+   "15": 2,
+   "20": 2,
+   "25": 5,
+   "30": 7,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "el",
+  "name": "Elusive Icons",
+  "license": "OFL-1.1",
+  "total": 304,
+  "sampled": 60,
+  "accepted": 20,
+  "kept": 20,
+  "rate": 0.3333333333333333,
+  "gate": {
+   "fidelity": 22,
+   "playability": 17,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   5,
+   2,
+   6,
+   7
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 2,
+   "20": 6,
+   "25": 4,
+   "30": 5,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "topcoat",
+  "name": "TopCoat Icons",
+  "license": "Apache-2.0",
+  "total": 89,
+  "sampled": 60,
+  "accepted": 20,
+  "kept": 20,
+  "rate": 0.3333333333333333,
+  "gate": {
+   "fidelity": 17,
+   "playability": 20,
+   "logic": 3
+  },
+  "dif": [
+   0,
+   3,
+   8,
+   2,
+   7
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 1,
+   "20": 2,
+   "25": 9,
+   "30": 4,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "flowbite",
+  "name": "Flowbite Icons",
+  "license": "MIT",
+  "total": 751,
+  "sampled": 60,
+  "accepted": 20,
+  "kept": 20,
+  "rate": 0.3333333333333333,
+  "gate": {
+   "fidelity": 25,
+   "playability": 15,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   4,
+   7,
+   5,
+   3
+  ],
+  "sizes": {
+   "20": 5,
+   "25": 4,
+   "30": 5,
+   "35": 6
+  },
+  "natives": 0
+ },
+ {
+  "key": "raphael",
+  "name": "Raphael",
+  "license": "MIT",
+  "total": 266,
+  "sampled": 60,
+  "accepted": 21,
+  "kept": 20,
+  "rate": 0.3333333333333333,
+  "gate": {
+   "fidelity": 31,
+   "playability": 8,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   5,
+   5,
+   3,
+   6
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 2,
+   "25": 6,
+   "30": 3,
+   "35": 9
+  },
+  "natives": 0
+ },
+ {
+  "key": "fa-solid",
+  "name": "Font Awesome 5 Solid",
+  "license": "CC-BY-4.0",
+  "total": 1001,
+  "sampled": 60,
+  "accepted": 20,
+  "kept": 20,
+  "rate": 0.3333333333333333,
+  "gate": {
+   "fidelity": 14,
+   "playability": 25,
+   "logic": 1
+  },
+  "dif": [
+   1,
+   3,
+   6,
+   4,
+   6
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 5,
+   "25": 5,
+   "30": 2,
+   "35": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "codex",
+  "name": "CodeX Icons",
+  "license": "MIT",
+  "total": 78,
+  "sampled": 60,
+  "accepted": 19,
+  "kept": 19,
+  "rate": 0.31666666666666665,
+  "gate": {
+   "fidelity": 36,
+   "playability": 3,
+   "logic": 2
+  },
+  "dif": [
+   1,
+   2,
+   5,
+   6,
+   5
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 9,
+   "30": 3,
+   "35": 6
+  },
+  "natives": 0
+ },
+ {
+  "key": "rivet-icons",
+  "name": "Rivet Icons",
+  "license": "BSD-3-Clause",
+  "total": 210,
+  "sampled": 60,
+  "accepted": 19,
+  "kept": 19,
+  "rate": 0.31666666666666665,
+  "gate": {
+   "fidelity": 22,
+   "playability": 18,
+   "logic": 1
+  },
+  "dif": [
+   2,
+   4,
+   5,
+   4,
+   4
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 1,
+   "20": 2,
+   "25": 5,
+   "30": 3,
+   "35": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "vaadin",
+  "name": "Vaadin Icons",
+  "license": "Apache-2.0",
+  "total": 636,
+  "sampled": 60,
+  "accepted": 19,
+  "kept": 19,
+  "rate": 0.31666666666666665,
+  "gate": {
+   "fidelity": 30,
+   "playability": 10,
+   "logic": 1
+  },
+  "dif": [
+   1,
+   2,
+   11,
+   4,
+   1
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 2,
+   "25": 6,
+   "30": 4,
+   "35": 6
+  },
+  "natives": 0
+ },
+ {
+  "key": "boxicons",
+  "name": "Boxicons",
+  "license": "MIT",
+  "total": 3768,
+  "sampled": 60,
+  "accepted": 19,
+  "kept": 19,
+  "rate": 0.31666666666666665,
+  "gate": {
+   "fidelity": 20,
+   "playability": 21,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   1,
+   7,
+   7,
+   3
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 9,
+   "25": 2,
+   "30": 2,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "teenyicons",
+  "name": "Teenyicons",
+  "license": "MIT",
+  "total": 1200,
+  "sampled": 60,
+  "accepted": 19,
+  "kept": 19,
+  "rate": 0.31666666666666665,
+  "gate": {
+   "fidelity": 26,
+   "playability": 15,
+   "logic": 0
+  },
+  "dif": [
+   2,
+   0,
+   4,
+   8,
+   5
+  ],
+  "sizes": {
+   "15": 6,
+   "20": 1,
+   "30": 10,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "ix",
+  "name": "Siemens Industrial Experience Icons",
+  "license": "MIT",
+  "total": 1479,
+  "sampled": 60,
+  "accepted": 19,
+  "kept": 19,
+  "rate": 0.31666666666666665,
+  "gate": {
+   "fidelity": 34,
+   "playability": 7,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   3,
+   5,
+   4,
+   6
+  ],
+  "sizes": {
+   "10": 2,
+   "20": 3,
+   "25": 1,
+   "30": 7,
+   "35": 6
+  },
+  "natives": 0
+ },
+ {
+  "key": "bxl",
+  "name": "Boxicons Brands",
+  "license": "MIT",
+  "total": 295,
+  "sampled": 60,
+  "accepted": 19,
+  "kept": 19,
+  "rate": 0.31666666666666665,
+  "gate": {
+   "fidelity": 27,
+   "playability": 14,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   2,
+   2,
+   6,
+   8
+  ],
+  "sizes": {
+   "20": 2,
+   "25": 4,
+   "30": 7,
+   "35": 6
+  },
+  "natives": 0
+ },
+ {
+  "key": "osmic",
+  "name": "OSM Icons",
+  "license": "CC0-1.0",
+  "total": 169,
+  "sampled": 60,
+  "accepted": 19,
+  "kept": 19,
+  "rate": 0.31666666666666665,
+  "gate": {
+   "fidelity": 28,
+   "playability": 13,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   5,
+   6,
+   6,
+   2
+  ],
+  "sizes": {
+   "20": 3,
+   "25": 4,
+   "30": 8,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "websymbol",
+  "name": "Web Symbols Liga",
+  "license": "OFL-1.1",
+  "total": 85,
+  "sampled": 60,
+  "accepted": 19,
+  "kept": 19,
+  "rate": 0.31666666666666665,
+  "gate": {
+   "fidelity": 20,
+   "playability": 19,
+   "logic": 2
+  },
+  "dif": [
+   2,
+   6,
+   2,
+   4,
+   5
+  ],
+  "sizes": {
+   "10": 2,
+   "20": 3,
+   "25": 7,
+   "30": 3,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "tdesign",
+  "name": "TDesign Icons",
+  "license": "MIT",
+  "total": 2354,
+  "sampled": 60,
+  "accepted": 18,
+  "kept": 18,
+  "rate": 0.3,
+  "gate": {
+   "fidelity": 27,
+   "playability": 15,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   9,
+   3,
+   4
+  ],
+  "sizes": {
+   "10": 2,
+   "20": 7,
+   "25": 2,
+   "30": 3,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-plump-color",
+  "name": "Plump color icons",
+  "license": "CC-BY-4.0",
+  "total": 1000,
+  "sampled": 60,
+  "accepted": 18,
+  "kept": 18,
+  "rate": 0.3,
+  "gate": {
+   "fidelity": 6,
+   "playability": 36,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   4,
+   0,
+   10,
+   4
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 4,
+   "25": 8,
+   "30": 3,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "bxs",
+  "name": "BoxIcons v2 Solid",
+  "license": "MIT",
+  "total": 665,
+  "sampled": 60,
+  "accepted": 18,
+  "kept": 18,
+  "rate": 0.3,
+  "gate": {
+   "fidelity": 5,
+   "playability": 37,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   6,
+   4,
+   5,
+   3
+  ],
+  "sizes": {
+   "20": 10,
+   "25": 3,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "ci",
+  "name": "coolicons",
+  "license": "CC-BY-4.0",
+  "total": 442,
+  "sampled": 60,
+  "accepted": 17,
+  "kept": 17,
+  "rate": 0.2833333333333333,
+  "gate": {
+   "fidelity": 32,
+   "playability": 11,
+   "logic": 0
+  },
+  "dif": [
+   3,
+   3,
+   4,
+   3,
+   4
+  ],
+  "sizes": {
+   "10": 2,
+   "20": 7,
+   "25": 3,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "fa7-solid",
+  "name": "Font Awesome Solid",
+  "license": "CC-BY-4.0",
+  "total": 2000,
+  "sampled": 60,
+  "accepted": 17,
+  "kept": 17,
+  "rate": 0.2833333333333333,
+  "gate": {
+   "fidelity": 22,
+   "playability": 19,
+   "logic": 2
+  },
+  "dif": [
+   0,
+   4,
+   4,
+   7,
+   2
+  ],
+  "sizes": {
+   "20": 2,
+   "25": 3,
+   "30": 7,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-cyber-color",
+  "name": "Cyber color icons",
+  "license": "CC-BY-4.0",
+  "total": 500,
+  "sampled": 60,
+  "accepted": 17,
+  "kept": 17,
+  "rate": 0.2833333333333333,
+  "gate": {
+   "fidelity": 14,
+   "playability": 28,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   4,
+   4,
+   3,
+   6
+  ],
+  "sizes": {
+   "10": 2,
+   "15": 3,
+   "20": 3,
+   "25": 1,
+   "30": 5,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "fa",
+  "name": "Font Awesome 4",
+  "license": "OFL-1.1",
+  "total": 678,
+  "sampled": 60,
+  "accepted": 17,
+  "kept": 17,
+  "rate": 0.2833333333333333,
+  "gate": {
+   "fidelity": 33,
+   "playability": 10,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   4,
+   4,
+   6
+  ],
+  "sizes": {
+   "20": 2,
+   "25": 5,
+   "30": 6,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "eos-icons",
+  "name": "EOS Icons",
+  "license": "MIT",
+  "total": 253,
+  "sampled": 60,
+  "accepted": 16,
+  "kept": 16,
+  "rate": 0.26666666666666666,
+  "gate": {
+   "fidelity": 32,
+   "playability": 12,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   2,
+   1,
+   7,
+   5
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 3,
+   "30": 5,
+   "35": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "bytesize",
+  "name": "Bytesize Icons",
+  "license": "MIT",
+  "total": 101,
+  "sampled": 60,
+  "accepted": 16,
+  "kept": 16,
+  "rate": 0.26666666666666666,
+  "gate": {
+   "fidelity": 43,
+   "playability": 0,
+   "logic": 1
+  },
+  "dif": [
+   1,
+   3,
+   8,
+   3,
+   1
+  ],
+  "sizes": {
+   "15": 2,
+   "30": 14
+  },
+  "natives": 0
+ },
+ {
+  "key": "bx",
+  "name": "BoxIcons v2",
+  "license": "MIT",
+  "total": 814,
+  "sampled": 60,
+  "accepted": 16,
+  "kept": 16,
+  "rate": 0.26666666666666666,
+  "gate": {
+   "fidelity": 24,
+   "playability": 20,
+   "logic": 0
+  },
+  "dif": [
+   2,
+   2,
+   3,
+   6,
+   3
+  ],
+  "sizes": {
+   "5": 1,
+   "20": 8,
+   "25": 2,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "feather",
+  "name": "Feather Icons",
+  "license": "MIT",
+  "total": 286,
+  "sampled": 60,
+  "accepted": 16,
+  "kept": 16,
+  "rate": 0.26666666666666666,
+  "gate": {
+   "fidelity": 43,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   2,
+   0,
+   3,
+   4,
+   7
+  ],
+  "sizes": {
+   "20": 6,
+   "30": 3,
+   "35": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "tabler",
+  "name": "Tabler Icons",
+  "license": "MIT",
+  "total": 6184,
+  "sampled": 60,
+  "accepted": 16,
+  "kept": 16,
+  "rate": 0.26666666666666666,
+  "gate": {
+   "fidelity": 39,
+   "playability": 5,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   5,
+   8,
+   3
+  ],
+  "sizes": {
+   "20": 6,
+   "30": 5,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "fluent",
+  "name": "Fluent UI System Icons",
+  "license": "MIT",
+  "total": 19699,
+  "sampled": 60,
+  "accepted": 16,
+  "kept": 16,
+  "rate": 0.26666666666666666,
+  "gate": {
+   "fidelity": 33,
+   "playability": 11,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   4,
+   1,
+   5,
+   6
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 6,
+   "30": 3,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-sharp-color",
+  "name": "Sharp color icons",
+  "license": "CC-BY-4.0",
+  "total": 1000,
+  "sampled": 60,
+  "accepted": 16,
+  "kept": 16,
+  "rate": 0.26666666666666666,
+  "gate": {
+   "fidelity": 15,
+   "playability": 29,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   5,
+   3,
+   5
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 5,
+   "25": 3,
+   "30": 4,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "temaki",
+  "name": "Temaki",
+  "license": "CC0-1.0",
+  "total": 557,
+  "sampled": 60,
+  "accepted": 16,
+  "kept": 16,
+  "rate": 0.26666666666666666,
+  "gate": {
+   "fidelity": 34,
+   "playability": 10,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   3,
+   10,
+   2
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 3,
+   "30": 10,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "zmdi",
+  "name": "Material Design Iconic Font",
+  "license": "OFL-1.1",
+  "total": 777,
+  "sampled": 60,
+  "accepted": 16,
+  "kept": 16,
+  "rate": 0.26666666666666666,
+  "gate": {
+   "fidelity": 28,
+   "playability": 16,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   5,
+   2,
+   6
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 2,
+   "25": 6,
+   "30": 3,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-color",
+  "name": "Streamline color",
+  "license": "CC-BY-4.0",
+  "total": 2000,
+  "sampled": 60,
+  "accepted": 16,
+  "kept": 16,
+  "rate": 0.26666666666666666,
+  "gate": {
+   "fidelity": 12,
+   "playability": 32,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   1,
+   8,
+   6
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 5,
+   "25": 5,
+   "30": 2,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "uim",
+  "name": "Unicons Monochrome",
+  "license": "Apache-2.0",
+  "total": 298,
+  "sampled": 60,
+  "accepted": 15,
+  "kept": 15,
+  "rate": 0.25,
+  "gate": {
+   "fidelity": 13,
+   "playability": 31,
+   "logic": 1
+  },
+  "dif": [
+   2,
+   2,
+   4,
+   6,
+   1
+  ],
+  "sizes": {
+   "10": 2,
+   "15": 3,
+   "20": 4,
+   "25": 4,
+   "30": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "famicons",
+  "name": "Famicons",
+  "license": "MIT",
+  "total": 1342,
+  "sampled": 60,
+  "accepted": 15,
+  "kept": 15,
+  "rate": 0.25,
+  "gate": {
+   "fidelity": 25,
+   "playability": 19,
+   "logic": 1
+  },
+  "dif": [
+   2,
+   3,
+   5,
+   1,
+   4
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 3,
+   "25": 2,
+   "30": 7,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "icon-park",
+  "name": "IconPark",
+  "license": "Apache-2.0",
+  "total": 2658,
+  "sampled": 60,
+  "accepted": 15,
+  "kept": 15,
+  "rate": 0.25,
+  "gate": {
+   "fidelity": 16,
+   "playability": 29,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   7,
+   3,
+   4,
+   1
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 5,
+   "25": 1,
+   "30": 4,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "material-symbols-light",
+  "name": "Material Symbols Light",
+  "license": "Apache-2.0",
+  "total": 15650,
+  "sampled": 60,
+  "accepted": 15,
+  "kept": 15,
+  "rate": 0.25,
+  "gate": {
+   "fidelity": 35,
+   "playability": 10,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   4,
+   4,
+   3,
+   3
+  ],
+  "sizes": {
+   "25": 3,
+   "30": 4,
+   "35": 8
+  },
+  "natives": 0
+ },
+ {
+  "key": "pixel",
+  "name": "Pixel Icon",
+  "license": "CC-BY-4.0",
+  "total": 578,
+  "sampled": 60,
+  "accepted": 15,
+  "kept": 15,
+  "rate": 0.25,
+  "gate": {
+   "fidelity": 34,
+   "playability": 11,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   2,
+   5,
+   5
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 2,
+   "30": 2,
+   "35": 10
+  },
+  "natives": 0
+ },
+ {
+  "key": "fxemoji",
+  "name": "Firefox OS Emoji",
+  "license": "Apache-2.0",
+  "total": 1034,
+  "sampled": 60,
+  "accepted": 16,
+  "kept": 15,
+  "rate": 0.25,
+  "gate": {
+   "fidelity": 13,
+   "playability": 29,
+   "logic": 2
+  },
+  "dif": [
+   3,
+   1,
+   3,
+   4,
+   4
+  ],
+  "sizes": {
+   "5": 1,
+   "15": 3,
+   "20": 3,
+   "25": 8,
+   "30": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "wpf",
+  "name": "Icons8 Windows 8 Icons",
+  "license": "MIT",
+  "total": 200,
+  "sampled": 60,
+  "accepted": 15,
+  "kept": 15,
+  "rate": 0.25,
+  "gate": {
+   "fidelity": 38,
+   "playability": 7,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   4,
+   3,
+   5,
+   3
+  ],
+  "sizes": {
+   "20": 3,
+   "25": 7,
+   "30": 2,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "line-md",
+  "name": "Material Line Icons",
+  "license": "MIT",
+  "total": 1218,
+  "sampled": 60,
+  "accepted": 21,
+  "kept": 15,
+  "rate": 0.25,
+  "gate": {
+   "fidelity": 31,
+   "playability": 8,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   4,
+   5,
+   3,
+   3
+  ],
+  "sizes": {
+   "10": 5,
+   "15": 1,
+   "20": 2,
+   "25": 4,
+   "30": 7,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "fluent-emoji-flat",
+  "name": "Fluent Emoji Flat",
+  "license": "MIT",
+  "total": 3145,
+  "sampled": 60,
+  "accepted": 15,
+  "kept": 15,
+  "rate": 0.25,
+  "gate": {
+   "fidelity": 9,
+   "playability": 36,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   8,
+   4,
+   0
+  ],
+  "sizes": {
+   "10": 2,
+   "15": 3,
+   "20": 5,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "ls",
+  "name": "Ligature Symbols",
+  "license": "OFL-1.1",
+  "total": 348,
+  "sampled": 60,
+  "accepted": 15,
+  "kept": 15,
+  "rate": 0.25,
+  "gate": {
+   "fidelity": 31,
+   "playability": 14,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   5,
+   4,
+   3
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 3,
+   "25": 4,
+   "30": 3,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "mdi",
+  "name": "Material Design Icons",
+  "license": "Apache-2.0",
+  "total": 7447,
+  "sampled": 60,
+  "accepted": 14,
+  "kept": 14,
+  "rate": 0.23333333333333334,
+  "gate": {
+   "fidelity": 30,
+   "playability": 16,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   7,
+   2,
+   4
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 6,
+   "25": 1,
+   "30": 3,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "garden",
+  "name": "Garden SVG Icons",
+  "license": "Apache-2.0",
+  "total": 932,
+  "sampled": 60,
+  "accepted": 14,
+  "kept": 14,
+  "rate": 0.23333333333333334,
+  "gate": {
+   "fidelity": 29,
+   "playability": 15,
+   "logic": 2
+  },
+  "dif": [
+   1,
+   4,
+   1,
+   4,
+   4
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 1,
+   "20": 1,
+   "25": 2,
+   "30": 4,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "nonicons",
+  "name": "Nonicons",
+  "license": "MIT",
+  "total": 69,
+  "sampled": 60,
+  "accepted": 14,
+  "kept": 14,
+  "rate": 0.23333333333333334,
+  "gate": {
+   "fidelity": 46,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   1,
+   7,
+   4,
+   1
+  ],
+  "sizes": {
+   "10": 2,
+   "20": 4,
+   "25": 1,
+   "30": 6,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "gcp",
+  "name": "Google Cloud Icons",
+  "license": "Apache-2.0",
+  "total": 214,
+  "sampled": 60,
+  "accepted": 14,
+  "kept": 14,
+  "rate": 0.23333333333333334,
+  "gate": {
+   "fidelity": 37,
+   "playability": 9,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   2,
+   7,
+   2
+  ],
+  "sizes": {
+   "10": 2,
+   "15": 1,
+   "20": 2,
+   "25": 3,
+   "30": 3,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "eva",
+  "name": "Eva Icons",
+  "license": "MIT",
+  "total": 490,
+  "sampled": 60,
+  "accepted": 14,
+  "kept": 14,
+  "rate": 0.23333333333333334,
+  "gate": {
+   "fidelity": 35,
+   "playability": 11,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   3,
+   6,
+   4
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 2,
+   "25": 5,
+   "30": 3,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "icon-park-solid",
+  "name": "IconPark Solid",
+  "license": "Apache-2.0",
+  "total": 1947,
+  "sampled": 60,
+  "accepted": 14,
+  "kept": 14,
+  "rate": 0.23333333333333334,
+  "gate": {
+   "fidelity": 11,
+   "playability": 35,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   3,
+   8,
+   2
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 2,
+   "25": 2,
+   "30": 2,
+   "35": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "ion",
+  "name": "IonIcons",
+  "license": "MIT",
+  "total": 1357,
+  "sampled": 60,
+  "accepted": 14,
+  "kept": 14,
+  "rate": 0.23333333333333334,
+  "gate": {
+   "fidelity": 35,
+   "playability": 11,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   4,
+   5,
+   2
+  ],
+  "sizes": {
+   "20": 3,
+   "25": 5,
+   "30": 4,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "ri",
+  "name": "Remix Icon",
+  "license": "Apache-2.0",
+  "total": 3188,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 13,
+  "rate": 0.21666666666666667,
+  "gate": {
+   "fidelity": 31,
+   "playability": 16,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   1,
+   4,
+   5
+  ],
+  "sizes": {
+   "20": 2,
+   "25": 2,
+   "30": 5,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "si",
+  "name": "Sargam Icons",
+  "license": "MIT",
+  "total": 1299,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 13,
+  "rate": 0.21666666666666667,
+  "gate": {
+   "fidelity": 38,
+   "playability": 9,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   1,
+   2,
+   4,
+   5
+  ],
+  "sizes": {
+   "20": 4,
+   "25": 4,
+   "30": 1,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "jam",
+  "name": "Jam Icons",
+  "license": "MIT",
+  "total": 940,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 13,
+  "rate": 0.21666666666666667,
+  "gate": {
+   "fidelity": 33,
+   "playability": 13,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   1,
+   4,
+   4,
+   4
+  ],
+  "sizes": {
+   "20": 7,
+   "30": 6
+  },
+  "natives": 0
+ },
+ {
+  "key": "glyphs-poly",
+  "name": "Glyphs Poly",
+  "license": "MIT",
+  "total": 863,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 13,
+  "rate": 0.21666666666666667,
+  "gate": {
+   "fidelity": 16,
+   "playability": 31,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   7,
+   4,
+   0
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 4,
+   "25": 2,
+   "30": 4,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "pepicons-pop",
+  "name": "Pepicons Pop!",
+  "license": "CC-BY-4.0",
+  "total": 1275,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 13,
+  "rate": 0.21666666666666667,
+  "gate": {
+   "fidelity": 38,
+   "playability": 9,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   1,
+   7,
+   4
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 2,
+   "25": 1,
+   "30": 2,
+   "35": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "majesticons",
+  "name": "Majesticons",
+  "license": "MIT",
+  "total": 760,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 13,
+  "rate": 0.21666666666666667,
+  "gate": {
+   "fidelity": 29,
+   "playability": 18,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   5,
+   1,
+   4,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 5,
+   "25": 1,
+   "30": 1,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "basil",
+  "name": "Basil",
+  "license": "CC-BY-4.0",
+  "total": 493,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 13,
+  "rate": 0.21666666666666667,
+  "gate": {
+   "fidelity": 29,
+   "playability": 18,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   5,
+   3,
+   3
+  ],
+  "sizes": {
+   "25": 3,
+   "30": 5,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "meteor-icons",
+  "name": "Meteor Icons",
+  "license": "MIT",
+  "total": 394,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 13,
+  "rate": 0.21666666666666667,
+  "gate": {
+   "fidelity": 47,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   3,
+   5,
+   2,
+   2
+  ],
+  "sizes": {
+   "10": 2,
+   "20": 6,
+   "30": 1,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "humbleicons",
+  "name": "Humbleicons",
+  "license": "MIT",
+  "total": 286,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 13,
+  "rate": 0.21666666666666667,
+  "gate": {
+   "fidelity": 45,
+   "playability": 2,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   2,
+   3,
+   5
+  ],
+  "sizes": {
+   "20": 7,
+   "25": 1,
+   "30": 2,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-emojis",
+  "name": "Streamline Emojis",
+  "license": "CC-BY-4.0",
+  "total": 787,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 13,
+  "rate": 0.21666666666666667,
+  "gate": {
+   "fidelity": 11,
+   "playability": 36,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   4,
+   5,
+   2
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 4,
+   "25": 2,
+   "30": 2,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "roentgen",
+  "name": "Röntgen",
+  "license": "CC-BY-4.0",
+  "total": 574,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 13,
+  "rate": 0.21666666666666667,
+  "gate": {
+   "fidelity": 33,
+   "playability": 14,
+   "logic": 0
+  },
+  "dif": [
+   2,
+   2,
+   5,
+   2,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 3,
+   "25": 3,
+   "30": 1,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "mingcute",
+  "name": "MingCute Icon",
+  "license": "Apache-2.0",
+  "total": 3320,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 29,
+   "playability": 19,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   6,
+   3,
+   3
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 3,
+   "30": 6,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "griddy-icons",
+  "name": "Griddy Icons",
+  "license": "MIT",
+  "total": 2010,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 41,
+   "playability": 7,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   1,
+   1,
+   7,
+   2
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 2,
+   "30": 4,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "radix-icons",
+  "name": "Radix Icons",
+  "license": "MIT",
+  "total": 332,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 41,
+   "playability": 7,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   2,
+   6,
+   1,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 2,
+   "20": 1,
+   "25": 2,
+   "30": 5,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "cib",
+  "name": "CoreUI Brands",
+  "license": "CC0-1.0",
+  "total": 830,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 38,
+   "playability": 10,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   2,
+   4,
+   5
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 3,
+   "30": 4,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "foundation",
+  "name": "Foundation",
+  "license": "MIT",
+  "total": 283,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 26,
+   "playability": 22,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   4,
+   3,
+   4,
+   1
+  ],
+  "sizes": {
+   "15": 3,
+   "25": 2,
+   "30": 1,
+   "35": 6
+  },
+  "natives": 0
+ },
+ {
+  "key": "iconamoon",
+  "name": "IconaMoon",
+  "license": "CC-BY-4.0",
+  "total": 1781,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 40,
+   "playability": 7,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   0,
+   3,
+   7,
+   2
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 4,
+   "30": 4,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "icon-park-outline",
+  "name": "IconPark Outline",
+  "license": "Apache-2.0",
+  "total": 2658,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 48,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   7,
+   4,
+   1
+  ],
+  "sizes": {
+   "10": 2,
+   "20": 5,
+   "30": 2,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "fa7-brands",
+  "name": "Font Awesome Brands",
+  "license": "CC-BY-4.0",
+  "total": 608,
+  "sampled": 60,
+  "accepted": 13,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 31,
+   "playability": 16,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   1,
+   3,
+   6
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 4,
+   "30": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "noto",
+  "name": "Noto Emoji",
+  "license": "Apache-2.0",
+  "total": 3710,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 10,
+   "playability": 38,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   1,
+   1,
+   7,
+   2
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 3,
+   "25": 2,
+   "30": 2,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "uil",
+  "name": "Unicons",
+  "license": "Apache-2.0",
+  "total": 1215,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 45,
+   "playability": 3,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   5,
+   2,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 4,
+   "25": 1,
+   "30": 5,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "flat-color-icons",
+  "name": "Flat Color Icons",
+  "license": "MIT",
+  "total": 329,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 11,
+   "playability": 37,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   7,
+   1,
+   1
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 1,
+   "20": 1,
+   "25": 5,
+   "30": 2,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "grommet-icons",
+  "name": "Grommet Icons",
+  "license": "Apache-2.0",
+  "total": 636,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 44,
+   "playability": 4,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   1,
+   3,
+   7,
+   0
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 1,
+   "25": 1,
+   "35": 9
+  },
+  "natives": 0
+ },
+ {
+  "key": "vs",
+  "name": "Vesper Icons",
+  "license": "OFL-1.1",
+  "total": 159,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 26,
+   "playability": 22,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   4,
+   3,
+   2
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 3,
+   "30": 4,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "pepicons",
+  "name": "Pepicons",
+  "license": "CC-BY-4.0",
+  "total": 428,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 12,
+  "rate": 0.2,
+  "gate": {
+   "fidelity": 28,
+   "playability": 20,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   5,
+   3,
+   2
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 2,
+   "25": 1,
+   "30": 2,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "icon-park-twotone",
+  "name": "IconPark TwoTone",
+  "license": "Apache-2.0",
+  "total": 1944,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 49,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   4,
+   2,
+   2
+  ],
+  "sizes": {
+   "20": 2,
+   "25": 1,
+   "30": 3,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "octicon",
+  "name": "Octicons",
+  "license": "MIT",
+  "total": 743,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 48,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   4,
+   2,
+   3
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 2,
+   "20": 2,
+   "30": 5,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-flex-color",
+  "name": "Flex color icons",
+  "license": "CC-BY-4.0",
+  "total": 1000,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 9,
+   "playability": 39,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   2,
+   2,
+   3,
+   4
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 1,
+   "25": 3,
+   "30": 2,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "map",
+  "name": "Map Icons",
+  "license": "OFL-1.1",
+  "total": 167,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 40,
+   "playability": 9,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   8,
+   0,
+   2
+  ],
+  "sizes": {
+   "5": 1,
+   "15": 1,
+   "20": 1,
+   "25": 2,
+   "30": 4,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "lucide-lab",
+  "name": "Lucide Lab",
+  "license": "ISC",
+  "total": 373,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 48,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   7,
+   2,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 4,
+   "35": 6
+  },
+  "natives": 0
+ },
+ {
+  "key": "ant-design",
+  "name": "Ant Design Icons",
+  "license": "MIT",
+  "total": 848,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 37,
+   "playability": 12,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   4,
+   3,
+   0,
+   4
+  ],
+  "sizes": {
+   "15": 2,
+   "25": 1,
+   "35": 8
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline",
+  "name": "Streamline",
+  "license": "CC-BY-4.0",
+  "total": 3000,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 41,
+   "playability": 8,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   3,
+   4,
+   3
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 2,
+   "30": 5,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "noto-v1",
+  "name": "Noto Emoji (v1)",
+  "license": "Apache-2.0",
+  "total": 2162,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 13,
+   "playability": 35,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   3,
+   2,
+   3,
+   2
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 5,
+   "25": 1,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "lsicon",
+  "name": "Lsicon",
+  "license": "MIT",
+  "total": 716,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 39,
+   "playability": 9,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   5,
+   5,
+   1,
+   0
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 1,
+   "20": 3,
+   "25": 1,
+   "30": 1,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "pajamas",
+  "name": "Gitlab SVGs",
+  "license": "MIT",
+  "total": 410,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 43,
+   "playability": 6,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   1,
+   3,
+   4,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 1,
+   "20": 2,
+   "25": 1,
+   "35": 6
+  },
+  "natives": 0
+ },
+ {
+  "key": "token",
+  "name": "Web3 Icons",
+  "license": "MIT",
+  "total": 1778,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 43,
+   "playability": 5,
+   "logic": 1
+  },
+  "dif": [
+   1,
+   2,
+   1,
+   5,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 1,
+   "25": 2,
+   "30": 2,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "emojione",
+  "name": "Emoji One (Colored)",
+  "license": "CC-BY-4.0",
+  "total": 1834,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 11,
+  "rate": 0.18333333333333332,
+  "gate": {
+   "fidelity": 8,
+   "playability": 41,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   1,
+   7,
+   2,
+   0
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 5,
+   "25": 3,
+   "30": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "lucide",
+  "name": "Lucide",
+  "license": "ISC",
+  "total": 1756,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 49,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   3,
+   3,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 7,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "lets-icons",
+  "name": "Lets Icons",
+  "license": "CC-BY-4.0",
+  "total": 1528,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 49,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   3,
+   2,
+   3
+  ],
+  "sizes": {
+   "20": 2,
+   "25": 3,
+   "30": 2,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "gravity-ui",
+  "name": "Gravity UI Icons",
+  "license": "MIT",
+  "total": 799,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 44,
+   "playability": 6,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   4,
+   2,
+   3
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 3,
+   "25": 2,
+   "30": 2,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "game-icons",
+  "name": "Game Icons",
+  "license": "CC-BY-3.0",
+  "total": 4133,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 47,
+   "playability": 3,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   6,
+   1,
+   2
+  ],
+  "sizes": {
+   "15": 1,
+   "25": 1,
+   "30": 1,
+   "35": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "cil",
+  "name": "CoreUI Free",
+  "license": "CC-BY-4.0",
+  "total": 554,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 49,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   5,
+   3,
+   0
+  ],
+  "sizes": {
+   "15": 5,
+   "30": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "f7",
+  "name": "Framework7 Icons",
+  "license": "MIT",
+  "total": 1253,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 37,
+   "playability": 13,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   2,
+   3,
+   2,
+   2
+  ],
+  "sizes": {
+   "20": 3,
+   "25": 2,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "logos",
+  "name": "SVG Logos",
+  "license": "CC0-1.0",
+  "total": 1861,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 40,
+   "playability": 10,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   4,
+   2,
+   3,
+   1
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 1,
+   "25": 4,
+   "30": 3,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "cryptocurrency",
+  "name": "Cryptocurrency Icons",
+  "license": "CC0-1.0",
+  "total": 483,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 26,
+   "playability": 24,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   7,
+   3
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 4,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "fa6-brands",
+  "name": "Font Awesome 6 Brands",
+  "license": "CC-BY-4.0",
+  "total": 495,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 33,
+   "playability": 17,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   0,
+   3,
+   4
+  ],
+  "sizes": {
+   "15": 1,
+   "25": 2,
+   "30": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "fa-brands",
+  "name": "Font Awesome 5 Brands",
+  "license": "CC-BY-4.0",
+  "total": 457,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 35,
+   "playability": 15,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   2,
+   3,
+   3
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 4,
+   "30": 1,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "fontisto",
+  "name": "Fontisto",
+  "license": "MIT",
+  "total": 615,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 38,
+   "playability": 12,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   0,
+   2,
+   2,
+   5
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 1,
+   "25": 1,
+   "30": 2,
+   "35": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "heroicons",
+  "name": "HeroIcons",
+  "license": "MIT",
+  "total": 1288,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 22,
+   "playability": 27,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   2,
+   2,
+   4,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "25": 4,
+   "30": 4,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "nrk",
+  "name": "NRK Core Icons",
+  "license": "CC-BY-4.0",
+  "total": 240,
+  "sampled": 60,
+  "accepted": 12,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 41,
+   "playability": 7,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   2,
+   4,
+   1,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 1,
+   "25": 1,
+   "30": 2,
+   "35": 7
+  },
+  "natives": 0
+ },
+ {
+  "key": "vscode-icons",
+  "name": "VSCode Icons",
+  "license": "MIT",
+  "total": 1566,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 25,
+   "playability": 25,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   4,
+   1,
+   0,
+   4
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 2,
+   "25": 4,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "unjs",
+  "name": "UnJS Logos",
+  "license": "Apache-2.0",
+  "total": 63,
+  "sampled": 60,
+  "accepted": 11,
+  "kept": 10,
+  "rate": 0.16666666666666666,
+  "gate": {
+   "fidelity": 12,
+   "playability": 36,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   2,
+   2,
+   3,
+   3
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 3,
+   "25": 1,
+   "30": 2,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "clarity",
+  "name": "Clarity",
+  "license": "MIT",
+  "total": 1103,
+  "sampled": 60,
+  "accepted": 9,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 33,
+   "playability": 18,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   0,
+   4,
+   2
+  ],
+  "sizes": {
+   "20": 2,
+   "25": 2,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "sidekickicons",
+  "name": "SidekickIcons",
+  "license": "MIT",
+  "total": 232,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 42,
+   "playability": 8,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   6,
+   0,
+   1,
+   2
+  ],
+  "sizes": {
+   "25": 5,
+   "30": 4,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "codicon",
+  "name": "Codicons",
+  "license": "CC-BY-4.0",
+  "total": 643,
+  "sampled": 60,
+  "accepted": 9,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 48,
+   "playability": 2,
+   "logic": 1
+  },
+  "dif": [
+   1,
+   0,
+   2,
+   1,
+   5
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 3,
+   "30": 2,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "simple-icons",
+  "name": "Simple Icons",
+  "license": "CC0-1.0",
+  "total": 3453,
+  "sampled": 60,
+  "accepted": 9,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 44,
+   "playability": 7,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   1,
+   5,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 2,
+   "25": 1,
+   "30": 2,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "fa6-regular",
+  "name": "Font Awesome 6 Regular",
+  "license": "CC-BY-4.0",
+  "total": 163,
+  "sampled": 60,
+  "accepted": 9,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 51,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   8,
+   0,
+   0
+  ],
+  "sizes": {
+   "25": 5,
+   "30": 2,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-ultimate",
+  "name": "Ultimate free icons",
+  "license": "CC-BY-4.0",
+  "total": 1999,
+  "sampled": 60,
+  "accepted": 9,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 48,
+   "playability": 3,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   1,
+   4,
+   2
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 3,
+   "30": 1,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "mage",
+  "name": "Mage Icons",
+  "license": "Apache-2.0",
+  "total": 1042,
+  "sampled": 60,
+  "accepted": 9,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 33,
+   "playability": 18,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   2,
+   4,
+   3
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 2,
+   "25": 2,
+   "30": 3,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "bi",
+  "name": "Bootstrap Icons",
+  "license": "MIT",
+  "total": 2078,
+  "sampled": 60,
+  "accepted": 9,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 36,
+   "playability": 15,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   2,
+   2,
+   2,
+   2
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 3,
+   "30": 3,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "oui",
+  "name": "OpenSearch UI",
+  "license": "Apache-2.0",
+  "total": 437,
+  "sampled": 60,
+  "accepted": 9,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 47,
+   "playability": 4,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   2,
+   3,
+   2,
+   1
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 1,
+   "25": 3,
+   "30": 2,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "material-icon-theme",
+  "name": "Material Icon Theme",
+  "license": "MIT",
+  "total": 904,
+  "sampled": 60,
+  "accepted": 9,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 19,
+   "playability": 32,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   1,
+   1,
+   3,
+   3
+  ],
+  "sizes": {
+   "15": 4,
+   "25": 2,
+   "30": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-flex",
+  "name": "Flex free icons",
+  "license": "CC-BY-4.0",
+  "total": 1500,
+  "sampled": 60,
+  "accepted": 9,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 39,
+   "playability": 12,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   2,
+   5,
+   2
+  ],
+  "sizes": {
+   "20": 2,
+   "25": 2,
+   "30": 5
+  },
+  "natives": 0
+ },
+ {
+  "key": "file-icons",
+  "name": "File Icons",
+  "license": "ISC",
+  "total": 930,
+  "sampled": 60,
+  "accepted": 9,
+  "kept": 9,
+  "rate": 0.15,
+  "gate": {
+   "fidelity": 48,
+   "playability": 3,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   1,
+   3,
+   3,
+   1
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 3,
+   "30": 2,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "ep",
+  "name": "Element Plus",
+  "license": "MIT",
+  "total": 293,
+  "sampled": 60,
+  "accepted": 8,
+  "kept": 8,
+  "rate": 0.13333333333333333,
+  "gate": {
+   "fidelity": 49,
+   "playability": 3,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   1,
+   2,
+   3
+  ],
+  "sizes": {
+   "20": 3,
+   "25": 1,
+   "30": 3,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "formkit",
+  "name": "FormKit Icons",
+  "license": "MIT",
+  "total": 144,
+  "sampled": 60,
+  "accepted": 8,
+  "kept": 8,
+  "rate": 0.13333333333333333,
+  "gate": {
+   "fidelity": 47,
+   "playability": 5,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   1,
+   2,
+   2
+  ],
+  "sizes": {
+   "20": 2,
+   "25": 1,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "dinkie-icons",
+  "name": "Dinkie Icons",
+  "license": "MIT",
+  "total": 1198,
+  "sampled": 60,
+  "accepted": 8,
+  "kept": 8,
+  "rate": 0.13333333333333333,
+  "gate": {
+   "fidelity": 35,
+   "playability": 17,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   2,
+   3,
+   0
+  ],
+  "sizes": {
+   "25": 4,
+   "30": 1,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "wi",
+  "name": "Weather Icons",
+  "license": "OFL-1.1",
+  "total": 219,
+  "sampled": 60,
+  "accepted": 8,
+  "kept": 8,
+  "rate": 0.13333333333333333,
+  "gate": {
+   "fidelity": 47,
+   "playability": 5,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   1,
+   1,
+   0,
+   5
+  ],
+  "sizes": {
+   "15": 2,
+   "25": 1,
+   "30": 4,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "la",
+  "name": "Line Awesome",
+  "license": "Apache-2.0",
+  "total": 1544,
+  "sampled": 60,
+  "accepted": 8,
+  "kept": 8,
+  "rate": 0.13333333333333333,
+  "gate": {
+   "fidelity": 50,
+   "playability": 2,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   3,
+   4,
+   0
+  ],
+  "sizes": {
+   "20": 2,
+   "25": 2,
+   "35": 4
+  },
+  "natives": 0
+ },
+ {
+  "key": "fa-regular",
+  "name": "Font Awesome 5 Regular",
+  "license": "CC-BY-4.0",
+  "total": 151,
+  "sampled": 60,
+  "accepted": 8,
+  "kept": 8,
+  "rate": 0.13333333333333333,
+  "gate": {
+   "fidelity": 51,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   5,
+   0,
+   1
+  ],
+  "sizes": {
+   "20": 3,
+   "25": 2,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "cuida",
+  "name": "Cuida Icons",
+  "license": "Apache-2.0",
+  "total": 182,
+  "sampled": 60,
+  "accepted": 8,
+  "kept": 8,
+  "rate": 0.13333333333333333,
+  "gate": {
+   "fidelity": 51,
+   "playability": 0,
+   "logic": 1
+  },
+  "dif": [
+   2,
+   2,
+   1,
+   1,
+   2
+  ],
+  "sizes": {
+   "20": 5,
+   "25": 1,
+   "30": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "meteocons",
+  "name": "Meteocons",
+  "license": "MIT",
+  "total": 447,
+  "sampled": 60,
+  "accepted": 8,
+  "kept": 8,
+  "rate": 0.13333333333333333,
+  "gate": {
+   "fidelity": 42,
+   "playability": 10,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   4,
+   1,
+   3,
+   0
+  ],
+  "sizes": {
+   "15": 2,
+   "25": 3,
+   "30": 1,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "weui",
+  "name": "WeUI Icon",
+  "license": "MIT",
+  "total": 162,
+  "sampled": 60,
+  "accepted": 8,
+  "kept": 8,
+  "rate": 0.13333333333333333,
+  "gate": {
+   "fidelity": 34,
+   "playability": 17,
+   "logic": 1
+  },
+  "dif": [
+   1,
+   2,
+   3,
+   1,
+   1
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 2,
+   "20": 2,
+   "30": 1,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "ph",
+  "name": "Phosphor",
+  "license": "MIT",
+  "total": 9072,
+  "sampled": 60,
+  "accepted": 8,
+  "kept": 8,
+  "rate": 0.13333333333333333,
+  "gate": {
+   "fidelity": 48,
+   "playability": 4,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   2,
+   5
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 2,
+   "30": 1,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "svg-spinners",
+  "name": "SVG Spinners",
+  "license": "MIT",
+  "total": 46,
+  "sampled": 46,
+  "accepted": 7,
+  "kept": 6,
+  "rate": 0.13043478260869565,
+  "gate": {
+   "fidelity": 27,
+   "playability": 12,
+   "logic": 0
+  },
+  "dif": [
+   2,
+   0,
+   0,
+   0,
+   4
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 3,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "twemoji",
+  "name": "Twitter Emoji",
+  "license": "CC-BY-4.0",
+  "total": 3988,
+  "sampled": 60,
+  "accepted": 10,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 15,
+   "playability": 35,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   5,
+   1,
+   0
+  ],
+  "sizes": {
+   "20": 3,
+   "25": 5,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "fluent-mdl2",
+  "name": "Fluent UI MDL2",
+  "license": "MIT",
+  "total": 1735,
+  "sampled": 60,
+  "accepted": 7,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 50,
+   "playability": 3,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   0,
+   2,
+   3,
+   1
+  ],
+  "sizes": {
+   "15": 2,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "fluent-emoji",
+  "name": "Fluent Emoji",
+  "license": "MIT",
+  "total": 3126,
+  "sampled": 60,
+  "accepted": 8,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 15,
+   "playability": 37,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   1,
+   1,
+   3
+  ],
+  "sizes": {
+   "10": 2,
+   "15": 1,
+   "20": 3,
+   "30": 1,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "carbon",
+  "name": "Carbon",
+  "license": "Apache-2.0",
+  "total": 2590,
+  "sampled": 60,
+  "accepted": 7,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 51,
+   "playability": 2,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   3,
+   1,
+   2
+  ],
+  "sizes": {
+   "20": 2,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "charm",
+  "name": "Charm Icons",
+  "license": "MIT",
+  "total": 261,
+  "sampled": 60,
+  "accepted": 7,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 50,
+   "playability": 3,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   2,
+   3,
+   0
+  ],
+  "sizes": {
+   "25": 2,
+   "30": 4,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "fa7-regular",
+  "name": "Font Awesome Regular",
+  "license": "CC-BY-4.0",
+  "total": 272,
+  "sampled": 60,
+  "accepted": 7,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 51,
+   "playability": 2,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   7,
+   0,
+   0
+  ],
+  "sizes": {
+   "10": 1,
+   "25": 1,
+   "30": 3,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "fluent-color",
+  "name": "Fluent UI System Color Icons",
+  "license": "MIT",
+  "total": 890,
+  "sampled": 60,
+  "accepted": 7,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 4,
+   "playability": 49,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   1,
+   2,
+   3
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 1,
+   "20": 1,
+   "25": 3,
+   "30": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "heroicons-outline",
+  "name": "HeroIcons v1 Outline",
+  "license": "MIT",
+  "total": 230,
+  "sampled": 60,
+  "accepted": 7,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 53,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   3,
+   2,
+   1
+  ],
+  "sizes": {
+   "10": 1,
+   "20": 3,
+   "30": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "akar-icons",
+  "name": "Akar Icons",
+  "license": "MIT",
+  "total": 454,
+  "sampled": 60,
+  "accepted": 7,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 45,
+   "playability": 7,
+   "logic": 1
+  },
+  "dif": [
+   2,
+   1,
+   1,
+   2,
+   1
+  ],
+  "sizes": {
+   "20": 3,
+   "25": 1,
+   "30": 1,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-plump",
+  "name": "Plump free icons",
+  "license": "CC-BY-4.0",
+  "total": 1499,
+  "sampled": 60,
+  "accepted": 7,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 43,
+   "playability": 10,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   4,
+   2
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 2,
+   "30": 1,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "stash",
+  "name": "Stash Icons",
+  "license": "MIT",
+  "total": 982,
+  "sampled": 60,
+  "accepted": 7,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 44,
+   "playability": 9,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   2,
+   1,
+   1,
+   3
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 1,
+   "30": 2,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "uiw",
+  "name": "uiw icons",
+  "license": "MIT",
+  "total": 214,
+  "sampled": 60,
+  "accepted": 7,
+  "kept": 7,
+  "rate": 0.11666666666666667,
+  "gate": {
+   "fidelity": 42,
+   "playability": 11,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   2,
+   3,
+   2
+  ],
+  "sizes": {
+   "15": 2,
+   "25": 1,
+   "30": 1,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "devicon",
+  "name": "Devicon",
+  "license": "MIT",
+  "total": 1036,
+  "sampled": 60,
+  "accepted": 6,
+  "kept": 6,
+  "rate": 0.1,
+  "gate": {
+   "fidelity": 43,
+   "playability": 11,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   1,
+   1,
+   3
+  ],
+  "sizes": {
+   "15": 2,
+   "30": 1,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "fluent-emoji-high-contrast",
+  "name": "Fluent Emoji High Contrast",
+  "license": "MIT",
+  "total": 1595,
+  "sampled": 60,
+  "accepted": 6,
+  "kept": 6,
+  "rate": 0.1,
+  "gate": {
+   "fidelity": 52,
+   "playability": 2,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   1,
+   2,
+   3
+  ],
+  "sizes": {
+   "15": 1,
+   "30": 2,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "devicon-plain",
+  "name": "Devicon Plain",
+  "license": "MIT",
+  "total": 755,
+  "sampled": 60,
+  "accepted": 6,
+  "kept": 6,
+  "rate": 0.1,
+  "gate": {
+   "fidelity": 51,
+   "playability": 3,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   1,
+   1,
+   3
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 2,
+   "30": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "fad",
+  "name": "FontAudio",
+  "license": "CC-BY-4.0",
+  "total": 155,
+  "sampled": 60,
+  "accepted": 6,
+  "kept": 6,
+  "rate": 0.1,
+  "gate": {
+   "fidelity": 48,
+   "playability": 6,
+   "logic": 0
+  },
+  "dif": [
+   2,
+   1,
+   2,
+   1,
+   0
+  ],
+  "sizes": {
+   "5": 1,
+   "10": 2,
+   "30": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "flat-ui",
+  "name": "Flat UI Icons",
+  "license": "MIT",
+  "total": 100,
+  "sampled": 60,
+  "accepted": 6,
+  "kept": 6,
+  "rate": 0.1,
+  "gate": {
+   "fidelity": 4,
+   "playability": 50,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   1,
+   3,
+   1
+  ],
+  "sizes": {
+   "10": 2,
+   "20": 1,
+   "25": 1,
+   "30": 1,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "mynaui",
+  "name": "Myna UI Icons",
+  "license": "MIT",
+  "total": 2620,
+  "sampled": 60,
+  "accepted": 6,
+  "kept": 6,
+  "rate": 0.1,
+  "gate": {
+   "fidelity": 33,
+   "playability": 21,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   2,
+   3,
+   0
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 2,
+   "30": 1,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "iconoir",
+  "name": "Iconoir",
+  "license": "MIT",
+  "total": 1671,
+  "sampled": 60,
+  "accepted": 6,
+  "kept": 6,
+  "rate": 0.1,
+  "gate": {
+   "fidelity": 50,
+   "playability": 4,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   2,
+   3,
+   1
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 1,
+   "30": 2,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "streamline-logos",
+  "name": "Logos free icons",
+  "license": "CC-BY-4.0",
+  "total": 1362,
+  "sampled": 60,
+  "accepted": 6,
+  "kept": 6,
+  "rate": 0.1,
+  "gate": {
+   "fidelity": 34,
+   "playability": 20,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   1,
+   3,
+   2
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 2,
+   "30": 1,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "solar",
+  "name": "Solar",
+  "license": "CC-BY-4.0",
+  "total": 7401,
+  "sampled": 60,
+  "accepted": 5,
+  "kept": 5,
+  "rate": 0.08333333333333333,
+  "gate": {
+   "fidelity": 46,
+   "playability": 9,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   1,
+   3,
+   1
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 2,
+   "30": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "prime",
+  "name": "Prime Icons",
+  "license": "MIT",
+  "total": 313,
+  "sampled": 60,
+  "accepted": 5,
+  "kept": 5,
+  "rate": 0.08333333333333333,
+  "gate": {
+   "fidelity": 51,
+   "playability": 4,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   2,
+   2
+  ],
+  "sizes": {
+   "10": 1,
+   "15": 1,
+   "25": 2,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "lineicons",
+  "name": "Lineicons",
+  "license": "MIT",
+  "total": 606,
+  "sampled": 60,
+  "accepted": 5,
+  "kept": 5,
+  "rate": 0.08333333333333333,
+  "gate": {
+   "fidelity": 55,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   1,
+   3,
+   1
+  ],
+  "sizes": {
+   "20": 1,
+   "30": 1,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "glyphs",
+  "name": "Glyphs",
+  "license": "MIT",
+  "total": 3452,
+  "sampled": 60,
+  "accepted": 5,
+  "kept": 5,
+  "rate": 0.08333333333333333,
+  "gate": {
+   "fidelity": 53,
+   "playability": 2,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   3,
+   1,
+   1,
+   0
+  ],
+  "sizes": {
+   "25": 2,
+   "30": 1,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "token-branded",
+  "name": "Web3 Icons Branded",
+  "license": "MIT",
+  "total": 4067,
+  "sampled": 60,
+  "accepted": 5,
+  "kept": 5,
+  "rate": 0.08333333333333333,
+  "gate": {
+   "fidelity": 51,
+   "playability": 4,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   3,
+   1
+  ],
+  "sizes": {
+   "25": 2,
+   "30": 1,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "bpmn",
+  "name": "BPMN",
+  "license": "OFL-1.1",
+  "total": 112,
+  "sampled": 60,
+  "accepted": 5,
+  "kept": 5,
+  "rate": 0.08333333333333333,
+  "gate": {
+   "fidelity": 54,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   1,
+   0,
+   3
+  ],
+  "sizes": {
+   "20": 1,
+   "30": 3,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "bitcoin-icons",
+  "name": "Bitcoin Icons",
+  "license": "MIT",
+  "total": 330,
+  "sampled": 60,
+  "accepted": 5,
+  "kept": 5,
+  "rate": 0.08333333333333333,
+  "gate": {
+   "fidelity": 41,
+   "playability": 14,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   3,
+   1,
+   0
+  ],
+  "sizes": {
+   "15": 1,
+   "20": 1,
+   "25": 1,
+   "30": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "academicons",
+  "name": "Academicons",
+  "license": "OFL-1.1",
+  "total": 158,
+  "sampled": 60,
+  "accepted": 5,
+  "kept": 5,
+  "rate": 0.08333333333333333,
+  "gate": {
+   "fidelity": 35,
+   "playability": 20,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   2,
+   1,
+   1
+  ],
+  "sizes": {
+   "25": 2,
+   "30": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "proicons",
+  "name": "ProIcons",
+  "license": "MIT",
+  "total": 544,
+  "sampled": 60,
+  "accepted": 4,
+  "kept": 4,
+  "rate": 0.06666666666666667,
+  "gate": {
+   "fidelity": 55,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   1,
+   0,
+   3
+  ],
+  "sizes": {
+   "25": 2,
+   "30": 1,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "ei",
+  "name": "Evil Icons",
+  "license": "MIT",
+  "total": 70,
+  "sampled": 60,
+  "accepted": 4,
+  "kept": 4,
+  "rate": 0.06666666666666667,
+  "gate": {
+   "fidelity": 52,
+   "playability": 4,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   0,
+   1,
+   1,
+   1
+  ],
+  "sizes": {
+   "30": 3,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "qlementine-icons",
+  "name": "Qlementine Icons",
+  "license": "MIT",
+  "total": 880,
+  "sampled": 60,
+  "accepted": 4,
+  "kept": 4,
+  "rate": 0.06666666666666667,
+  "gate": {
+   "fidelity": 49,
+   "playability": 7,
+   "logic": 0
+  },
+  "dif": [
+   1,
+   0,
+   1,
+   2,
+   0
+  ],
+  "sizes": {
+   "25": 2,
+   "30": 1,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "healthicons",
+  "name": "Health Icons",
+  "license": "MIT",
+  "total": 2042,
+  "sampled": 60,
+  "accepted": 4,
+  "kept": 4,
+  "rate": 0.06666666666666667,
+  "gate": {
+   "fidelity": 44,
+   "playability": 12,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   2,
+   2,
+   0
+  ],
+  "sizes": {
+   "30": 1,
+   "35": 3
+  },
+  "natives": 0
+ },
+ {
+  "key": "icons8",
+  "name": "Icons8 Windows 10 Icons",
+  "license": "MIT",
+  "total": 234,
+  "sampled": 60,
+  "accepted": 4,
+  "kept": 4,
+  "rate": 0.06666666666666667,
+  "gate": {
+   "fidelity": 53,
+   "playability": 3,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   1,
+   0,
+   3
+  ],
+  "sizes": {
+   "20": 1,
+   "25": 1,
+   "30": 1,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "ginetex",
+  "name": "Ginetex Care Symbols",
+  "license": "MIT",
+  "total": 50,
+  "sampled": 50,
+  "accepted": 3,
+  "kept": 3,
+  "rate": 0.06,
+  "gate": {
+   "fidelity": 45,
+   "playability": 2,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   3,
+   0
+  ],
+  "sizes": {
+   "15": 2,
+   "30": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "pepicons-pencil",
+  "name": "Pepicons Pencil",
+  "license": "CC-BY-4.0",
+  "total": 1275,
+  "sampled": 60,
+  "accepted": 3,
+  "kept": 3,
+  "rate": 0.05,
+  "gate": {
+   "fidelity": 48,
+   "playability": 9,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   2,
+   0
+  ],
+  "sizes": {
+   "15": 2,
+   "20": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "iwwa",
+  "name": "Innowatio Font",
+  "license": "Apache-2.0",
+  "total": 105,
+  "sampled": 60,
+  "accepted": 3,
+  "kept": 3,
+  "rate": 0.05,
+  "gate": {
+   "fidelity": 56,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   2,
+   0
+  ],
+  "sizes": {
+   "25": 1,
+   "30": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "selfhst",
+  "name": "selfh.st/icons",
+  "license": "CC-BY-4.0",
+  "total": 7075,
+  "sampled": 60,
+  "accepted": 3,
+  "kept": 3,
+  "rate": 0.05,
+  "gate": {
+   "fidelity": 38,
+   "playability": 19,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   1,
+   1
+  ],
+  "sizes": {
+   "25": 1,
+   "30": 1,
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "quill",
+  "name": "Quill Icons",
+  "license": "MIT",
+  "total": 140,
+  "sampled": 60,
+  "accepted": 3,
+  "kept": 3,
+  "rate": 0.05,
+  "gate": {
+   "fidelity": 55,
+   "playability": 1,
+   "logic": 1
+  },
+  "dif": [
+   0,
+   0,
+   1,
+   0,
+   2
+  ],
+  "sizes": {
+   "25": 1,
+   "35": 2
+  },
+  "natives": 0
+ },
+ {
+  "key": "emojione-monotone",
+  "name": "Emoji One (Monotone)",
+  "license": "CC-BY-4.0",
+  "total": 1403,
+  "sampled": 60,
+  "accepted": 2,
+  "kept": 2,
+  "rate": 0.03333333333333333,
+  "gate": {
+   "fidelity": 47,
+   "playability": 11,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   2,
+   0
+  ],
+  "sizes": {
+   "15": 1,
+   "30": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "system-uicons",
+  "name": "System UIcons",
+  "license": "Unlicense",
+  "total": 430,
+  "sampled": 60,
+  "accepted": 2,
+  "kept": 2,
+  "rate": 0.03333333333333333,
+  "gate": {
+   "fidelity": 58,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   1,
+   0
+  ],
+  "sizes": {
+   "15": 1,
+   "30": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "medical-icon",
+  "name": "Medical Icons",
+  "license": "MIT",
+  "total": 144,
+  "sampled": 60,
+  "accepted": 1,
+  "kept": 1,
+  "rate": 0.016666666666666666,
+  "gate": {
+   "fidelity": 46,
+   "playability": 13,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  "sizes": {
+   "30": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "uit",
+  "name": "Unicons Thin Line",
+  "license": "Apache-2.0",
+  "total": 216,
+  "sampled": 60,
+  "accepted": 1,
+  "kept": 1,
+  "rate": 0.016666666666666666,
+  "gate": {
+   "fidelity": 57,
+   "playability": 2,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "sizes": {
+   "20": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "hugeicons",
+  "name": "Huge Icons",
+  "license": "MIT",
+  "total": 5065,
+  "sampled": 60,
+  "accepted": 1,
+  "kept": 1,
+  "rate": 0.016666666666666666,
+  "gate": {
+   "fidelity": 58,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "sizes": {
+   "20": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "nimbus",
+  "name": "Nimbus",
+  "license": "MIT",
+  "total": 140,
+  "sampled": 60,
+  "accepted": 1,
+  "kept": 1,
+  "rate": 0.016666666666666666,
+  "gate": {
+   "fidelity": 59,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "sizes": {
+   "25": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "catppuccin",
+  "name": "Catppuccin Icons",
+  "license": "MIT",
+  "total": 656,
+  "sampled": 60,
+  "accepted": 1,
+  "kept": 1,
+  "rate": 0.016666666666666666,
+  "gate": {
+   "fidelity": 59,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   1,
+   0
+  ],
+  "sizes": {
+   "15": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "gis",
+  "name": "Font-GIS",
+  "license": "CC-BY-4.0",
+  "total": 367,
+  "sampled": 60,
+  "accepted": 1,
+  "kept": 1,
+  "rate": 0.016666666666666666,
+  "gate": {
+   "fidelity": 56,
+   "playability": 3,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "sizes": {
+   "35": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "simple-line-icons",
+  "name": "Simple line icons",
+  "license": "MIT",
+  "total": 189,
+  "sampled": 60,
+  "accepted": 1,
+  "kept": 1,
+  "rate": 0.016666666666666666,
+  "gate": {
+   "fidelity": 58,
+   "playability": 1,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  "sizes": {
+   "30": 1
+  },
+  "natives": 0
+ },
+ {
+  "key": "guidance",
+  "name": "Guidance",
+  "license": "CC-BY-4.0",
+  "total": 360,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 60,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "skill-icons",
+  "name": "Skill Icons",
+  "license": "MIT",
+  "total": 400,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 1,
+   "playability": 59,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "circle-flags",
+  "name": "Circle Flags",
+  "license": "MIT",
+  "total": 634,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 0,
+   "playability": 60,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "cif",
+  "name": "CoreUI Flags",
+  "license": "CC0-1.0",
+  "total": 199,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 0,
+   "playability": 60,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "mdi-light",
+  "name": "Material Design Light",
+  "license": "OFL-1.1",
+  "total": 284,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 60,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "circum",
+  "name": "Circum Icons",
+  "license": "MPL-2.0",
+  "total": 288,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 60,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "streamline-freehand",
+  "name": "Freehand free icons",
+  "license": "CC-BY-4.0",
+  "total": 1000,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 60,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "streamline-freehand-color",
+  "name": "Freehand color icons",
+  "license": "CC-BY-4.0",
+  "total": 1000,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 60,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "marketeq",
+  "name": "Marketeq",
+  "license": "MIT",
+  "total": 590,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 60,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "flag",
+  "name": "Flag Icons",
+  "license": "MIT",
+  "total": 542,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 32,
+   "playability": 28,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "covid",
+  "name": "Covid Icons",
+  "license": "CC-BY-4.0",
+  "total": 142,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 60,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "streamline-cyber",
+  "name": "Cyber free icons",
+  "license": "CC-BY-4.0",
+  "total": 500,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 60,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "streamline-pixel",
+  "name": "Pixel free icons",
+  "license": "CC-BY-4.0",
+  "total": 662,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 60,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "pepicons-print",
+  "name": "Pepicons Print",
+  "license": "CC-BY-4.0",
+  "total": 1275,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 60,
+   "playability": 0,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "streamline-kameleon-color",
+  "name": "Kameleon color icons",
+  "license": "CC-BY-4.0",
+  "total": 400,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 0,
+   "playability": 60,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "cryptocurrency-color",
+  "name": "Cryptocurrency Color Icons",
+  "license": "CC0-1.0",
+  "total": 483,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 0,
+   "playability": 60,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ },
+ {
+  "key": "flagpack",
+  "name": "Flagpack",
+  "license": "MIT",
+  "total": 254,
+  "sampled": 60,
+  "accepted": 0,
+  "kept": 0,
+  "rate": 0,
+  "gate": {
+   "fidelity": 0,
+   "playability": 60,
+   "logic": 0
+  },
+  "dif": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "sizes": {},
+  "natives": 0
+ }
+]
