@@ -19,8 +19,15 @@ import {
   monochromePalette,
   solvePuzzle,
 } from '@nanonogram/core';
-import type { Bitmap } from './bitmap.js';
-import { type FitOptions, type FitResult, fitGrid, nearbySizes } from './fit.js';
+import {
+  type Bitmap,
+  alignToPixelGrid,
+  collapseEmptyLines,
+  contentBox,
+  contentCrop,
+  stripIsolatedInk,
+} from './bitmap.js';
+import { type FitOptions, type FitResult, MAX_GRID, fitGrid, nearbySizes } from './fit.js';
 import {
   type QualityMetrics,
   type QualityThresholds,
@@ -28,6 +35,33 @@ import {
   qualityComplaints,
 } from './quality.js';
 import { type RepairOptions, repairToPureLogic } from './repair.js';
+
+/**
+ * A sprite that is already at grid resolution earns its detail the hard way —
+ * every cell was placed by hand — so the thresholds calibrated for a vector
+ * reduced onto a ladder rung are needlessly strict here. A little more fill
+ * and a couple of loose marks (a spark, a spout's spray) are exactly the kind
+ * of texture native pixel art uses on purpose.
+ */
+const NATIVE_QUALITY_RELIEF: QualityThresholds = {
+  maxFill: 0.75,
+  maxIsolated: 2,
+};
+
+/**
+ * Same test `fit.ts` uses to decide the native path, duplicated here because
+ * the collapse below has to run *before* fitting: collapsing changes the
+ * content's dimensions, which would corrupt the native/reduced decision if it
+ * ran the other way around. A hand-placed sprite is never collapsed — its
+ * proportions, gaps included, are the picture.
+ */
+function isNativeResolution(reference: Bitmap, fit?: FitOptions): boolean {
+  if (fit?.nativeResolution !== undefined) return fit.nativeResolution;
+  const box = contentBox(reference);
+  if (!box) return false;
+  const content = contentCrop(reference);
+  return content.width <= MAX_GRID && content.height <= MAX_GRID;
+}
 
 /** Where a picture came from, and under what terms. */
 export interface SourceAttribution {
@@ -109,7 +143,26 @@ export function generateFrom(
   attribution: SourceAttribution,
   options: GenerateOptions = {},
 ): GenerateOutcome {
-  const fit = fitGrid(reference, options.fit);
+  // Preprocessing happens once, up front, and never for a picture that is
+  // already native-sized (see isNativeResolution's doc comment above) — a
+  // hand-placed sprite's own proportions, gaps included, are the picture.
+  //
+  // A picture that is *not* native-sized might still be pixel art: sprites
+  // are routinely exported or screenshotted at some blown-up size, and at
+  // that size they look exactly like a vector needing the square ladder.
+  // `alignToPixelGrid` tries to recover the grid it was actually drawn on
+  // first; only once that comes back empty-handed does collapsing (the
+  // square-ladder picture's own preprocessing step) apply.
+  let prepared = reference;
+  if (!isNativeResolution(reference, options.fit)) {
+    const aligned = alignToPixelGrid(reference, { maxCells: MAX_GRID });
+    prepared =
+      aligned.width <= MAX_GRID && aligned.height <= MAX_GRID
+        ? aligned
+        : collapseEmptyLines(reference, 1);
+  }
+
+  const fit = fitGrid(prepared, options.fit);
   if (!fit.grid || fit.size === null) {
     return {
       ok: false,
@@ -129,17 +182,34 @@ export function generateFrom(
     const attempt =
       rung === fit.size
         ? fit
-        : fitGrid(reference, { ...options.fit, minSize: rung, maxSize: rung });
+        : fitGrid(prepared, { ...options.fit, minSize: rung, maxSize: rung });
     const candidate = attempt.grid;
     if (!candidate) continue;
 
-    const problems = qualityComplaints(candidate, measureQuality(candidate), options.quality);
+    // A hand-placed sprite earns more permissive thresholds; a caller's
+    // explicit setting always wins over the relief.
+    const quality = attempt.native
+      ? { ...NATIVE_QUALITY_RELIEF, ...options.quality }
+      : options.quality;
+
+    const problems = qualityComplaints(candidate, measureQuality(candidate), quality);
     if (problems.length > 0) {
       complaints.push(`${attempt.width}x${attempt.height}: ${problems.join(', ')}`);
       continue;
     }
 
-    const repaired = repairToPureLogic(candidate, options.repair);
+    let repaired = repairToPureLogic(candidate, options.repair);
+    if (!repaired.pure) {
+      // Last resort: the ambiguity a boundary-only repair cannot reach is
+      // usually a mark floating just loose enough to leave its position
+      // undecided. Dropping the cells playability would have flagged as
+      // isolated anyway and trying once more costs nothing else has claimed.
+      const { grid: stripped, removed } = stripIsolatedInk(candidate);
+      if (removed > 0) {
+        const retried = repairToPureLogic(stripped, options.repair);
+        if (retried.pure) repaired = retried;
+      }
+    }
     if (!repaired.pure) {
       complaints.push(
         `${attempt.width}x${attempt.height}: still ${repaired.undecided} cell(s) undecided after repair`,
@@ -148,7 +218,7 @@ export function generateFrom(
     }
     // Repair moves pixels, so quality has to be re-checked, not assumed.
     const finalMetrics = measureQuality(repaired.grid);
-    const afterProblems = qualityComplaints(repaired.grid, finalMetrics, options.quality);
+    const afterProblems = qualityComplaints(repaired.grid, finalMetrics, quality);
     if (afterProblems.length > 0) {
       complaints.push(
         `${attempt.width}x${attempt.height}: repair spoiled it — ${afterProblems.join(', ')}`,

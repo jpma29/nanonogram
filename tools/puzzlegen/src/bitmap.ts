@@ -297,6 +297,195 @@ export function cleanup(bitmap: Bitmap, rounds = 2): Bitmap {
   return current;
 }
 
+/**
+ * Recover the grid a piece of pixel art was drawn on, when it has been
+ * exported or photographed at some larger, blown-up size.
+ *
+ * Hand-placed pixel art is flat inside each cell and has a hard edge between
+ * cells — no gradient softening the border, because every cell was one
+ * deliberate choice. Blown up by whatever factor, that flatness survives: the
+ * run of same-valued pixels along any row or column is a multiple of the
+ * cell's true size, and that size shows up as the shortest run length common
+ * enough to be the pitch rather than noise (an occasional short run is an
+ * artefact; a whole population of them at one length is the grid).
+ *
+ * Guessing wrong is worse than not guessing — snapping a photograph or a
+ * softly rendered curve to some invented cell size would garble it, not
+ * clarify it. So a candidate grid is only accepted when reducing to it
+ * leaves most cells decisively black or white. A curve or a photograph
+ * leaves a trail of cells stuck at partial coverage along every edge that is
+ * not axis-aligned, and that trail is what disqualifies it.
+ *
+ * The run-length population usually has more than one length that clears the
+ * "common enough to be a pitch, not noise" floor — a short run from
+ * antialiasing or a scan artefact can pass that floor on volume alone, even
+ * though it does not correspond to any real cell boundary. So every length
+ * that clears the floor is tried, finest first, and the first one that
+ * actually reduces the picture decisively wins. A wrong, too-fine guess is
+ * expected to fail decisiveness (the cell boundaries it invents do not land
+ * on the real ones, so the average across them comes out partial); it is the
+ * later, coarser candidates — which are usually exact multiples of the true
+ * pitch anyway — that get a fair try instead of the search giving up.
+ */
+export function detectPixelGrid(
+  content: Bitmap,
+  options: { readonly maxCells?: number; readonly confidence?: number } = {},
+): { readonly width: number; readonly height: number } | null {
+  const maxCells = options.maxCells ?? 64;
+  // Scans, photographs and hand-inked pixel art carry real artefacts — a
+  // crease, a stray anti-aliased edge, a compression fringe — that a from-a
+  // vector image never has. 0.75 tolerates that without accepting shapes
+  // that are not grid-aligned at all, which fail far more broadly than a few
+  // stray cells.
+  const confidence = options.confidence ?? 0.75;
+  const { width, height, data } = content;
+  if (width < 2 || height < 2) return null;
+
+  const runLengths: number[] = [];
+  const scanLine = (length: number, at: (i: number) => number): void => {
+    let prev = at(0);
+    let run = 1;
+    for (let i = 1; i < length; i++) {
+      const v = at(i);
+      if (v === prev) {
+        run++;
+      } else {
+        runLengths.push(run);
+        prev = v;
+        run = 1;
+      }
+    }
+    runLengths.push(run);
+  };
+  for (let y = 0; y < height; y++) scanLine(width, (x) => data[y * width + x]!);
+  for (let x = 0; x < width; x++) scanLine(height, (y) => data[y * width + x]!);
+  if (runLengths.length === 0) return null;
+
+  const counts = new Map<number, number>();
+  for (const run of runLengths) counts.set(run, (counts.get(run) ?? 0) + 1);
+  const total = runLengths.length;
+  const candidates = [...counts.keys()]
+    .filter((run) => counts.get(run)! / total >= 0.02)
+    .sort((a, b) => a - b);
+
+  for (const unit of candidates) {
+    const gridWidth = Math.round(width / unit);
+    const gridHeight = Math.round(height / unit);
+    if (gridWidth < 2 || gridHeight < 2) continue;
+    if (gridWidth > maxCells || gridHeight > maxCells) continue;
+
+    const cov = coverage(content, gridWidth, gridHeight);
+    let decisive = 0;
+    for (let i = 0; i < cov.length; i++) {
+      if (cov[i]! <= 0.15 || cov[i]! >= 0.85) decisive++;
+    }
+    if (decisive / cov.length >= confidence) {
+      return { width: gridWidth, height: gridHeight };
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Crop to the ink, then snap to its native pixel grid when one is confidently
+ * detected. This is the preprocessing a blown-up sprite needs before
+ * {@link fitGrid} ever sees it — otherwise a sprite exported at, say, 20
+ * pixels per cell is measured and reduced as if it were a vector, and the
+ * ladder rarely lands exactly back on the grid its author actually drew.
+ * Falls back to the plain crop when no grid is found, so a vector or a
+ * photograph passes through unchanged.
+ */
+export function alignToPixelGrid(
+  bitmap: Bitmap,
+  options?: Parameters<typeof detectPixelGrid>[1],
+): Bitmap {
+  const content = contentCrop(bitmap);
+  const grid = detectPixelGrid(content, options);
+  if (!grid) return content;
+  // Snapping can leave a cell of empty margin at the new, coarser resolution
+  // (the original crop was to the pixel; the grid it belonged to need not
+  // start exactly there), so crop once more after resampling down to it.
+  return contentCrop(resample(content, grid.width, grid.height));
+}
+
+/**
+ * Collapse runs of consecutive blank rows/columns down to at most `keep`.
+ *
+ * A gap between a shape and a mark floating a few cells away from it (a
+ * spout's spray, a couple of stars in a corner) contributes nothing but dead
+ * space — and dead space between an isolated mark and the rest of the picture
+ * is exactly what leaves a nonogram's line-clues ambiguous, because the
+ * deduction that would pin the mark in place needs the gap to be small enough
+ * to reason about. Collapsing to zero removes that gap entirely, which reads
+ * as fused-together where separation was actually part of the composition (a
+ * planet on the other side of a starfield, a building across the street); one
+ * blank line keeps the separation legible while still shrinking the gap this
+ * far. Only *interior* padding is affected — the picture is cropped to its
+ * content box first, so there is no outer margin to collapse.
+ */
+export function collapseEmptyLines(bitmap: Bitmap, keep = 1): Bitmap {
+  const cropped = contentCrop(bitmap);
+  const { width, height, data } = cropped;
+
+  const keepIndices = (count: number, isEmpty: (i: number) => boolean): number[] => {
+    const kept: number[] = [];
+    let run = 0;
+    for (let i = 0; i < count; i++) {
+      if (isEmpty(i)) {
+        run++;
+        if (run <= keep) kept.push(i);
+      } else {
+        run = 0;
+        kept.push(i);
+      }
+    }
+    return kept;
+  };
+
+  const rowEmpty = (y: number): boolean => {
+    for (let x = 0; x < width; x++) if (data[y * width + x]) return false;
+    return true;
+  };
+  const colEmpty = (x: number): boolean => {
+    for (let y = 0; y < height; y++) if (data[y * width + x]) return false;
+    return true;
+  };
+
+  const rows = keepIndices(height, rowEmpty);
+  const cols = keepIndices(width, colEmpty);
+
+  const out = createBitmap(cols.length, rows.length);
+  rows.forEach((y, j) => {
+    cols.forEach((x, i) => {
+      out.data[j * cols.length + i] = data[y * width + x]!;
+    });
+  });
+  return out;
+}
+
+/**
+ * Clear ink cells with no orthogonal neighbour — the same "isolated" a
+ * playability check would flag, not 8-connectivity. Used as a last-resort
+ * repair step: a mark this loose is easier for a player to accept losing
+ * than an unsolvable puzzle.
+ */
+export function stripIsolatedInk(bitmap: Bitmap): { readonly grid: Bitmap; readonly removed: number } {
+  const { width, height, data } = bitmap;
+  const out = Uint8Array.from(data);
+  let removed = 0;
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      if (!data[y * width + x]) continue;
+      if (neighbours(bitmap, x, y) === 0) {
+        out[y * width + x] = 0;
+        removed++;
+      }
+    }
+  }
+  return { grid: { width, height, data: out }, removed };
+}
+
 /** Nearest-neighbour upscale, for comparing a small grid against a reference. */
 export function upscale(bitmap: Bitmap, width: number, height: number): Bitmap {
   const out = createBitmap(width, height);

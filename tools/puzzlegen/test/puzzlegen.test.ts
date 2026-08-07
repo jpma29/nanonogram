@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
   SIZE_LADDER,
+  alignToPixelGrid,
   cleanup,
+  collapseEmptyLines,
   coverage,
+  detectPixelGrid,
   ditherCoverage,
   contentBox,
   contentCrop,
@@ -24,6 +27,7 @@ import {
   resample,
   snapUpToFive,
   squareCrop,
+  stripIsolatedInk,
   thresholdCoverage,
   toRows,
   topology,
@@ -259,6 +263,124 @@ describe('grid geometry helpers', () => {
     const out = resample(createBitmap(40, 20, 1), 10, 5);
     expect([out.width, out.height]).toEqual([10, 5]);
     expect(inkCount(out)).toBe(50);
+  });
+});
+
+describe('detectPixelGrid / alignToPixelGrid', () => {
+  it('recovers the grid of a sprite blown up by an integer factor', () => {
+    const sprite = fromRows(['.#####.', '#.#.#.#', '#######', '.#...#.']);
+    const blownUp = upscale(sprite, sprite.width * 12, sprite.height * 12);
+    expect(detectPixelGrid(blownUp, { maxCells: 35 })).toEqual({ width: 7, height: 4 });
+  });
+
+  it('still finds it once margin is added around the blow-up', () => {
+    const sprite = fromRows(['.#####.', '#.#.#.#', '#######', '.#...#.']);
+    const blownUp = padTo(upscale(sprite, 84, 48), 140, 90);
+    const aligned = alignToPixelGrid(blownUp, { maxCells: 35 });
+    expect([aligned.width, aligned.height]).toEqual([7, 4]);
+    expect(toRows(aligned)).toEqual(toRows(sprite));
+  });
+
+  it('recovers a non-integer scale, since the pitch only has to be the mode', () => {
+    // 7 cells across 51px is not an integer pitch, the way a screenshot or a
+    // resave at an arbitrary size never lands on one either.
+    const sprite = fromRows(['.###.', '#####', '.###.']);
+    const blownUp = upscale(sprite, 51, 31);
+    expect(detectPixelGrid(blownUp, { maxCells: 35 })).toEqual({ width: 5, height: 3 });
+  });
+
+  it('refuses a shape with no flat cells to snap to', () => {
+    const b = createBitmap(256, 256);
+    const c = 127.5;
+    for (let y = 0; y < 256; y++) {
+      for (let x = 0; x < 256; x++) {
+        b.data[y * 256 + x] = Math.hypot((x - c) / 256, (y - c) / 256) <= 0.45 ? 1 : 0;
+      }
+    }
+    expect(detectPixelGrid(contentCrop(b), { maxCells: 35 })).toBeNull();
+  });
+
+  it('leaves a picture with no detectable grid at its plain crop', () => {
+    const b = createBitmap(10, 10);
+    for (let y = 3; y < 7; y++) for (let x = 3; x < 7; x++) b.data[y * 10 + x] = 1;
+    // A flat 4x4 square offers no row/column with more than one run, so there
+    // is nothing to detect a pitch from — alignToPixelGrid should still hand
+    // back a sensible (cropped) bitmap rather than throwing.
+    expect(() => alignToPixelGrid(b)).not.toThrow();
+  });
+
+  it('caps how fine a grid it will accept, so it does not mistake noise for a huge sprite', () => {
+    const sprite = fromRows(['.#####.', '#.#.#.#', '#######', '.#...#.']);
+    const blownUp = upscale(sprite, sprite.width * 12, sprite.height * 12);
+    expect(detectPixelGrid(blownUp, { maxCells: 5 })).toBeNull();
+  });
+
+  it('tries every length that clears the floor, not just the shortest', () => {
+    // A stray short run (a scan artefact, a compression fringe) can clear the
+    // "common enough" floor on volume alone without corresponding to any
+    // real cell edge. If the shortest candidate is tried and discarded
+    // rather than ending the search, a coarser, correct one still gets its
+    // turn: a 4x4 sprite blown up to 40x40 with one row of single-pixel
+    // noise dragged across it should still resolve to 10x10, not bail out
+    // after the noise's length fails to reduce decisively.
+    const sprite = fromRows(['.##.', '####', '####', '.##.']);
+    const blownUp = upscale(sprite, 40, 40);
+    for (let x = 0; x < 40; x += 2) blownUp.data[5 * 40 + x] = blownUp.data[5 * 40 + x] ? 0 : 1;
+    expect(detectPixelGrid(blownUp, { maxCells: 35 })).toEqual({ width: 10, height: 10 });
+  });
+});
+
+describe('collapseEmptyLines', () => {
+  it('leaves a picture with no run of 2+ blank lines untouched', () => {
+    const b = fromRows(['##.#', '#..#', '.##.']);
+    expect(toRows(collapseEmptyLines(b))).toEqual(toRows(b));
+  });
+
+  it('collapses a run of blank rows down to one', () => {
+    const b = fromRows(['##', '..', '..', '..', '##']);
+    expect(toRows(collapseEmptyLines(b))).toEqual(['##', '..', '##']);
+  });
+
+  it('collapses blank columns independently of rows', () => {
+    const b = fromRows(['#...#', '#...#']);
+    expect(toRows(collapseEmptyLines(b))).toEqual(['#.#', '#.#']);
+  });
+
+  it('keeps a single blank line as-is — nothing to collapse', () => {
+    const b = fromRows(['##', '..', '##']);
+    expect(toRows(collapseEmptyLines(b))).toEqual(toRows(b));
+  });
+
+  it('can be told to close the gap entirely', () => {
+    const b = fromRows(['##', '..', '..', '##']);
+    expect(toRows(collapseEmptyLines(b, 0))).toEqual(['##', '##']);
+  });
+
+  it('crops to content first, so outer margin is not mistaken for a gap', () => {
+    const b = fromRows(['.....', '..##.', '.....', '.....', '.....']);
+    expect(toRows(collapseEmptyLines(b))).toEqual(['##']);
+  });
+});
+
+describe('stripIsolatedInk', () => {
+  it('removes ink with no orthogonal neighbour', () => {
+    const b = fromRows(['#.#', '...', '###']);
+    const { grid, removed } = stripIsolatedInk(b);
+    expect(removed).toBe(2);
+    expect(toRows(grid)).toEqual(['...', '...', '###']);
+  });
+
+  it('leaves diagonally-touching ink alone — that is not orthogonal contact', () => {
+    // Every one of these five cells only touches its neighbours diagonally,
+    // so by the orthogonal definition every one of them is isolated too.
+    const b = fromRows(['#.#', '.#.', '#.#']);
+    const { removed } = stripIsolatedInk(b);
+    expect(removed).toBe(5);
+  });
+
+  it('reports zero removed when nothing is isolated', () => {
+    const b = fromRows(['##', '##']);
+    expect(stripIsolatedInk(b).removed).toBe(0);
   });
 });
 

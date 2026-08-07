@@ -7,9 +7,12 @@
  */
 
 export {
+  alignToPixelGrid,
   at,
   cleanup,
+  collapseEmptyLines,
   createBitmap,
+  detectPixelGrid,
   downsample,
   fromRows,
   inkCount,
@@ -21,6 +24,7 @@ export {
   coverage,
   ditherCoverage,
   resample,
+  stripIsolatedInk,
   thresholdCoverage,
   squareCrop,
   toRows,
