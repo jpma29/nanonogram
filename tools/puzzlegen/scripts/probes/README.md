@@ -1,10 +1,11 @@
 # Source probes
 
-Four scripts to measure whether a new source is worth adding to `SOURCES.md`,
-the same instrument as `sweep-sources.mjs` but for sources that are not one
-npm package: `probe-phylopic.mjs`, `probe-wikimedia.mjs`,
-`probe-museum-silhouettes.mjs`, and — for the two sources with no usable API —
-a manual download procedure below instead of a fourth script.
+Scripts to measure whether a new source is worth adding to `SOURCES.md`, the
+same instrument as `sweep-sources.mjs` but for sources that are not one npm
+package: `probe-phylopic.mjs`, `probe-wikimedia.mjs`,
+`probe-museum-silhouettes.mjs`, and `probe-local-folder.mjs` for anything
+already on disk. Alongside them, `fetch-pixel-sources.mjs` gets the raster
+pixel-art packs *onto* disk in the first place — see its section below.
 
 ## Setup (once)
 
@@ -50,43 +51,58 @@ the source material doesn't reduce to a small grid cleanly; mostly `license`
 means the filter is too strict or the metadata is inconsistent and worth a
 second look before writing the source off.
 
-## Two sources with no API worth automating
+## Raster pixel-art packs: `fetch-pixel-sources.mjs`
 
-Kenney and OpenGameArt are both real candidates — Kenney in particular is
-CC0-by-default, game-sprite-shaped, and closer in spirit to `pixelarticons`
-(the best performer so far) than anything else scoped. Neither has a bulk API
-though: Kenney ships packs as ZIPs from a paginated catalogue page, and
-OpenGameArt is a Drupal community site where quality varies pack to pack.
-Scraping either would be more fragile than just looking at the ~15-30 minutes
-of packs worth trying and downloading them by hand.
+Superseded the hand-download instructions that used to live here. The
+2026-08-07 hunt turned up ~20 usable packs across four hosts, catalogued in
+`pixel-sources.json` with per-pack licence, the exact wording that licence was
+read from, native sprite size and the reason the pack is or isn't a fit.
+`fetch-pixel-sources.mjs` downloads and unpacks everything with a stable URL,
+and prints instructions for what's left.
 
-**Kenney — <https://kenney.nl/assets>**
+```bash
+cd tools/puzzlegen
+node scripts/probes/fetch-pixel-sources.mjs --list        # catalogue, downloads nothing
+node scripts/probes/fetch-pixel-sources.mjs --priority 2  # the packs worth doing first
+node scripts/probes/fetch-pixel-sources.mjs kenney/1-bit-pack fugue-icons
+node scripts/probes/fetch-pixel-sources.mjs --all
+```
 
-1. Filter by category: `2D` and, if useful, the `Pixel` tag —
-   <https://kenney.nl/assets/tag:pixel> is close in spirit to `pixelarticons`.
-2. Everything on the site is CC0; no license filtering needed.
-3. Good starting picks, based on what tends to reduce well (flat, filled,
-   single-subject-per-sprite): "Game Icons", "Animal Pack Redux", "Bevel
-   Icons", "Pixel Platformer" (character/prop sprites), "Onscreen Controls".
-   Avoid tilesets and UI chrome — those are built to tile or compose, not to
-   stand alone as one recognisable picture.
-4. Download the ZIP, unzip it into
-   `tools/puzzlegen/_sources/kenney/<pack-name>/`, one folder per pack.
+Everything lands in `_sources/<pack-id>/` (gitignored) with a
+`PROVENANCE.json` recording where it came from and under what licence — the
+only thing keeping a folder of anonymous PNGs from being measured, and
+eventually shipped, under the wrong attribution. When it finishes it prints
+the matching `probe-local-folder.mjs` command for each pack with the licence
+already filled in; copy-paste those rather than retyping them.
 
-**OpenGameArt — <https://opengameart.org/art-search-advanced>**
+**Why some packs are still manual.** itch.io and OpenGameArt both put
+downloads behind a browser flow. Scraping around that is fragile and rude to
+hosts giving art away for free, so those packs print instructions instead.
+Two of them are worth the five minutes: **Nikoichu's 1-bit Pixel Icons**
+(CC0, 1 476 sprites already at 16×16 1-bit — the best single find of the
+hunt) and **Dungeon Crawl 32×32** (CC0, 6 000+ single-subject sprites).
 
-1. Set **Art Type** to `2D Art` and **License(s)** to `CC0` — that excludes
-   the OGA-BY and CC-BY-SA submissions, which the redistribution policy in
-   `sweep-sources.mjs` already rules out for the same reason as GPL and NC.
-2. Sort by Favorites to surface the vetted-by-usage packs first; quality here
-   is genuinely uneven since it's open community submission, unlike Kenney's
-   single-author consistency.
-3. Open each promising result, confirm the license shown on the page matches
-   the search filter (a few listings are mistagged), download, and unzip into
-   `tools/puzzlegen/_sources/opengameart/<pack-name>/`.
+**Two licence traps recorded in the catalogue**, repeated here because they
+bite at release time rather than at download time: Fugue Icons is CC-BY-3.0
+and contains six third-party icon names under BY-SA/GPL, which the script
+drops on extract by basename across all three of Fugue's folders — so it
+removes up to ~18 files, not 6, erring safe. And famfamfam Silk is
+CC-BY-**2.5**, which `sweep-sources.mjs`'s `REDISTRIBUTABLE` regex does not
+currently match: decide that before a Silk puzzle reaches a release.
 
-Once you have a folder of sprites under `_sources/`, measure it the same way
-as everything else in `SOURCES.md`:
+The catalogue also carries an `eligible` list — CC-BY-SA packs that are
+allowed under current policy (SA has been in `REDISTRIBUTABLE` since
+2026-08-07) but weren't measured for lack of time. Don't re-reject them for
+being ShareAlike.
+
+Verify the archive readers without touching the network:
+
+```bash
+node scripts/probes/fetch-pixel-sources.mjs --self-test
+```
+
+Once you have a folder of sprites under `_sources/` — from the script or by
+hand — measure it the same way as everything else in `SOURCES.md`:
 
 ```bash
 node scripts/probes/probe-local-folder.mjs _sources/kenney/pixel-platformer \
@@ -103,5 +119,19 @@ As of 2026-08-07, `generateFrom` also tries to recover a sprite's *original*
 pixel grid before falling back to the square ladder (see `SOURCES.md`'s
 pixel-art section) — this is what actually makes measuring hand-drawn sprite
 packs meaningful rather than penalising every pack for being exported larger
-than it was drawn. **This local-folder script has not yet been run against a
-real pack** — the next session's first job is exactly that.
+than it was drawn. That path has never fired on any source measured so far:
+`natives` is 0 across all 213 collections of the npm sweep, because Iconify is
+SVG-only. The packs `fetch-pixel-sources.mjs` downloads are the first material
+that can exercise it.
+
+**Neither `probe-local-folder.mjs` nor `fetch-pixel-sources.mjs` has been run
+against a real pack yet** — the next session's first job is exactly that:
+
+```bash
+node scripts/probes/fetch-pixel-sources.mjs kenney/1-bit-pack
+node scripts/probes/probe-local-folder.mjs _sources/kenney/1-bit-pack \
+  --license CC0-1.0 --source "kenney/1-bit-pack" --author "Kenney"
+```
+
+An already-1-bit pack first, so that if the native path misbehaves,
+thresholding cannot be the suspect.

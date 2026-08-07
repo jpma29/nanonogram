@@ -1,6 +1,7 @@
 # 06 — Estado Actual y Continuidad
 
-**Última actualización:** 2026-08-07 (cierre del generador y del barrido de fuentes)
+**Última actualización:** 2026-08-07 (cierre del generador, del barrido de
+fuentes y de la cacería de pixel art)
 **Para:** quien retome el proyecto en una sesión nueva (persona o asistente).
 
 Este documento existe porque una sesión nueva no recuerda la conversación en que
@@ -231,8 +232,14 @@ Esto ocupó buena parte del 2026-08-06/07 y conviene no repetirlo.
 
 `@iconify/json` es **un solo paquete npm con 231 colecciones de iconos**, cada
 una con su licencia en los metadatos. Filtrando a licencias redistribuibles
-(MIT, Apache-2.0, CC0, CC-BY, ISC, OFL, Unlicense, BSD-3, MPL — fuera NC, SA y
-GPL) quedan **214 colecciones y 291 652 imágenes**.
+(MIT, Apache-2.0, CC0, CC-BY, ISC, OFL, Unlicense, BSD-3, MPL — fuera NC y GPL)
+quedan **214 colecciones y 291 652 imágenes**.
+
+> **Corrección (2026-08-07, §7.4):** este párrafo decía "fuera NC, **SA** y
+> GPL". Es falso — `REDISTRIBUTABLE` en `sweep-sources.mjs` sí acepta
+> `CC-BY-SA-3.0` y `CC-BY-SA-4.0` desde ese mismo día, porque cada puzle lleva
+> su propio campo `license` y una obligación SA sobre uno no se propaga al
+> pack ni al código. Rectificado aquí y en `SOURCES.md`.
 
 Se barrieron las 213 medibles con 60 iconos de muestra cada una: **12 756
 imágenes por el pipeline completo**. Aceptación global **19,4 %**.
@@ -277,7 +284,7 @@ pequeña, así que reducirlo a 20–35 celdas no tira casi nada.
 | H3 | **UI del \"estado alternativo\".** `01` RF-SYNC-4 conserva 7 días el estado perdedor de un conflicto, sin pantalla ni endpoint | Fase 2 |
 | H4 | **Backup y restauración** de la instancia | Fase 2 |
 | H5 | **Borrado de puzzles con progreso ajeno.** El esquema hace `CASCADE` en silencio | Fase 2 |
-| H6 | **Pantalla de créditos.** Las fuentes CC-BY y OFL obligan a atribuir **en la aplicación**, no solo en los metadatos del puzzle | Fase 1 |
+| H6 | **Pantalla de créditos.** Las fuentes CC-BY y OFL obligan a atribuir **en la aplicación**, no solo en los metadatos del puzzle. Desde §7.4 es **bloqueante**, no opcional: varias de las mejores fuentes de pixel art son CC-BY | Fase 1 |
 
 ### 7.2 Decisiones pendientes
 
@@ -319,14 +326,8 @@ pequeña, así que reducirlo a 20–35 celdas no tira casi nada.
   `git status` también: la sesión que hizo el cambio no pudo confirmar el estado
   de git por un `index.lock` que no pudo limpiar.
 
-  **Próxima sesión: cacería de fuentes de pixel art.** Ya existe
-  `scripts/probes/probe-local-folder.mjs` (nuevo) para medir cualquier carpeta
-  de sprites descargados a mano contra el pipeline real, igual que el resto de
-  `SOURCES.md`. Instrucciones de descarga manual (Kenney, OpenGameArt) en
-  `scripts/probes/README.md`, sin cambios de esta sesión. Primer paso concreto:
-  bajar 2-3 packs de Kenney (`kenney.nl/assets/tag:pixel`, sugeridos: "Pixel
-  Platformer", "Animal Pack Redux") a `_sources/kenney/<pack>/` y correr el
-  probe sobre cada uno.
+  ~~**Próxima sesión: cacería de fuentes de pixel art.**~~ **Hecha
+  (2026-08-07)** — ver §7.4.
 
 - **Seleccionar los 100 puzzles y repartirlos en tres packs** con curva de
   dificultad. La deduplicación tiene que hacerse sobre el **conjunto fusionado**,
@@ -339,6 +340,104 @@ pequeña, así que reducirlo a 20–35 celdas no tira casi nada.
 - **Averiguar por qué `extraSizes` / `nearbySizes` no rescata nada.** Medido, la
   configuración con tamaños vecinos dio idéntico resultado que sin ellos, lo cual
   es sospechoso.
+
+### 7.4 La cacería de pixel art (2026-08-07)
+
+Hecha. Catálogo en `tools/puzzlegen/scripts/probes/pixel-sources.json`,
+descargador en `scripts/probes/fetch-pixel-sources.mjs`, razonamiento completo
+en la sección "Pixel art: the source hunt" de `SOURCES.md`.
+
+**El hallazgo que replantea el problema.** El movimiento obvio era buscar más
+sets pixel art en npm, como se encontró `pixelarticons`. Ese movimiento ya está
+gastado: **todas las colecciones con estilo pixel dignas de mención ya están en
+el barrido**, porque todas viven en `@iconify/json`. Medidas y en el ranking:
+`memory` 40 %, `pinhead` 38 %, `pixel` (HackerNoon) 25 %, `dinkie-icons` 13 %,
+`streamline-pixel` **0 de 60**. Y `pixelarticons` con 877 iconos ya es el set
+libre actual — no hay snapshot viejo que actualizar.
+
+La razón es estructural, no mala suerte:
+
+> **Iconify solo tiene SVG.** `rasterizeSvg` los renderiza grandes, así que
+> `fit.ts` toma siempre la escalera cuadrada. `natives` es **0 en las 213
+> colecciones del barrido, sin una sola excepción** — la ruta nativa que
+> justificó todo el trabajo de §7.3 no ha disparado jamás sobre una fuente
+> real.
+
+El pixel art raster no es "más de lo mismo desde otro sitio": es la única
+categoría de fuente que puede usar esa ruta, y nada de eso está en npm.
+
+**Lo que hay ahora.** 20 packs aceptados, 5 elegibles sin medir, 15 rechazados
+con su razón. Los que importan:
+
+| Pack | Licencia | Archivos | Nativo | Cómo |
+|---|---|---:|---|---|
+| Nikoichu — 1-bit Pixel Icons | CC0-1.0 | 1 476 | 16×16 | manual (itch.io) |
+| Kenney — 1-Bit Pack | CC0-1.0 | 1 078 | 16×16 | automático |
+| OGA — Dungeon Crawl 32×32 (+supl.) | CC0-1.0 | 6 000+ | 32×32 | manual |
+| OGA — DENZI public domain | CC0-1.0 | ~400 | 32×32 | manual |
+| Kenney — Pixel Shmup / Food / Tiny * | CC0-1.0 | ~950 | 16–18 px | automático |
+| Fugue Icons | CC-BY-3.0 | 3 922 | 16×16 PNG | automático |
+
+**Tres cosas que no conviene equivocar:**
+
+1. **H6 deja de ser aplazable.** CC-BY ya estaba en la lista — `picon`, `whh` y
+   `streamline-*` ya obligaban a atribuir en la app. Lo que cambia es el peso:
+   los dos packs raster más grandes (**Fugue**, CC-BY-3.0, y **famfamfam
+   Silk**, CC-BY-2.5), más HackerNoon y game-icons, son todos de atribución
+   obligatoria. Así que **H6 — pantalla de créditos** pasa a ser bloqueante
+   para publicar desde ellos. Es un cambio de prioridad, no un hallazgo nuevo.
+2. **`famfamfam-silk` es CC-BY-2.5, que la regex `REDISTRIBUTABLE` de
+   `sweep-sources.mjs` no acepta** — solo lista 3.0 y 4.0. Decidir si 2.5 se
+   añade antes de que un puzle suyo llegue a un release, o descartar el pack.
+3. **La exclusión de Fugue es por nombre base, así que borra de más.** Los seis
+   nombres de terceros se cruzan contra el tallo del archivo en `icons/`,
+   `icons-shadowless/` y `bonus/`: se van hasta ~18 archivos, no 6, y un icono
+   legítimo con uno de esos nombres genéricos (`share`, `language`) se iría con
+   ellos. Es el lado seguro del error y perder un par de 3 922 no cuesta nada,
+   pero la línea del log no es un conteo exacto.
+4. **Dungeon Crawl necesita un diff de procedencia.** `github.com/crawl/tiles`
+   mantiene `TILES_UNDER_UNKNOWN_LICENSE.md`; congelar esa lista y cruzarla
+   contra los nombres seleccionados antes de publicar.
+
+**Sobre ShareAlike:** la primera versión del catálogo rechazó tres packs por SA
+aplicando una política que el repositorio ya había abandonado. `REDISTRIBUTABLE`
+acepta `CC-BY-SA-3.0/4.0` desde el 2026-08-07. Esos packs están ahora en la
+clave `eligible` de `pixel-sources.json` — sin medir por falta de tiempo, no por
+licencia. La frase equivocada de §6.1 y su gemela en `SOURCES.md` quedan
+rectificadas.
+
+En sitios comunitarios la licencia la pone quien sube, y hay sets mal
+etiquetados en ambas direcciones (DENZI tiene un nodo CC0 y otro CC-BY-SA;
+Wyrmsun tiene una mitad de cada; el set de 420 iconos de 7Soul1 es GPL/CC-BY-SA
+y el de 496 es su sucesor ya limpio). Por eso cada descarga automática escribe
+un `PROVENANCE.json` junto a los archivos: `_sources/` está en `.gitignore`, así
+que no queda ningún otro registro de dónde salió un PNG.
+
+**Verificado y reproducible** con `node scripts/probes/fetch-pixel-sources.mjs
+--self-test`: 17 aserciones sobre los lectores de ZIP y tar — escritos a mano
+sobre `node:zlib` para no añadir dependencias, y por eso la parte más riesgosa
+del script — más los filtros de extracción y el guardia contra path traversal.
+Los archivos se construyen en memoria (ZIP deflate, ZIP stored, tarball pax con
+ruta de más de 100 caracteres), así que no hay fixtures que caduquen. Es un flag
+y no un archivo de test porque `vitest` solo cubre `packages/`.
+
+**Sin verificar:** el scrape en vivo de las páginas de Kenney y las descargas
+reales, que necesitan red desde un checkout de verdad. Las URLs fijadas quedan
+como `zipFallback` por si el scrape se rompe.
+
+**Primer paso de la próxima sesión**, en Windows:
+
+```bash
+cd tools/puzzlegen
+node scripts/probes/fetch-pixel-sources.mjs kenney/1-bit-pack
+node scripts/probes/probe-local-folder.mjs _sources/kenney/1-bit-pack \
+  --license CC0-1.0 --source "kenney/1-bit-pack" --author "Kenney"
+```
+
+Un pack ya 1-bit primero: si la ruta nativa se porta mal, la umbralización no
+puede ser la sospechosa. Después, bajar a mano el de Nikoichu, que es el de
+mayor valor de la lista.
+
 ## 8. Advertencias operativas
 
 - **Origen estable obligatorio.** IndexedDB y el Service Worker están
@@ -382,8 +481,12 @@ Un barrido completo de 213 colecciones tarda ~20 min en un núcleo.
 **Qué hacer a continuación, en orden:**
 
 ```
-1. Generar el catálogo completo desde las ~43 colecciones que superan el 30 %,
-   deduplicando sobre el conjunto fusionado.
+0. Correr el build y los tests de verdad en Windows (§7.3), y luego medir el
+   primer pack de pixel art raster: fetch-pixel-sources.mjs + probe-local-folder
+   sobre kenney/1-bit-pack (§7.4).
+1. Generar el catálogo completo desde las ~43 colecciones que superan el 30 %
+   MÁS los packs de pixel art que sobrevivan al paso 0, deduplicando sobre el
+   conjunto fusionado.
 2. Seleccionar 100 puzzles en tres packs con curva de dificultad. Los títulos no
    pueden delatar la figura: hideTitle está en true por defecto (RF-BIB-3).
 3. Revalidar los umbrales de estimateDifficulty contra esos 100.

@@ -234,8 +234,10 @@ channel, and was misclassifying every flattened photo as one solid block).
 - **Photographs and paintings in general** — would require dithering. See
   above; the museum probes above are the specific, measured version of this.
 - **Copyleft and NonCommercial icon sets** (GPL, CC-BY-NC) — excluded by
-  `REDISTRIBUTABLE` in the sweep script. ShareAlike (CC-BY-SA) is *not* in this
-  list as of 2026-08-07 — see the note earlier in this document.
+  `REDISTRIBUTABLE` in the sweep script. ShareAlike (CC-BY-SA) is **allowed**
+  as of 2026-08-07 and is in that regex — see the note earlier in this
+  document for the reasoning. (This bullet previously said the opposite; it
+  was stale, and the pixel-art hunt tripped over it.)
 
 ## Pixel art: generator changes made to receive it (2026-08-07)
 
@@ -295,3 +297,128 @@ verified by mirroring every change into a scratch JS copy and asserting the
 exact behaviour the new tests describe, but the actual compiler has not
 touched this code — **run the real build and test suite before trusting this
 is merged.**
+
+## Pixel art: the source hunt (2026-08-07)
+
+The section above changed the generator to *receive* pixel art. This one is
+about where to get it. Catalogue in
+`scripts/probes/pixel-sources.json`, downloader in
+`scripts/probes/fetch-pixel-sources.mjs`.
+
+### The finding that reframed the problem
+
+The obvious move was to look for more pixel-art sets on npm, the way
+`pixelarticons` was found. That move is already spent: **every pixel-styled
+collection worth naming is already in the sweep above**, because
+`@iconify/json` is where they all live.
+
+| Set | Licence | Total | Kept / 60 | Verdict |
+|---|---|---:|---:|---|
+| `pixelarticons` | MIT | 877 | **39 (65 %)** | Still the champion. The `877` in `data/source-ranking.json` is already the current free set — there is no stale snapshot to re-pull. |
+| `picon` | OFL-1.1 | 824 | 32 (53 %) | Already ranked. |
+| `memory` (Pictogrammers) | Apache-2.0 | 651 | 24 (40 %) | 22×22, drawn pixel by pixel for a Sharp Memory display. Already ranked. |
+| `pinhead` | CC0-1.0 | 2 467 | 23 (38 %) | Already ranked. |
+| `pixel` (HackerNoon) | CC-BY-4.0 | 578 | 15 (25 %) | Already ranked. Ten of the fifteen land at 35×35. |
+| `famicons` | MIT | 1 342 | 15 (25 %) | The name misleads — it is an Ionicons fork, smooth vector. |
+| `game-icons` | CC-BY-3.0 | 4 133 | 10 (17 %) | Vector silhouettes at 512², not pixel art. |
+| `dinkie-icons` | MIT | 1 198 | 8 (13 %) | Genuine bitmap style, but measured badly. |
+| `streamline-pixel` | CC-BY-4.0 | 662 | **0 (0 %)** | Zero out of sixty. Worth understanding before trusting the 32 px band. |
+
+So the npm well is dry, and the reason is structural rather than bad luck:
+
+> **Iconify only holds SVG.** `rasterizeSvg` renders it large, so `fit.ts`
+> takes the square ladder every time. `natives` is **0 in all 213 collections
+> of the sweep, without a single exception** — the native path that the
+> pixel-art work above was built for has never once fired on a real source.
+
+Raster pixel art is therefore not "more of the same, from a different host".
+It is the only category of source that can use that path at all, and none of
+it is on npm. That is what justifies a downloader.
+
+### What the hunt found
+
+Twenty packs kept, five set aside as eligible-but-unmeasured, fifteen rejected
+outright. Full reasoning, per-pack notes and the exact licence wording seen on
+each page are in `pixel-sources.json`; the headlines:
+
+| Pack | Licence | Files | Native | Why |
+|---|---|---:|---|---|
+| **Nikoichu — 1-bit Pixel Icons** | CC0-1.0 | 1 476 | 16×16 | The single best find. Already 1-bit, individually named PNGs. Manual (itch.io). |
+| **Kenney — 1-Bit Pack** | CC0-1.0 | 1 078 | 16×16 | Best automatable pack. Already 1-bit, so the sprite *is* the solution grid. |
+| **OGA — Dungeon Crawl 32×32 (+suppl.)** | CC0-1.0 | 6 000+ | 32×32 | Largest CC0 single-subject corpus anywhere. Manual. |
+| **OGA — DENZI public domain** | CC0-1.0 | ~400 | 32×32 | Pre-sliced and category-named: the fastest pilot corpus. Manual. |
+| **Kenney — Pixel Shmup / Food Exp. / Tiny \*** | CC0-1.0 | ~950 | 16–18 px | Colour sprites; these are what actually exercise colour→binary. |
+| **Fugue Icons** | CC-BY-3.0 | 3 922 | 16×16 PNG | Largest clean-licence 16 px raster set. **Six third-party icon *names* are BY-SA/GPL** and are dropped on extract (see caveat below). |
+| **famfamfam Silk** | CC-BY-2.5 | 1 000 | 16×16 PNG | Huge subject variety, but colour + antialiasing at 16 px. Measure before investing. |
+
+**Start with 1-Bit Pack.** Running an already-binary source first means that
+if the native path misbehaves, thresholding cannot be the suspect.
+
+### Four things to not get wrong
+
+1. **H6 stops being deferrable.** CC-BY was already on the list — the
+   "Attribution" section above has required in-app credit for `picon`, `whh`,
+   `streamline-*` and the Font Awesome sets since the sweep. What changes is
+   the weight: two of the largest raster packs (**Fugue**, CC-BY-3.0, and
+   **famfamfam Silk**, CC-BY-2.5) plus HackerNoon and game-icons are all
+   attribution-bound, so **H6 — the in-app credits screen** is now a hard
+   blocker on shipping from them rather than a Fase 1 nice-to-have. This is a
+   judgement change about priority, not a new discovery. See `docs/06` §7.1.
+2. **`famfamfam-silk` is CC-BY-2.5, which `REDISTRIBUTABLE` in
+   `sweep-sources.mjs` does not match** — the regex lists 3.0 and 4.0 only.
+   Decide whether 2.5 joins the list before any Silk-derived puzzle reaches a
+   release, or drop the pack.
+3. **The Fugue exclusion is by basename, so it over-deletes.** The six
+   third-party names (`geotag`, `language`, `open-share`, `opml`, `share`,
+   `xfn`) are matched against the filename stem across `icons/`,
+   `icons-shadowless/` and `bonus/` — so up to ~18 files go, not 6, and a
+   legitimate unrelated Fugue icon sharing one of those generic stems would
+   go with them. That is the safe direction to err, and losing a couple of
+   icons out of 3 922 costs nothing, but don't read the log line as an exact
+   count.
+4. **Dungeon Crawl needs a provenance diff.** `github.com/crawl/tiles` keeps
+   `TILES_UNDER_UNKNOWN_LICENSE.md`, tiles whose licensing is unclear and
+   which the CC0 export is supposed to have already filtered. Snapshot that
+   list and cross it against the selected filenames before publishing.
+
+Related, and the general lesson from the rejected list: on community sites the
+uploader sets the licence field, and several sets are mistagged in both
+directions. DENZI has a CC0 node and a CC-BY-SA sibling node; Wyrmsun has a
+CC0 half and a CC-BY-SA/GPL half; 7Soul1's 420-icon set is GPL/CC-BY-SA and
+its 496-icon successor is the post-cleanup CC0 one. A commenter on that last
+thread put the risk better than any policy could: *"most artists think that
+public domain means something like OGA/CC BY"*. Every automated download
+writes a `PROVENANCE.json` next to the files for exactly this reason —
+`_sources/` is gitignored, so nothing else records where a PNG came from.
+
+### Running it
+
+```bash
+cd tools/puzzlegen
+node scripts/probes/fetch-pixel-sources.mjs --list
+node scripts/probes/fetch-pixel-sources.mjs --priority 2   # the good stuff
+node scripts/probes/fetch-pixel-sources.mjs --all
+```
+
+It prints the matching `probe-local-folder.mjs` command per pack, licence
+already filled in. itch.io and OpenGameArt are marked `manual` and print
+instructions instead of downloading: both put files behind a browser flow,
+and scraping around that is fragile and rude to hosts giving art away.
+
+**Verified, reproducibly:**
+
+```bash
+node scripts/probes/fetch-pixel-sources.mjs --self-test
+```
+
+17 assertions over the ZIP and tar readers — both hand-rolled on `node:zlib` to
+keep the script dependency-free, and therefore the riskiest part of it — plus
+the extraction filters and the path-traversal guard. The archives are built in
+memory (deflate ZIP, stored ZIP, pax tarball with a >100-character path), so
+there are no fixtures to go stale and it runs anywhere Node does. `vitest` only
+covers `packages/`, which is why this is a flag rather than a test file.
+
+**Not verified:** the live Kenney page-scrape and the actual downloads, which
+need network from a real checkout. The pinned ZIP URLs are recorded as
+`zipFallback` in case the scrape breaks; Kenney rotates the hash in those URLs
+on every reupload, which is why the scrape exists at all.
