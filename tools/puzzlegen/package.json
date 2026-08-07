@@ -1,0 +1,17 @@
+{
+  "name": "@nanonogram/puzzlegen",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Turns licence-clean pictures into verified nonogram puzzles. Build-time only.",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "dependencies": {
+    "@nanonogram/core": "workspace:*",
+    "@resvg/resvg-js": "^2.6.2"
+  }
+}
