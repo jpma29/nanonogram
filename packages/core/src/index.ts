@@ -90,8 +90,20 @@ export type { CellChange, HistoryState, Stroke } from './history.js';
 export { Game } from './game.js';
 export type { GameOptions, GameSnapshot, GameStatus, MoveOutcome, PaintState } from './game.js';
 
-export { estimateDifficulty, solvePuzzle, verifyPuzzle } from './solver.js';
-export type { SolveMetrics, SolveOptions, SolveResult, VerificationResult } from './solver.js';
+export {
+  estimateDifficulty,
+  isLineSolvable,
+  propagateOnly,
+  solvePuzzle,
+  verifyPuzzle,
+} from './solver.js';
+export type {
+  PropagationResult,
+  SolveMetrics,
+  SolveOptions,
+  SolveResult,
+  VerificationResult,
+} from './solver.js';
 
 export {
   PUZZLE_SCHEMA,

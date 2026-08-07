@@ -8,3 +8,7 @@ coverage/
 *.log
 .vite/
 .svelte-kit/
+
+# Material de terceros en bruto (ZIPs de fuentes de puzzles).
+# Se analiza aqui pero nunca se versiona ni se distribuye.
+_incoming/

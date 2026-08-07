@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { estimateDifficulty, solvePuzzle, verifyPuzzle } from '../src/index.js';
+import {
+  estimateDifficulty,
+  isLineSolvable,
+  propagateOnly,
+  solvePuzzle,
+  verifyPuzzle,
+} from '../src/index.js';
 import { colorPuzzleFrom, grid, puzzleFrom } from './helpers.js';
 
 describe('solvePuzzle', () => {
@@ -154,5 +160,60 @@ describe('estimateDifficulty', () => {
   it('is deterministic', () => {
     const metrics = { depth: 1, passes: 3, minInfo: 0.25 };
     expect(estimateDifficulty(metrics, 15, 15)).toBe(estimateDifficulty(metrics, 15, 15));
+  });
+});
+
+describe('propagateOnly / isLineSolvable (the "pure logic" standard)', () => {
+  it('solves a line-solvable puzzle to completion with no guessing', () => {
+    const puzzle = puzzleFrom(['.#.', '###', '.#.']);
+    const result = propagateOnly(puzzle);
+    expect(result.contradiction).toBe(false);
+    expect(result.undecided).toBe(0);
+    expect(isLineSolvable(puzzle)).toBe(true);
+  });
+
+  it('leaves cells undecided when the puzzle needs a guess', () => {
+    // The ambiguous diagonal: unique solution is impossible, and line logic
+    // cannot decide a single cell.
+    const puzzle = puzzleFrom(['#.', '.#']);
+    const result = propagateOnly(puzzle);
+    expect(result.contradiction).toBe(false);
+    expect(result.undecided).toBe(4);
+    expect(isLineSolvable(puzzle)).toBe(false);
+  });
+
+  it('agrees with the full solver about which puzzles need backtracking', () => {
+    for (const rows of [
+      ['.#.', '###', '.#.'],
+      ['#####', '#...#', '#...#', '#...#', '#####'],
+      ['##########'],
+      ['#.', '.#'],
+      ['#.#', '.#.', '#.#'],
+    ]) {
+      const puzzle = puzzleFrom(rows);
+      const full = solvePuzzle(puzzle);
+      expect(isLineSolvable(puzzle), rows.join('/')).toBe(full.unique && full.metrics.depth === 0);
+    }
+  });
+
+  it('reports a contradiction when the clues cannot be satisfied', () => {
+    const base = puzzleFrom(['##', '..']);
+    const impossible = {
+      ...base,
+      rowClues: [[{ count: 2, colorIndex: 1 }], []],
+      colClues: [[{ count: 2, colorIndex: 1 }], [{ count: 2, colorIndex: 1 }]],
+    };
+    const result = propagateOnly(impossible);
+    expect(result.contradiction).toBe(true);
+    expect(isLineSolvable(impossible)).toBe(false);
+  });
+
+  it('a line-solvable puzzle always has a unique solution', () => {
+    // Nothing left to branch on means nothing left to disagree about.
+    for (const rows of [['.#.', '###', '.#.'], ['####', '#..#', '#..#', '####'], ['#']]) {
+      const puzzle = puzzleFrom(rows);
+      if (!isLineSolvable(puzzle)) continue;
+      expect(solvePuzzle(puzzle).unique, rows.join('/')).toBe(true);
+    }
   });
 });

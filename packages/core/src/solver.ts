@@ -212,7 +212,83 @@ function search(domains: Uint32Array, ctx: Context, depth: number): void {
   }
 }
 
-/** Solve a puzzle from its clues alone, ignoring its stored solution. */
+/** What pure line-by-line deduction alone can establish about a puzzle. */
+export interface PropagationResult {
+  /** True when the clues contradict each other outright. */
+  readonly contradiction: boolean;
+  /**
+   * Cells still undecided once propagation reaches its fixed point. Zero means
+   * the puzzle falls out by deduction alone, with no guessing anywhere.
+   */
+  readonly undecided: number;
+  /** Refined domains at the fixed point. */
+  readonly domains: Uint32Array;
+  /** Propagation passes it took to get there. */
+  readonly passes: number;
+}
+
+function contextFor(puzzle: Puzzle, options: SolveOptions = {}): Context {
+  const colors = puzzle.palette.keys.length;
+  return {
+    width: puzzle.width,
+    height: puzzle.height,
+    colors,
+    rowClues: puzzle.rowClues,
+    colClues: puzzle.colClues,
+    engine: new LineEngine(),
+    maxSolutions: options.maxSolutions ?? 2,
+    nodeBudget: options.nodeBudget ?? 200_000,
+    solutions: [],
+    maxDepth: 0,
+    topLevelPasses: 0,
+    minInfo: 1,
+    exhausted: false,
+  };
+}
+
+/**
+ * Run constraint propagation only — no guessing, no backtracking.
+ *
+ * This answers a question the plain solver cannot: *how* a puzzle is solved,
+ * not just whether it has one answer. A puzzle can have a unique solution and
+ * still force the player to guess a cell and see whether it blows up ten moves
+ * later. Experienced players consider that a broken puzzle, and it is the line
+ * the major nonogram publishers draw: every shipped puzzle must fall out by
+ * deduction alone.
+ *
+ * `undecided === 0` on a non-contradictory puzzle means exactly that, and it
+ * implies uniqueness for free — there is nothing left to branch on.
+ */
+export function propagateOnly(puzzle: Puzzle): PropagationResult {
+  const ctx = contextFor(puzzle);
+  const domains = new Uint32Array(puzzle.width * puzzle.height).fill(fullDomain(ctx.colors - 1));
+  const dirtyRows = new Uint8Array(ctx.height).fill(1);
+  const dirtyCols = new Uint8Array(ctx.width).fill(1);
+  const resolved = propagate(domains, ctx, dirtyRows, dirtyCols, true);
+  if (resolved < 0) {
+    return { contradiction: true, undecided: domains.length, domains, passes: ctx.topLevelPasses };
+  }
+  let undecided = 0;
+  for (let i = 0; i < domains.length; i++) if (domainSize(domains[i]!) > 1) undecided++;
+  return { contradiction: false, undecided, domains, passes: ctx.topLevelPasses };
+}
+
+/**
+ * True when the puzzle is solvable by pure logic: every cell is forced by
+ * line-by-line deduction, never by trial and error (see {@link propagateOnly}).
+ */
+export function isLineSolvable(puzzle: Puzzle): boolean {
+  const result = propagateOnly(puzzle);
+  return !result.contradiction && result.undecided === 0;
+}
+
+/**
+ * Solve a puzzle from its clues alone, ignoring its stored solution.
+ *
+ * Unlike {@link propagateOnly}, this will guess and backtrack when deduction
+ * stalls, so it can answer "is this uniquely solvable *at all*" — a weaker
+ * question than "is this solvable by logic".
+ */
 export function solvePuzzle(puzzle: Puzzle, options: SolveOptions = {}): SolveResult {
   const colors = puzzle.palette.keys.length;
   const ctx: Context = {
