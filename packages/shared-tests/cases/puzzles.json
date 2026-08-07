@@ -382,7 +382,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 2,
         "rejectReason": null
       }
     },
@@ -461,7 +461,7 @@
         "solutionCount": 2,
         "unique": false,
         "verified": false,
-        "difficulty": 3,
+        "difficulty": 5,
         "rejectReason": "the clues admit more than one solution"
       }
     },
@@ -583,7 +583,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 2,
         "rejectReason": null
       }
     },
@@ -725,7 +725,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 2,
         "rejectReason": null
       }
     },
@@ -951,7 +951,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 3,
         "rejectReason": null
       }
     },
@@ -1961,7 +1961,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 3,
         "rejectReason": null
       }
     },
@@ -2168,7 +2168,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 4,
         "rejectReason": null
       }
     },
@@ -2483,7 +2483,7 @@
         "solutionCount": 2,
         "unique": false,
         "verified": false,
-        "difficulty": 3,
+        "difficulty": 5,
         "rejectReason": "the clues admit more than one solution"
       }
     },
@@ -2640,7 +2640,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 4,
         "rejectReason": null
       }
     },
@@ -2771,7 +2771,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 5,
         "rejectReason": null
       }
     },
@@ -2913,7 +2913,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 2,
         "rejectReason": null
       }
     },
@@ -3045,7 +3045,7 @@
         "solutionCount": 2,
         "unique": false,
         "verified": false,
-        "difficulty": 3,
+        "difficulty": 5,
         "rejectReason": "the clues admit more than one solution"
       }
     },
@@ -3292,7 +3292,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 2,
         "rejectReason": null
       }
     },
@@ -3502,7 +3502,7 @@
         "solutionCount": 2,
         "unique": false,
         "verified": false,
-        "difficulty": 3,
+        "difficulty": 5,
         "rejectReason": "the clues admit more than one solution"
       }
     },
@@ -3692,7 +3692,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 3,
         "rejectReason": null
       }
     },
@@ -3909,7 +3909,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 4,
         "rejectReason": null
       }
     },
@@ -4081,7 +4081,7 @@
         "solutionCount": 2,
         "unique": false,
         "verified": false,
-        "difficulty": 4,
+        "difficulty": 5,
         "rejectReason": "the clues admit more than one solution"
       }
     },
@@ -4692,7 +4692,7 @@
         "solutionCount": 2,
         "unique": false,
         "verified": false,
-        "difficulty": 3,
+        "difficulty": 5,
         "rejectReason": "the clues admit more than one solution"
       }
     },
@@ -4814,7 +4814,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 2,
         "rejectReason": null
       }
     },
@@ -5056,7 +5056,7 @@
         "solutionCount": 2,
         "unique": false,
         "verified": false,
-        "difficulty": 3,
+        "difficulty": 5,
         "rejectReason": "the clues admit more than one solution"
       }
     },
@@ -5170,7 +5170,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 3,
         "rejectReason": null
       }
     },
@@ -5404,7 +5404,7 @@
         "solutionCount": 2,
         "unique": false,
         "verified": false,
-        "difficulty": 3,
+        "difficulty": 5,
         "rejectReason": "the clues admit more than one solution"
       }
     },
@@ -5674,7 +5674,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 4,
         "rejectReason": null
       }
     },
@@ -5845,7 +5845,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 2,
         "rejectReason": null
       }
     },
@@ -6252,7 +6252,7 @@
         "solutionCount": 1,
         "unique": true,
         "verified": true,
-        "difficulty": 1,
+        "difficulty": 5,
         "rejectReason": null
       }
     },
@@ -6548,7 +6548,7 @@
         "solutionCount": 2,
         "unique": false,
         "verified": false,
-        "difficulty": 3,
+        "difficulty": 5,
         "rejectReason": "the clues admit more than one solution"
       }
     },

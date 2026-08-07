@@ -91,8 +91,10 @@ export { Game } from './game.js';
 export type { GameOptions, GameSnapshot, GameStatus, MoveOutcome, PaintState } from './game.js';
 
 export {
+  DIFFICULTY_WEIGHTS,
   estimateDifficulty,
   isLineSolvable,
+  openingShare,
   propagateOnly,
   solvePuzzle,
   verifyPuzzle,

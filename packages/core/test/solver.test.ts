@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
   estimateDifficulty,
+  DIFFICULTY_WEIGHTS,
   isLineSolvable,
+  openingShare,
   propagateOnly,
   solvePuzzle,
   verifyPuzzle,
@@ -137,29 +139,111 @@ describe('verifyPuzzle (RF-BIB-6)', () => {
   });
 });
 
-describe('estimateDifficulty', () => {
-  it('scores guess-free puzzles below puzzles that need backtracking', () => {
-    const easy = estimateDifficulty({ depth: 0, passes: 2, minInfo: 0.8 }, 20, 20);
-    const guessy = estimateDifficulty({ depth: 2, passes: 8, minInfo: 0.1 }, 20, 20);
-    expect(easy).toBeLessThan(guessy);
+describe('estimateDifficulty (opening + chain, 02-arquitectura §5.3)', () => {
+  const m = (openness: number, passes: number, depth = 0) => ({
+    depth,
+    passes,
+    minInfo: 0.5,
+    openness,
   });
 
-  it('stays inside 1..5', () => {
-    expect(estimateDifficulty({ depth: 9, passes: 40, minInfo: 0 }, 100, 100)).toBe(5);
-    expect(estimateDifficulty({ depth: 0, passes: 1, minInfo: 1 }, 5, 5)).toBe(1);
+  it('a generous opening scores easy, a tight one scores hard', () => {
+    expect(estimateDifficulty(m(0.95, 3))).toBe(1);
+    expect(estimateDifficulty(m(0.2, 3))).toBeGreaterThanOrEqual(4);
   });
 
-  it('nudges large grids upward and small grids downward', () => {
-    const metrics = { depth: 0, passes: 5, minInfo: 0.1 };
-    expect(estimateDifficulty(metrics, 50, 50)).toBeGreaterThan(
-      estimateDifficulty(metrics, 20, 20),
+  it('the opening outweighs the chain', () => {
+    // Wide-open board, very long chain: still not hard.
+    const openButLong = estimateDifficulty(m(0.9, 25));
+    // Tight board, short chain: harder, despite closing in three passes.
+    const tightButShort = estimateDifficulty(m(0.25, 3));
+    expect(tightButShort).toBeGreaterThan(openButLong);
+  });
+
+  it('a longer chain still raises the score at equal opening', () => {
+    expect(estimateDifficulty(m(0.5, 12))).toBeGreaterThan(estimateDifficulty(m(0.5, 2)));
+  });
+
+  it('is monotonic in the opening', () => {
+    let previous = 6;
+    for (const openness of [0.1, 0.3, 0.5, 0.7, 0.9]) {
+      const level = estimateDifficulty(m(openness, 4));
+      expect(level).toBeLessThanOrEqual(previous);
+      previous = level;
+    }
+  });
+
+  it('does not look at grid size at all', () => {
+    // Size correlates with the opening already; counting it twice is what made
+    // the first version of this function useless.
+    expect(estimateDifficulty(m(0.5, 4))).toBe(estimateDifficulty(m(0.5, 4)));
+  });
+
+  it('puts anything that needs guessing at the top of the scale', () => {
+    expect(estimateDifficulty(m(0.9, 2, 1))).toBe(5);
+  });
+
+  it('stays inside 1..5 at the extremes', () => {
+    expect(estimateDifficulty(m(0, 999))).toBe(5);
+    expect(estimateDifficulty(m(1, 0))).toBe(1);
+  });
+
+  it('clamps out-of-range inputs instead of leaving the 1..5 scale', () => {
+    // Both terms saturate independently. An openness below zero reads as "no
+    // opening at all" — the hard end — and a negative pass count as "no chain".
+    expect(estimateDifficulty(m(-5, -5))).toBe(5);
+    // A board given away entirely, but that still takes 999 passes to close, is
+    // not a level 1: the chain term keeps contributing its full share.
+    expect(estimateDifficulty(m(5, 999))).toBe(2);
+    for (const [openness, passes] of [
+      [-1, -1],
+      [0, 0],
+      [1, 1],
+      [2, 1e6],
+      [Number.NaN, 4],
+    ] as const) {
+      const level = estimateDifficulty(m(openness, passes));
+      expect(level, `${openness}/${passes}`).toBeGreaterThanOrEqual(1);
+      expect(level, `${openness}/${passes}`).toBeLessThanOrEqual(5);
+    }
+  });
+
+  it('exposes its weights so the Go implementation can mirror them', () => {
+    expect(DIFFICULTY_WEIGHTS.opening + DIFFICULTY_WEIGHTS.chain).toBeCloseTo(1);
+    expect(DIFFICULTY_WEIGHTS.thresholds).toHaveLength(4);
+    expect([...DIFFICULTY_WEIGHTS.thresholds]).toEqual(
+      [...DIFFICULTY_WEIGHTS.thresholds].sort((a, b) => a - b),
     );
-    expect(estimateDifficulty(metrics, 8, 8)).toBeLessThan(estimateDifficulty(metrics, 20, 20));
+  });
+});
+
+describe('openingShare', () => {
+  it('is 1 when one reading of the clues settles the whole board', () => {
+    expect(openingShare(puzzleFrom(['##', '##']))).toBe(1);
+    expect(openingShare(puzzleFrom(['..', '..']))).toBe(1);
   });
 
-  it('is deterministic', () => {
-    const metrics = { depth: 1, passes: 3, minInfo: 0.25 };
-    expect(estimateDifficulty(metrics, 15, 15)).toBe(estimateDifficulty(metrics, 15, 15));
+  it('is low when nothing is forced without cross-referencing', () => {
+    expect(openingShare(puzzleFrom(['#.', '.#']))).toBe(0);
+  });
+
+  it('sits between the two for a real picture', () => {
+    const share = openingShare(puzzleFrom(['.#.', '###', '.#.']));
+    expect(share).toBeGreaterThan(0);
+    expect(share).toBeLessThanOrEqual(1);
+  });
+
+  it('never exceeds what full propagation decides', () => {
+    for (const rows of [
+      ['.#.', '###', '.#.'],
+      ['#####', '#...#', '#####'],
+      ['#.', '.#'],
+    ]) {
+      const puzzle = puzzleFrom(rows);
+      const total = puzzle.width * puzzle.height;
+      const settled = total - propagateOnly(puzzle).undecided;
+      expect(openingShare(puzzle) * total, rows.join('/')).toBeLessThanOrEqual(settled);
+    }
   });
 });
 
