@@ -236,3 +236,62 @@ channel, and was misclassifying every flattened photo as one solid block).
 - **Copyleft and NonCommercial icon sets** (GPL, CC-BY-NC) — excluded by
   `REDISTRIBUTABLE` in the sweep script. ShareAlike (CC-BY-SA) is *not* in this
   list as of 2026-08-07 — see the note earlier in this document.
+
+## Pixel art: generator changes made to receive it (2026-08-07)
+
+The sweep above is all vector icon sets reduced onto a grid. Pixel art —
+sprites drawn by hand, one cell at a time, at a size that's already close to
+playable — is a different shape of source entirely, and testing it against
+real hand-drawn and photographed sprites (not icon-set renders) this session
+surfaced three genuine gaps in the generator, now fixed in
+`tools/puzzlegen/src/`:
+
+1. **Quality thresholds were calibrated for reduced vectors, not native
+   sprites.** A hand-placed sprite earns denser fill and a couple of loose
+   marks on purpose — `generateFrom` now relaxes `maxFill`/`maxIsolated`
+   automatically whenever the fit lands on the native (unscaled) path. An
+   explicit `options.quality` always overrides this.
+2. **A mark floating a few cells from the main figure** (a spout's spray, a
+   couple of stars) left `repair.ts`'s boundary-only escalation unable to
+   pin it down, no matter the edit budget — the ambiguity was interior, and
+   repair never touches interior cells by design. Two fixes, composed:
+   `collapseEmptyLines` (new in `bitmap.ts`) shrinks interior gaps of 2+
+   blank rows/columns to one before fitting, and if `repairToPureLogic`
+   still fails, `generateFrom` now retries once after dropping whatever
+   cells `playability` would have flagged as isolated anyway.
+3. **A sprite is routinely exported or screenshotted larger than it was
+   drawn** — a 15x19 sprite saved as a 400x400 PNG looks exactly like a
+   vector needing the square ladder, and reducing it that way rarely lands
+   back on the exact grid its author drew. `detectPixelGrid`/
+   `alignToPixelGrid` (new in `bitmap.ts`) recover the original grid from the
+   run-length structure of a blown-up image — flat pixel art has a hard edge
+   between cells, so the run-length population is dominated by multiples of
+   one true pitch — and only accept a candidate when reducing to it leaves
+   the picture decisively black-or-white almost everywhere. A photograph or
+   a softly-antialiased curve fails that test and passes through unchanged.
+   `generateFrom` tries this automatically before falling back to the square
+   ladder.
+
+Validated against seven real sprites (a monkey face, a soot sprite, a dither
+moon, a whale with floating spout dots, a skull, a robot icon, a cat face),
+decoded from the raw uploaded image with **no manual grid-finding** — the
+point of item 3 above. All seven now resolve automatically; the two
+regressions this surfaced along the way (a unit-selection bug that let a
+short noise run block a correct, coarser candidate from ever being tried, and
+a confidence threshold too strict for real scan/photo artefacts) are covered
+by new tests in `test/puzzlegen.test.ts`.
+
+**Known remaining gap:** a sprite exported with *smooth* (non-nearest-neighbour)
+upscaling has no hard cell edges left to detect a pitch from — one real test
+case (a monkey face) still needs its native size passed explicitly via
+`options.fit`. Nothing to build yet; noted so a future session doesn't
+re-discover it from scratch.
+
+**Not yet run:** `pnpm build && pnpm test` on an actual Windows checkout. This
+session's sandbox can execute the compiled logic directly (patched around a
+broken cross-OS pnpm symlink) but cannot run the real `tsc`/`vitest` toolchain
+against the pnpm-linked `node_modules` created on Windows. The logic was
+verified by mirroring every change into a scratch JS copy and asserting the
+exact behaviour the new tests describe, but the actual compiler has not
+touched this code — **run the real build and test suite before trusting this
+is merged.**

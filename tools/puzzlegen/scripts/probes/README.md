@@ -85,9 +85,23 @@ of packs worth trying and downloading them by hand.
    the search filter (a few listings are mistagged), download, and unzip into
    `tools/puzzlegen/_sources/opengameart/<pack-name>/`.
 
-Once you have a folder of sprites under `_sources/`, the measuring instrument
-is the same as always — say the word and I'll write
-`probe-local-folder.mjs`: walk a directory, rasterise every PNG/SVG the same
-way the other probes do, run `generateFrom`, and report the acceptance rate,
-so Kenney and OpenGameArt get measured on equal footing with everything else
-in `SOURCES.md` instead of judged by eye.
+Once you have a folder of sprites under `_sources/`, measure it the same way
+as everything else in `SOURCES.md`:
+
+```bash
+node scripts/probes/probe-local-folder.mjs _sources/kenney/pixel-platformer \
+  --license CC0-1.0 --source "kenney/pixel-platformer"
+```
+
+It walks the folder, rasterises every PNG/SVG the same way the other probes
+do, runs `generateFrom`, dedupes, and reports the acceptance rate — so Kenney
+and OpenGameArt packs get measured on equal footing with everything else
+instead of judged by eye. One licence per run: if a folder mixes licences,
+split it before measuring, or run the script once per sub-folder.
+
+As of 2026-08-07, `generateFrom` also tries to recover a sprite's *original*
+pixel grid before falling back to the square ladder (see `SOURCES.md`'s
+pixel-art section) — this is what actually makes measuring hand-drawn sprite
+packs meaningful rather than penalising every pack for being exported larger
+than it was drawn. **This local-folder script has not yet been run against a
+real pack** — the next session's first job is exactly that.

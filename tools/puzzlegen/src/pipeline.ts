@@ -80,6 +80,11 @@ export interface GenerateOptions {
   readonly fit?: FitOptions;
   readonly quality?: QualityThresholds;
   readonly repair?: RepairOptions;
+  /** Passed to {@link alignToPixelGrid} when a picture isn't already native
+   * sized. `maxCells` defaults to {@link MAX_GRID} — the generator's own
+   * ceiling — so raise it only to see what a source looks like *before* that
+   * ceiling discards it, not to actually ship a larger board. */
+  readonly alignment?: Parameters<typeof alignToPixelGrid>[1];
   /** Extra sizes above the faithful minimum to try. Default 2. */
   readonly extraSizes?: number;
 }
@@ -155,7 +160,7 @@ export function generateFrom(
   // square-ladder picture's own preprocessing step) apply.
   let prepared = reference;
   if (!isNativeResolution(reference, options.fit)) {
-    const aligned = alignToPixelGrid(reference, { maxCells: MAX_GRID });
+    const aligned = alignToPixelGrid(reference, { maxCells: MAX_GRID, ...options.alignment });
     prepared =
       aligned.width <= MAX_GRID && aligned.height <= MAX_GRID
         ? aligned
