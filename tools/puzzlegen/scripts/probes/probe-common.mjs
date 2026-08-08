@@ -357,9 +357,30 @@ async function classifyRasterInner(buffer) {
     .raw()
     .toBuffer({ resolveWithObject: true });
   const { width, height, channels } = info;
-  return meta.hasAlpha
-    ? classifyByAlphaWithClipping(data, width, height, channels)
-    : classifyByBackground(data, width, height, channels);
+
+  // `hasAlpha` is necessary but not sufficient. A 1-bit sheet exported with a
+  // *painted* background — a solid dark rectangle behind white line art — has
+  // a real alpha channel that is almost entirely opaque, so it carries no
+  // figure/ground information at all. Routing it to the alpha branch reads the
+  // background as ink and the image comes out ~90% full, which the playability
+  // gate then rejects as "too dense". Measured on OpenGameArt's 1-Bit Mystery
+  // Icons (2026-08-07): 89.4% opaque, all 45 icons rejected at 91% ink.
+  //
+  // When nearly everything is opaque, the alpha channel is decoration; fall
+  // back to detecting the background colour from the border, which is exactly
+  // the case `classifyByBackground` was written for. The 0.98 cutoff is
+  // deliberately high: a sprite that genuinely fills its whole tile is rare,
+  // and mis-routing one of those costs a single puzzle, while mis-routing a
+  // painted-background sheet costs the entire pack.
+  const OPAQUE_SHARE_WITHOUT_INFORMATION = 0.85;
+  if (meta.hasAlpha) {
+    let opaque = 0;
+    for (let i = 0; i < width * height; i++) if (data[i * channels + 3] >= 128) opaque++;
+    if (opaque / (width * height) < OPAQUE_SHARE_WITHOUT_INFORMATION) {
+      return classifyByAlphaWithClipping(data, width, height, channels);
+    }
+  }
+  return classifyByBackground(data, width, height, channels);
 }
 
 export async function classifyRaster(buffer, timeoutMs = 15000) {

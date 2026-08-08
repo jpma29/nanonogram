@@ -241,13 +241,42 @@ async function get(url, { text = false } = {}) {
  * and only fall back to the pinned URL recorded during the hunt if the page
  * layout has changed enough that no `.zip` link is findable.
  */
+/**
+ * Pick the pack's ZIP out of an asset page's markup. Pure, so `--self-test`
+ * can exercise it without the network.
+ *
+ * Deliberately not anchored to `href="..."`. The first version of this was,
+ * and it found nothing on a page that demonstrably contains the link — the
+ * real download hangs off a "Continue without donating…" anchor inside a
+ * donation interstitial, and that markup is not worth reverse-engineering.
+ * Any `.zip` URL in the document will do, then filtered by name: Kenney names
+ * archives `kenney_<slug>.zip`, so preferring a filename that mentions the
+ * page's own slug keeps an unrelated archive on the same page (the All-in-1
+ * bundle promo) from winning.
+ */
+export function pickZipUrl(html, pageUrl) {
+  const found = new Set();
+  for (const [, url] of html.matchAll(/["'(]([^"'()\s]+\.zip)(?:["')?#]|$)/g)) found.add(url);
+  for (const [url] of html.matchAll(/https?:\/\/[^\s"'()<>]+\.zip/g)) found.add(url);
+  if (found.size === 0) return null;
+
+  const absolute = [...found].map((url) => (url.startsWith('http') ? url : new URL(url, pageUrl).toString()));
+  const slug = pageUrl.split('/').pop().replace(/[^a-z0-9]/gi, '');
+  const score = (url) => {
+    const name = url.split('/').pop().toLowerCase().replace(/[^a-z0-9]/g, '');
+    return (name.includes(slug) ? 0 : 2) + (name.startsWith('kenney') ? 0 : 1);
+  };
+  return absolute.sort((a, b) => score(a) - score(b))[0];
+}
+
 async function resolveKenneyZip(pack) {
   try {
-    const html = await get(pack.url, { text: true });
-    const matches = [...html.matchAll(/href="([^"]+\.zip)"/g)].map((m) => m[1]);
-    if (matches.length > 0) {
-      const href = matches[0];
-      return href.startsWith('http') ? href : new URL(href, pack.url).toString();
+    const best = pickZipUrl(await get(pack.url, { text: true }), pack.url);
+    if (best) {
+      if (pack.zipFallback && best !== pack.zipFallback) {
+        console.log('  (page URL differs from the pinned one — the pin has rotated)');
+      }
+      return best;
     }
     console.warn('  ! no .zip link found on the asset page, using the pinned URL');
   } catch (err) {
@@ -303,7 +332,18 @@ async function fetchPack(pack, { force, dryRun }) {
   console.log(`  ${url}`);
   if (dryRun) return { pack, destination, done: false };
 
-  const buffer = await get(url);
+  // OpenGameArt sometimes serves the same attachment both with and without a
+  // `_0` suffix depending on when it was re-uploaded, and only one of the two
+  // resolves. Where the catalogue records an alternative, try it rather than
+  // failing the pack outright.
+  let buffer;
+  try {
+    buffer = await get(url);
+  } catch (err) {
+    if (!pack.zipFallback || pack.zipFallback === url) throw err;
+    console.warn(`  ! ${err.message} — trying the recorded alternative URL`);
+    buffer = await get(pack.zipFallback);
+  }
   console.log(`  ${(buffer.length / 1024 / 1024).toFixed(1)} MB downloaded`);
 
   const files = pack.method === 'github-tarball' ? untar(gunzipSync(buffer)) : unzip(buffer);
@@ -425,6 +465,28 @@ function selfTest() {
   check('tar: entries read', untarred.length === 3, `${untarred.length}`);
   check('tar: pax long path applied to next entry', untarred[0]?.name === longPath, untarred[0]?.name);
   check('tar: payload round-trips', untarred[1]?.data.toString('utf8') === 'PNG-ONE');
+
+  // The Kenney page markup, as actually served on 2026-08-07. Regression
+  // coverage for the resolver that shipped broken and silently fell back to
+  // the pinned URL on the very first real download.
+  const page = 'https://kenney.nl/assets/1-bit-pack';
+  const realZip = 'https://www.kenney.nl/media/pages/assets/1-bit-pack/aa867a1f37-1677578516/kenney_1-bit-pack.zip';
+  const markup = `<a class="button" href="#inline-download">Download</a>
+    <a href="https://kenney.itch.io/kenney-game-assets">Get All-in-1 bundle</a>
+    <a href="${realZip}">Continue without donating...</a>
+    <img src="https://www.kenney.nl/media/pages/assets/1-bit-pack/263abe0f15/sample_fantasy.png">`;
+  check('kenney: finds the zip in real markup', pickZipUrl(markup, page) === realZip);
+  check('kenney: single-quoted attributes', pickZipUrl(markup.replace(/"/g, "'"), page) === realZip);
+  check(
+    'kenney: relative href resolved',
+    pickZipUrl(markup.replace('https://www.kenney.nl', ''), page) ===
+      'https://kenney.nl/media/pages/assets/1-bit-pack/aa867a1f37-1677578516/kenney_1-bit-pack.zip',
+  );
+  check(
+    'kenney: decoy bundle zip loses to the pack zip',
+    pickZipUrl(markup.replace('<a class="button"', '<a href="/media/bundles/promo.zip" class="button"'), page) === realZip,
+  );
+  check('kenney: no zip means fall back', pickZipUrl('<a href="/x.png">y</a>', page) === null);
 
   check('guard: absolute path rejected', safeRelative('/etc/passwd') === null);
   check('guard: traversal rejected', safeRelative('a/../../etc/passwd') === null);

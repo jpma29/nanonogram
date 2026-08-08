@@ -22,9 +22,19 @@
     "                     Más robusto que fijar el hash de la URL, que Kenney rota.",
     "  github-tarball  — tarball de una rama de GitHub, se filtra por `include`.",
     "  manual          — no hay URL estable ni términos que permitan automatizarlo.",
-    "                     El script imprime las instrucciones y no descarga nada."
+    "                     El script imprime las instrucciones y no descarga nada.",
+    "",
+    "`spritesheet: true` — CORRECCIÓN IMPORTANTE del 2026-08-07, medida, no",
+    "supuesta. Los packs de Kenney NO traen sprites individuales: el ZIP del",
+    "1-Bit Pack contiene solo hojas (Tilesheet/*.png) y los «1078 files» que",
+    "anuncia la página cuentan tiles DENTRO de la hoja, no archivos en disco. La",
+    "descarga estaba completa; simplemente no había nada por sprite que medir.",
+    "Esos packs necesitan `slice-spritesheet.mjs` entre la descarga y el probe.",
+    "La geometría viene exacta en el `Tilesheet.txt` del propio pack y cuadra al",
+    "píxel con las dimensiones del PNG, así que el corte no se adivina.",
+    "Los campos `sheet` y `tile`/`spacing` documentan qué hoja usar; el cortador",
+    "los redescubre solo, están aquí para poder leerlos sin descargar."
   ],
-
   "packs": [
     {
       "id": "kenney/1-bit-pack",
@@ -38,7 +48,42 @@
       "approxFiles": 1078,
       "nativeSize": "16x16",
       "priority": 1,
-      "notes": "La mejor apuesta del catálogo entero: ya es 1-bit, así que el sprite ES la rejilla solución. Cero pérdida por umbralización. Correrlo primero valida la ruta nativa sin que la binarización pueda ser la culpable de nada."
+      "notes": "La mejor apuesta del catálogo entero: ya es 1-bit, así que el sprite ES la rejilla solución. Cero pérdida por umbralización. Correrlo primero valida la ruta nativa sin que la binarización pueda ser la culpable de nada.",
+      "spritesheet": true,
+      "sheet": "Tilesheet/monochrome-transparent.png",
+      "tile": 16,
+      "spacing": 1,
+      "sheetGrid": "49x22 = 1078 tiles, verificado contra 832x373",
+      "measured": {
+        "date": "2026-08-07",
+        "slicedTiles": 1072,
+        "blank": 2,
+        "duplicateTiles": 4,
+        "accepted": 587,
+        "rate": 0.548,
+        "gates": {
+          "fidelity": 0,
+          "playability": 378,
+          "logic": 11,
+          "duplicate": 96
+        },
+        "difficulty": [
+          87,
+          181,
+          177,
+          107,
+          35
+        ],
+        "rectangularBoards": 139,
+        "longestSide": {
+          "5": 1,
+          "10": 67,
+          "15": 491,
+          "20": 28
+        },
+        "neededRepairEdits": 118,
+        "note": "Primera fuente en la historia del proyecto que usa la ruta nativa de fit.ts. La puerta de fidelidad rechazo CERO de 1072, porque no hay reduccion que pueda perder la figura. Ver SOURCES.md."
+      }
     },
     {
       "id": "kenney/1-bit-platformer-pack",
@@ -52,7 +97,15 @@
       "approxFiles": 400,
       "nativeSize": "16x16",
       "priority": 2,
-      "notes": "Misma ventaja 1-bit, pero con más relleno de terreno tileable, así que menor cuota de supervivientes."
+      "notes": "Misma ventaja 1-bit, pero con más relleno de terreno tileable, así que menor cuota de supervivientes. CORREGIDO 2026-08-07 tras descargarlo: este pack SI trae sprites individuales en Tiles/, no hace falta cortar. El marcado spritesheet:true venia de generalizar el 1-Bit Pack, que es la excepcion y no la regla.",
+      "spritesheet": false,
+      "tilesDir": "Tiles",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 800,
+        "accepted": 208,
+        "rate": 0.26
+      }
     },
     {
       "id": "kenney/monochrome-rpg",
@@ -66,7 +119,15 @@
       "approxFiles": 130,
       "nativeSize": "16x16",
       "priority": 2,
-      "notes": "Bitono por diseño, objetos y criaturas. Conversión casi directa."
+      "notes": "Bitono por diseño, objetos y criaturas. Conversión casi directa. CORREGIDO 2026-08-07 tras descargarlo: este pack SI trae sprites individuales en Default/Tiles/, no hace falta cortar. El marcado spritesheet:true venia de generalizar el 1-Bit Pack, que es la excepcion y no la regla.",
+      "spritesheet": false,
+      "tilesDir": "Default/Tiles",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 136,
+        "accepted": 35,
+        "rate": 0.257
+      }
     },
     {
       "id": "kenney/monochrome-pirates",
@@ -80,7 +141,8 @@
       "approxFiles": 130,
       "nativeSize": "16x16",
       "priority": 3,
-      "notes": "Como Monochrome RPG, con sujetos temáticos distintos (barcos, barriles, tripulación)."
+      "notes": "Como Monochrome RPG, con sujetos temáticos distintos (barcos, barriles, tripulación). OJO: sin confirmar si trae Tiles/ individuales o solo hojas. Varios packs de Kenney SI traen Tiles/; el 1-Bit Pack es la excepcion. Mirar la carpeta antes de asumir que hay que cortar.",
+      "spritesheet": "sin confirmar"
     },
     {
       "id": "kenney/tiny-dungeon",
@@ -94,7 +156,15 @@
       "approxFiles": 130,
       "nativeSize": "16x16",
       "priority": 2,
-      "notes": "A color: aquí sí se ejercita la conversión color→binario, sobre los sujetos más limpios posibles."
+      "notes": "A color: aquí sí se ejercita la conversión color→binario, sobre los sujetos más limpios posibles. CORREGIDO 2026-08-07 tras descargarlo: este pack SI trae sprites individuales en Tiles/, no hace falta cortar. El marcado spritesheet:true venia de generalizar el 1-Bit Pack, que es la excepcion y no la regla.",
+      "spritesheet": false,
+      "tilesDir": "Tiles",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 132,
+        "accepted": 42,
+        "rate": 0.318
+      }
     },
     {
       "id": "kenney/tiny-farm",
@@ -108,7 +178,8 @@
       "approxFiles": 130,
       "nativeSize": "16x16",
       "priority": 3,
-      "notes": "Cultivos, animales y herramientas: siluetas reconocibles y variedad no fantástica, que es de lo que escasea el catálogo."
+      "notes": "Cultivos, animales y herramientas: siluetas reconocibles y variedad no fantástica, que es de lo que escasea el catálogo. OJO: sin confirmar si trae Tiles/ individuales o solo hojas. Varios packs de Kenney SI traen Tiles/; el 1-Bit Pack es la excepcion. Mirar la carpeta antes de asumir que hay que cortar.",
+      "spritesheet": "sin confirmar"
     },
     {
       "id": "kenney/tiny-battle",
@@ -122,7 +193,8 @@
       "approxFiles": 190,
       "nativeSize": "16x16",
       "priority": 3,
-      "notes": "Unidades y vehículos gruesos y bien diferenciados."
+      "notes": "Unidades y vehículos gruesos y bien diferenciados. OJO: sin confirmar si trae Tiles/ individuales o solo hojas. Varios packs de Kenney SI traen Tiles/; el 1-Bit Pack es la excepcion. Mirar la carpeta antes de asumir que hay que cortar.",
+      "spritesheet": "sin confirmar"
     },
     {
       "id": "kenney/tiny-town",
@@ -136,7 +208,8 @@
       "approxFiles": 130,
       "nativeSize": "16x16",
       "priority": 4,
-      "notes": "Más proporción de tejado/pared tileable que Tiny Dungeon."
+      "notes": "Más proporción de tejado/pared tileable que Tiny Dungeon. OJO: sin confirmar si trae Tiles/ individuales o solo hojas. Varios packs de Kenney SI traen Tiles/; el 1-Bit Pack es la excepcion. Mirar la carpeta antes de asumir que hay que cortar.",
+      "spritesheet": "sin confirmar"
     },
     {
       "id": "kenney/pixel-shmup",
@@ -150,7 +223,16 @@
       "approxFiles": 128,
       "nativeSize": "16x16",
       "priority": 2,
-      "notes": "Naves y aviones: siluetas simétricas y macizas, exactamente la forma que produce buenas deducciones por línea."
+      "notes": "Naves y aviones: siluetas simétricas y macizas, exactamente la forma que produce buenas deducciones por línea. CORREGIDO 2026-08-07 tras descargarlo: este pack SI trae sprites individuales en Ships/, no hace falta cortar. El marcado spritesheet:true venia de generalizar el 1-Bit Pack, que es la excepcion y no la regla.",
+      "spritesheet": false,
+      "tilesDir": "Ships",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 24,
+        "accepted": 11,
+        "rate": 0.458,
+        "note": "Solo 24 archivos en Ships/: el pack anuncia 128 pero el resto son hojas."
+      }
     },
     {
       "id": "kenney/pixel-platformer-food-expansion",
@@ -164,7 +246,16 @@
       "approxFiles": 110,
       "nativeSize": "18x18",
       "priority": 2,
-      "notes": "Probablemente la mejor cuota del catálogo: un objeto compacto por archivo, cero relleno tileable."
+      "notes": "Probablemente la mejor cuota del catálogo: un objeto compacto por archivo, cero relleno tileable. CORREGIDO 2026-08-07 tras descargarlo: este pack SI trae sprites individuales en Tiles/, no hace falta cortar. El marcado spritesheet:true venia de generalizar el 1-Bit Pack, que es la excepcion y no la regla.",
+      "spritesheet": false,
+      "tilesDir": "Tiles",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 112,
+        "accepted": 12,
+        "rate": 0.107,
+        "note": "10.7%, el peor del lote pese a ser el que mejor pinta tenia. La comida de Kenney es muy pequena dentro del tile."
+      }
     },
     {
       "id": "kenney/pixel-platformer-farm-expansion",
@@ -178,7 +269,8 @@
       "approxFiles": 110,
       "nativeSize": "18x18",
       "priority": 3,
-      "notes": "Animales y utillaje de granja, casi todo objetos discretos."
+      "notes": "Animales y utillaje de granja, casi todo objetos discretos. OJO: sin confirmar si trae Tiles/ individuales o solo hojas. Varios packs de Kenney SI traen Tiles/; el 1-Bit Pack es la excepcion. Mirar la carpeta antes de asumir que hay que cortar.",
+      "spritesheet": "sin confirmar"
     },
     {
       "id": "kenney/roguelike-rpg-pack",
@@ -192,39 +284,95 @@
       "approxFiles": 1700,
       "nativeSize": "16x16",
       "priority": 5,
-      "notes": "Enorme y a 16x16, pero muy diluido con tiles, botones y paneles. Solo vale la pena tras filtrar agresivamente; medirlo entero infravalora al resto por comparación."
+      "notes": "Enorme y a 16x16, pero muy diluido con tiles, botones y paneles. Solo vale la pena tras filtrar agresivamente; medirlo entero infravalora al resto por comparación. OJO: sin confirmar si trae Tiles/ individuales o solo hojas. Varios packs de Kenney SI traen Tiles/; el 1-Bit Pack es la excepcion. Mirar la carpeta antes de asumir que hay que cortar.",
+      "spritesheet": "sin confirmar"
     },
-
     {
       "id": "fugue-icons",
       "name": "Fugue Icons (Yusuke Kamiyamane)",
       "method": "github-tarball",
       "url": "https://codeload.github.com/unikent/fugue-icons/tar.gz/refs/heads/master",
-      "include": ["icons/", "icons-shadowless/", "bonus/"],
+      "include": [
+        "icons-shadowless/",
+        "bonus/icons-shadowless-24/",
+        "bonus/icons-shadowless-32/"
+      ],
       "license": "CC-BY-3.0",
-      "licenseEvidence": "README.txt en la raíz del repo: Creative Commons Attribution 3.0.",
+      "licenseEvidence": "README.txt en la raiz del repo, verbatim: «(C) 2011 Yusuke Kamiyamane. These icons are licensed under a Creative Commons Attribution 3.0 license.» El mismo README lista los seis iconos de terceros y sus licencias BY-SA/GPL una por una.",
       "author": "Yusuke Kamiyamane",
-      "approxFiles": 3922,
+      "approxFiles": 3538,
       "nativeSize": "16x16 PNG",
       "priority": 4,
-      "exclude": ["geotag", "language", "open-share", "opml", "share", "xfn"],
-      "notes": "El set raster de 16x16 más grande con licencia limpia. OJO: seis iconos son de terceros bajo BY-SA/GPL y están en `exclude`; el script los borra tras extraer. Es CC-BY, así que entra en el hueco H6 (pantalla de créditos)."
+      "exclude": [
+        "geotag",
+        "language",
+        "open-share",
+        "opml",
+        "share",
+        "xfn"
+      ],
+      "notes": "El set raster de 16x16 mas grande con licencia limpia. include apunta SOLO a las tres carpetas sin sombra. Medido el 2026-08-07: Fugue trae cada icono dos veces (con sombra proyectada horneada y sin ella) y lo hace en DOS niveles, la raiz y bonus/. Excluir solo icons/ dejo pasar el par de bonus/, y por orden alfabetico gano el shadowed: bonus/icons-shadowless-24 salio 0 de 249, todos duplicados de bonus/icons-24. La sombra es gris antialiaseada, justo el ruido que ensucia una binarizacion a 16px, asi que la version que debe ganar es la sin sombra. bonus/animated/ tambien queda fuera: son fotogramas de animacion, y los dos unicos que pasaron eran basura (un borde de seleccion de 20x5). src/ fuera (vectoriales). AVISO: los seis iconos de terceros BY-SA/GPL estan en exclude, cruzados por tallo EXACTO (share.png se va, share-document.png se queda). Es CC-BY: cuenta para el hueco H6.",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 3538,
+        "accepted": 1219,
+        "rate": 0.345,
+        "gates": {
+          "playability": 1857,
+          "logic": 4,
+          "fidelity": 2,
+          "duplicate": 456
+        },
+        "difficulty": [
+          176,
+          468,
+          343,
+          160,
+          72
+        ],
+        "rectangularBoards": 464,
+        "longestSide": {
+          "5": 4,
+          "10": 133,
+          "15": 782,
+          "20": 264,
+          "25": 25,
+          "30": 11
+        },
+        "neededRepairEdits": 240,
+        "note": "Segunda fuente medida. Mayor cosecha absoluta del catalogo (1219 > 587 del 1-Bit Pack) pese a la cuota mas baja. Primera medicion con las carpetas duplicadas dentro (3882 archivos) dio 31.5%; quitar el par sombreado de bonus/ y las animaciones subio a 34.5% perdiendo solo 2 puzles.",
+        "distinctSubjects": 270,
+        "pictureSubjects": 203,
+        "puzzlesInChromeSubjects": 493,
+        "topSubject": "arrow: 154 puzles, 12.6% del pack",
+        "capPerSubject": {
+          "1": 270,
+          "2": 443,
+          "3": 582,
+          "5": 782,
+          "1_sinCromo": 203,
+          "2_sinCromo": 338
+        }
+      }
     },
     {
       "id": "famfamfam-silk",
       "name": "famfamfam Silk",
       "method": "github-tarball",
       "url": "https://codeload.github.com/legacy-icons/famfamfam-silk/tar.gz/refs/heads/master",
-      "include": ["dist/png/", "png/", "icons/"],
+      "include": [
+        "dist/png/",
+        "png/",
+        "icons/"
+      ],
       "license": "CC-BY-2.5",
       "licenseEvidence": "LICENSE.md del repo, texto original de Mark James.",
       "author": "Mark James",
       "approxFiles": 1000,
       "nativeSize": "16x16 PNG",
-      "priority": 5,
-      "notes": "Variedad temática enorme, pero es raster a color con antialiasing a 16px: binariza mal justo al tamaño donde no hay píxeles de sobra. Medirlo antes de gastarle tiempo. AVISO: CC-BY-2.5 NO está en la regex REDISTRIBUTABLE de sweep-sources.mjs — decidir si se añade antes de que un puzle suyo entre en un release."
+      "priority": 9,
+      "notes": "DEGRADADO el 2026-08-07 tras medir Fugue. Silk es otro set de iconos de escritorio 16x16 de la misma epoca: comparte el vocabulario de sujetos de Fugue (flecha, carpeta, disco, documento) que es justo el que ya sobra. El recurso escaso son los SUJETOS distintos, no los puzles, asi que Silk suma volumen donde no hace falta. Ademas es raster a color con antialiasing a 16px, que binariza mal, y CC-BY-2.5 no esta en la regex REDISTRIBUTABLE. No medirlo salvo que falte vocabulario de escritorio, que no es el caso."
     },
-
     {
       "id": "nikoichu/1-bit-pixel-icons",
       "name": "Nikoichu — 1-bit Pixel Icons",
@@ -236,33 +384,102 @@
       "approxFiles": 1476,
       "nativeSize": "16x16",
       "priority": 1,
-      "notes": "El hallazgo de mayor valor de toda la cacería: 1476 PNG individuales, ya 1-bit, a 16x16, con nombres de archivo descriptivos. Preprocesado casi nulo. itch.io exige pasar por el flujo de descarga del navegador, así que no se puede automatizar; bajar el ZIP a _sources/nikoichu/1-bit-pixel-icons/ a mano."
+      "notes": "DESCARGADO el 2026-08-07. Trae Sprites/ y Sprites_Cropped/ con los MISMOS 1476 sprites, mas 19 hojas por categoria en la raiz: usar SOLO Sprites_Cropped/ (ya recortado al contenido) o se duplica todo. Los nombres son riquisimos y llevan prefijo de categoria (Alchemy_Alembic_Crafting_Brewing_Station_Empty.png), asi que a esta fuente SI se le puede correr el analisis de sujetos, como a Fugue y DENZI.",
+      "include": [
+        "Sprites_Cropped/"
+      ],
+      "measured": {
+        "date": "2026-08-07",
+        "files": 1476,
+        "accepted": 577,
+        "rate": 0.391,
+        "subjects": 234,
+        "note": "CC0 y con prefijo de categoria en el nombre. Segunda mayor cosecha CC0."
+      }
     },
     {
       "id": "oga/dungeon-crawl-32x32",
       "name": "OpenGameArt — Dungeon Crawl 32x32 tiles (+ supplemental)",
-      "method": "manual",
-      "url": "https://opengameart.org/content/dungeon-crawl-32x32-tiles",
+      "method": "zip",
+      "url": "https://opengameart.org/sites/default/files/Dungeon%20Crawl%20Stone%20Soup%20Full.zip",
       "license": "CC0-1.0",
-      "licenseEvidence": "Campo License del nodo OGA: CC0, sin campo de atribución. Suplemental en /content/dungeon-crawl-32x32-tiles-supplemental.",
+      "licenseEvidence": "Campo License(s) del nodo OGA: CC0, enlazando a creativecommons.org/publicdomain/zero/1.0/. Sin campo de atribucion. El zip Full incluye el set original MAS el suplemental.",
       "author": "DCSS team (subida por MedicineStorm)",
       "approxFiles": 6000,
       "nativeSize": "32x32",
-      "priority": 2,
-      "notes": "El mayor volumen CC0 de sujeto único que existe. ANTES DE PUBLICAR: github.com/crawl/tiles mantiene TILES_UNDER_UNKNOWN_LICENSE.md, una lista de tiles cuya licencia no está clara y que el export CC0 supuestamente ya filtró. Congelar esa lista y cruzarla contra los nombres seleccionados."
+      "priority": 1,
+      "notes": "AUTOMATIZADO el 2026-08-07: OGA sirve los adjuntos por URL directa, no hace falta navegador. El «Full.zip» son 6000+ PNG individuales de 32x32 ya organizados en carpetas por categoria (no es hoja: las hojas son los ProjectUtumno_*.png, que NO queremos). Vocabulario de monstruos, armas, pociones y criaturas: justo lo que los sets de iconos no tienen, que es el recurso escaso segun el analisis de sujetos. PENDIENTE al extraer: revisar los nombres de carpeta y excluir terreno, muros y GUI antes de medir. ANTES DE PUBLICAR: github.com/crawl/tiles mantiene TILES_UNDER_UNKNOWN_LICENSE.md; congelar esa lista y cruzarla contra los nombres seleccionados.",
+      "zipFallback": "https://opengameart.org/sites/default/files/Dungeon%20Crawl%20Stone%20Soup%20Full_0.zip",
+      "pageUrl": "https://opengameart.org/content/dungeon-crawl-32x32-tiles-supplemental",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 6029,
+        "byFolder": {
+          "monster": {
+            "n": 1282,
+            "ok": 871,
+            "rate": 0.679
+          },
+          "player": {
+            "n": 975,
+            "ok": 463,
+            "rate": 0.475
+          },
+          "item": {
+            "n": 957,
+            "ok": 413,
+            "rate": 0.432
+          },
+          "gui": {
+            "n": 500,
+            "ok": 209,
+            "rate": 0.418
+          },
+          "effect": {
+            "n": 238,
+            "ok": 91,
+            "rate": 0.382
+          },
+          "misc": {
+            "n": 582,
+            "ok": 208,
+            "rate": 0.357
+          },
+          "dungeon": {
+            "n": 1483,
+            "ok": null,
+            "rate": null
+          }
+        },
+        "usable": 1747,
+        "subjects": {
+          "monster": 318,
+          "item": 126
+        },
+        "note": "monster 67.9% es la cuota mas alta medida en el proyecto, por encima del 65% de pixelarticons. dungeon/ (1483) sin medir: es terreno y muros. gui/ es cromo aunque mida 41.8%."
+      }
     },
     {
       "id": "oga/denzi-public-domain",
       "name": "OpenGameArt — DENZI's public domain art",
-      "method": "manual",
-      "url": "https://opengameart.org/content/denzis-public-domain-art",
+      "method": "zip",
+      "url": "https://opengameart.org/sites/default/files/DENZI_CC0_individual_organized_tiles_sprites.zip",
       "license": "CC0-1.0",
-      "licenseEvidence": "Campo License del nodo OGA: CC0.",
+      "licenseEvidence": "Campo License(s) del nodo OGA: CC0. Autor DENZI, subido por MedicineStorm.",
       "author": "DENZI",
       "approxFiles": 400,
       "nativeSize": "32x32 (monstruos 32x48)",
-      "priority": 2,
-      "notes": "Ya viene troceado en PNG individuales y nombrados por categoría: el corpus piloto más rápido de poner a correr. NO confundir con /content/denzis-32x32-orthogonal-tilesets, nodo hermano que es CC-BY-SA y queda fuera."
+      "priority": 1,
+      "notes": "AUTOMATIZADO el 2026-08-07. Usar el zip «individual_organized_tiles_sprites» (1.4 Mb), NO el DENZI_CC0.zip ni las hojas sueltas: trae los sprites ya troceados, con NOMBRES DESCRIPTIVOS y en carpetas por categoria. Eso lo hace la unica fuente ademas de Fugue a la que se le puede correr el analisis de sujetos por nombre de archivo. NO confundir con /content/denzis-32x32-orthogonal-tilesets, nodo hermano CC-BY-SA del mismo autor.",
+      "pageUrl": "https://opengameart.org/content/denzis-public-domain-art",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 1361,
+        "accepted": 520,
+        "rate": 0.382,
+        "subjects": 171,
+        "note": "Nombres descriptivos. OJO: 40 sujetos se solapan con dcss-monster (dragon, eye, serpent) porque, como dice la propia pagina de OGA, parte del arte de DENZI ESTA dentro de Dungeon Crawl."
+      }
     },
     {
       "id": "oga/496-rpg-icons",
@@ -287,24 +504,314 @@
       "author": "Hexany Ives",
       "approxFiles": 64,
       "nativeSize": "32x32",
-      "priority": 3,
-      "notes": "Poco volumen pero la mejor calidad por sprite del lote: monocromo, una criatura por archivo, sin fotogramas de animación."
+      "priority": 4,
+      "notes": "SIGUE MANUAL. itch.io no expone URL directa: el boton Download apunta a /purchase (name your own price) y el enlace real es firmado y temporal. Bajar hexanys_monster_menagerie_0.3.0.zip (86 kB) a mano. Licencia verbatim en la pagina: «This pack is under CC0 1.0 Universal license, so you are free to use it for any commercial and non-commercial projects.» 64 criaturas estaticas 32x32 monocromas 1-bit. El autor pide donacion y atribucion, explicitamente no obligatorias. DESCARGADO el 2026-08-07. Trae Tiles/Regular y Tiles/Transparent con las mismas 64 criaturas: usar SOLO Transparent, que da fondo inequivoco a classifyRaster. Nombres creature_001..064, sin semantica.",
+      "include": [
+        "Tiles/Transparent/"
+      ],
+      "measured": {
+        "date": "2026-08-07",
+        "files": 64,
+        "accepted": 0,
+        "rate": 0,
+        "gates": {
+          "playability": 64
+        },
+        "note": "CERO de 64, todos por jugabilidad: pixeles aislados y demasiados bloques por linea. No es un bug, es el contenido: son criaturas 1-bit muy detalladas (ojos, motas, textura) y esa finura no sobrevive como nonograma. Descartado de hecho."
+      }
     },
     {
       "id": "oga/16x16-food",
       "name": "OpenGameArt — 16x16 Food",
-      "method": "manual",
-      "url": "https://opengameart.org/content/16x16-food",
+      "method": "zip",
+      "url": "https://opengameart.org/sites/default/files/food_0.zip",
       "license": "CC0-1.0",
-      "licenseEvidence": "Campo License del nodo: CC0.",
+      "licenseEvidence": "Campo License(s) del nodo OGA: CC0.",
       "author": "ARoachIFoundOnMyPillow",
       "approxFiles": 188,
       "nativeSize": "16x16",
+      "priority": 2,
+      "notes": "AUTOMATIZADO el 2026-08-07. 188 iconos de comida a 16x16, 73 Kb. Vocabulario cotidiano y no fantastico, que es de lo que mas escasea el catalogo: los dos sets medidos son RPG e interfaz de escritorio. Sin confirmar si el zip trae archivos individuales u hoja; se ve al extraer.",
+      "pageUrl": "https://opengameart.org/content/16x16-food",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 188,
+        "accepted": 108,
+        "rate": 0.574,
+        "subjects": 99,
+        "note": "La mejor relacion sujeto/puzle de todo el catalogo: 1.1x, casi sin repeticion interna. Vocabulario cotidiano, que era el hueco."
+      }
+    },
+    {
+      "id": "vexed/bit-bonanza",
+      "name": "VEXED — Bit Bonanza (10x10, 1-bit)",
+      "method": "manual",
+      "url": "https://v3x3d.itch.io/bit-bonanza",
+      "license": "CC0-1.0",
+      "licenseEvidence": "Coincide por cuatro vias: titulo «(1Bit, CC0, Free)», fila Asset license «Creative Commons Zero v1.0 Universal», prosa «These assets are CC0, use them in commercial projects modify tiles as you wish», y respuesta del autor en comentarios «The assets are CC0, credit is appreciated but not required».",
+      "author": "VEXED (v3x3d)",
+      "approxFiles": 1223,
+      "nativeSize": "10x10",
+      "priority": 1,
+      "spritesheet": true,
+      "tile": 10,
+      "spacing": 0,
+      "sheet": "1-Bit/no-background/*.png (13 hojas por categoria de 140x180)",
+      "notes": "LA FUENTE DEL PACK FACIL. 10x10 nativo: 532 de sus 540 puzles tienen lado mayor 10, y 8 son de 5x5. Antes de esta fuente el proyecto entero tenia 6 tableros de 5x5 y 93 de lado 10. OJO: la carpeta trae ademas un Bountiful-Bits-v-3.1.zip, que es OTRO pack del mismo autor (tambien CC0). PRECEDENTE: dos personas ya usaron este pack para nonogramas (un libro de picross publicado y el juego «Do You Like Picross»), con el autor conforme.",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 1223,
+        "accepted": 540,
+        "rate": 0.442,
+        "difficulty": [
+          38,
+          206,
+          150,
+          101,
+          45
+        ],
+        "longestSide": {
+          "5": 8,
+          "10": 532
+        },
+        "rectangular": 38,
+        "gates": {
+          "playability": 542,
+          "logic": 1,
+          "duplicate": 140
+        }
+      }
+    },
+    {
+      "id": "urizen/onebit-tileset",
+      "name": "vurmux — Urizen 1Bit Tileset",
+      "method": "manual",
+      "url": "https://vurmux.itch.io/urizen-onebit-tileset",
+      "license": "CC0-1.0",
+      "licenseEvidence": "Fila Asset license «Creative Commons Zero v1.0 Universal» y seccion License: en prosa «Creative Commons Zero», seguida de «Credits are not required, but highly appreciated :)».",
+      "author": "vurmux",
+      "approxFiles": 5540,
+      "nativeSize": "12x12",
+      "priority": 1,
+      "spritesheet": true,
+      "tile": 12,
+      "spacing": 1,
+      "margin": 1,
+      "sheet": "urizen_onebit_tileset__v2d0.png (2679x651)",
+      "sheetGrid": "206x50 = 10300 celdas, 5540 no vacias. La aritmetica cierra exacta con tile 12 + separacion 1 + margen 1, y coincide con los «5500+ tiles» que anuncia el autor.",
+      "notes": "LA MAYOR COSECHA DE UNA SOLA FUENTE: 1821 puzles. Y 803 de ellos con lado mayor 10, asi que junto con Vexed resuelve el pack facil. El archivo urizen__2bit__free.png es un producto DISTINTO (2bit) ofrecido de muestra; su licencia no se verifico por separado, no usarlo.",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 5540,
+        "accepted": 1821,
+        "rate": 0.329,
+        "difficulty": [
+          155,
+          457,
+          671,
+          432,
+          106
+        ],
+        "longestSide": {
+          "5": 21,
+          "10": 803,
+          "15": 997
+        },
+        "rectangular": 771,
+        "gates": {
+          "fidelity": 183,
+          "playability": 2634,
+          "logic": 5,
+          "duplicate": 897
+        }
+      }
+    },
+    {
+      "id": "oga/1-bit-mystery-icons",
+      "name": "Darkmoonfire — 1-Bit Mystery Icons",
+      "method": "manual",
+      "url": "https://opengameart.org/content/1-bit-mystery-icons",
+      "license": "CC-BY-SA-4.0",
+      "licenseEvidence": "Campo License(s) del nodo OGA: CC-BY-SA 4.0. Campo Copyright/Attribution Notice: «1-Bit Mystery Icons by Darkmoonfire».",
+      "author": "Darkmoonfire",
+      "attributionRequired": "1-Bit Mystery Icons by Darkmoonfire",
+      "approxFiles": 45,
+      "nativeSize": "16x16",
       "priority": 3,
-      "notes": "188 PNG individuales. Comida y objetos cotidianos: variedad no fantástica, que es justo de lo que escasea el catálogo."
+      "spritesheet": true,
+      "tile": 16,
+      "spacing": 0,
+      "notes": "UNICO DEL LOTE QUE NO ES CC0: copyleft, atribucion obligatoria con ese texto exacto y ShareAlike sobre los derivados. Destapó un hueco real del clasificador (ver classifierFix). Tras el arreglo pasa de 0 a 66.7%.",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 45,
+        "accepted": 30,
+        "rate": 0.667,
+        "difficulty": [
+          0,
+          20,
+          10,
+          0,
+          0
+        ],
+        "beforeClassifierFix": 0
+      }
+    },
+    {
+      "id": "kacper/1-bit-icons",
+      "name": "Kacper Wozniak — 1-Bit Icons",
+      "method": "manual",
+      "url": "https://thkaspar.itch.io/1-bit-icons",
+      "license": "CC0-1.0",
+      "licenseEvidence": "Fila Asset license «Creative Commons Zero v1.0 Universal» y prosa «This work is licensed under the CC0 1.0». Coinciden.",
+      "author": "Kacper Wozniak (thkaspar)",
+      "approxFiles": 35,
+      "nativeSize": "8x8 / 16x16 / 32x32",
+      "priority": 4,
+      "spritesheet": true,
+      "sheet": "items8_simple_transparent.png (o la variante que se elija)",
+      "notes": "Pack chico: 40 tiles, 35 no vacios, y son los MISMOS objetos en las 12 hojas. Techo real 35 sujetos. Valor principal: es el experimento controlado mas limpio del proyecto sobre el efecto del TAMANO DE REJILLA, porque es el mismo dibujo a tres fidelidades. Ver gridSizeExperiment.",
+      "measured": {
+        "date": "2026-08-07",
+        "bySize": {
+          "8_simple": {
+            "n": 35,
+            "ok": 19,
+            "rate": 0.543
+          },
+          "8_detail": {
+            "n": 35,
+            "ok": 15,
+            "rate": 0.429
+          },
+          "16_detail": {
+            "n": 35,
+            "ok": 10,
+            "rate": 0.286
+          },
+          "16_simple": {
+            "n": 35,
+            "ok": 9,
+            "rate": 0.257
+          },
+          "32_detail": {
+            "n": 35,
+            "ok": 8,
+            "rate": 0.229
+          },
+          "32_simple": {
+            "n": 35,
+            "ok": 5,
+            "rate": 0.143
+          }
+        }
+      }
+    },
+    {
+      "id": "pixelarticons",
+      "name": "pixelarticons (Gerrit Halfmann)",
+      "method": "github-tarball",
+      "url": "https://codeload.github.com/halfmage/pixelarticons/tar.gz/refs/heads/master",
+      "include": [
+        "svg/"
+      ],
+      "license": "MIT",
+      "licenseEvidence": "LICENSE en la raiz: MIT, Copyright (c) 2019 Gerrit Halfmann.",
+      "author": "Gerrit Halfmann",
+      "approxFiles": 877,
+      "nativeSize": "24x24 (viewBox SVG)",
+      "priority": 2,
+      "notes": "El supuesto campeon del barrido npm con 65%. Medido de verdad desde su repo: 43.0% por la ruta de 256px y 52.3% por la nativa. El 65% NO se reproduce. Sigue siendo una buena fuente MIT, pero su reputacion venia de una cifra inflada.",
+      "measured": {
+        "date": "2026-08-07",
+        "files": 877,
+        "at256": {
+          "accepted": 377,
+          "rate": 0.43,
+          "difficulty": [
+            26,
+            110,
+            122,
+            83,
+            36
+          ],
+          "longestSide": {
+            "5": 5,
+            "10": 257,
+            "15": 45,
+            "20": 56,
+            "25": 12,
+            "30": 2
+          }
+        },
+        "native": {
+          "accepted": 459,
+          "rate": 0.523,
+          "difficulty": [
+            21,
+            72,
+            137,
+            98,
+            131
+          ],
+          "longestSide": {
+            "10": 5,
+            "20": 379,
+            "25": 75
+          }
+        }
+      }
+    },
+    {
+      "id": "hackernoon/pixel-icon-library",
+      "name": "HackerNoon Pixel Icon Library",
+      "method": "github-tarball",
+      "url": "https://codeload.github.com/hackernoon/pixel-icon-library/tar.gz/refs/heads/main",
+      "include": [
+        "icons/PNG/for-dark-mode/16px/"
+      ],
+      "license": "CC-BY-4.0",
+      "licenseEvidence": "README del repo: los iconos son CC BY 4.0. El LICENSE (MIT) cubre solo lo demas — no citarlo.",
+      "author": "HackerNoon",
+      "approxFiles": 553,
+      "nativeSize": "16x16 PNG (tambien 12/24/48)",
+      "priority": 2,
+      "attributionRequired": true,
+      "notes": "LA CUOTA MAS ALTA DEL CATALOGO por la via PNG 16px. Pero es CC-BY: si entra, H6 vuelve a ser bloqueante. Sus PNG existen en cuatro tamanos y en dark/light: elegir UNO o se duplica todo.",
+      "measured": {
+        "date": "2026-08-07",
+        "png16": {
+          "files": 553,
+          "accepted": 416,
+          "rate": 0.752,
+          "difficulty": [
+            26,
+            109,
+            107,
+            86,
+            88
+          ],
+          "longestSide": {
+            "10": 9,
+            "15": 407
+          }
+        },
+        "png24": {
+          "files": 553,
+          "accepted": 384,
+          "rate": 0.694
+        },
+        "svg256": {
+          "accepted": 366,
+          "rate": 0.633
+        },
+        "svgNative": {
+          "accepted": 404,
+          "rate": 0.699
+        }
+      }
     }
   ],
-
   "$shareAlikeNote": [
     "CC-BY-SA SÍ es aceptable. `REDISTRIBUTABLE` en sweep-sources.mjs lo admite",
     "desde el 2026-08-07: cada puzle lleva su propio campo `license`, así que una",
@@ -317,30 +824,326 @@
     "había abandonado, contradicción que también estaba escrita en SOURCES.md y",
     "en docs/06 §6.1. Ambas rectificadas."
   ],
-
   "eligible": [
-    { "name": "OGA — Roguelike/RPG Items (Joe Williamson)", "url": "https://opengameart.org/content/roguelikerpg-items", "license": "CC-BY-SA-3.0", "nativeSize": "16x16", "why": "214 favoritos, 16x16, objetos de sujeto único: encaja bien. Solo falta medirlo. Obliga a atribuir en la app (H6) y a marcar el SA en el puzle." },
-    { "name": "OGA — DENZI's 32x32 orthogonal tilesets", "url": "https://opengameart.org/content/denzis-32x32-orthogonal-tilesets", "license": "CC-BY-SA-3.0", "nativeSize": "32x32", "why": "Nodo hermano del CC0 de DENZI. Mismo autor y mismo estilo, licencia distinta: no mezclar las carpetas ni las atribuciones." },
-    { "name": "OGA — Wyrmsun CC-BY-SA/GPL (over 300 items)", "url": "https://opengameart.org/content/wyrmsun-cc-by-sagpl-over-300-items", "license": "CC-BY-SA-3.0 y GPL, mezclados", "nativeSize": "~46px", "why": "Solo la mitad SA sería utilizable, y el nodo no separa qué archivo es SA y qué archivo es GPL. Sin ese desglose no entra." },
-    { "name": "Arcticons", "url": "https://icon-sets.iconify.design/arcticons/", "license": "CC-BY-SA-4.0", "nativeSize": "vector", "why": "Vectorial, no pixel art, pero el barrido npm lo saltó por la política SA vieja. Vale medirlo con sweep-sources.mjs, no con este catálogo." },
-    { "name": "OpenMoji", "license": "CC-BY-SA-4.0", "nativeSize": "vector", "why": "Igual que Arcticons: saltado por política vieja, medible con el barrido npm." }
+    {
+      "name": "OGA — Roguelike/RPG Items (Joe Williamson)",
+      "url": "https://opengameart.org/content/roguelikerpg-items",
+      "license": "CC-BY-SA-3.0",
+      "nativeSize": "16x16",
+      "why": "214 favoritos, 16x16, objetos de sujeto único: encaja bien. Solo falta medirlo. Obliga a atribuir en la app (H6) y a marcar el SA en el puzle."
+    },
+    {
+      "name": "OGA — DENZI's 32x32 orthogonal tilesets",
+      "url": "https://opengameart.org/content/denzis-32x32-orthogonal-tilesets",
+      "license": "CC-BY-SA-3.0",
+      "nativeSize": "32x32",
+      "why": "Nodo hermano del CC0 de DENZI. Mismo autor y mismo estilo, licencia distinta: no mezclar las carpetas ni las atribuciones."
+    },
+    {
+      "name": "OGA — Wyrmsun CC-BY-SA/GPL (over 300 items)",
+      "url": "https://opengameart.org/content/wyrmsun-cc-by-sagpl-over-300-items",
+      "license": "CC-BY-SA-3.0 y GPL, mezclados",
+      "nativeSize": "~46px",
+      "why": "Solo la mitad SA sería utilizable, y el nodo no separa qué archivo es SA y qué archivo es GPL. Sin ese desglose no entra."
+    },
+    {
+      "name": "Arcticons",
+      "url": "https://icon-sets.iconify.design/arcticons/",
+      "license": "CC-BY-SA-4.0",
+      "nativeSize": "vector",
+      "why": "Vectorial, no pixel art, pero el barrido npm lo saltó por la política SA vieja. Vale medirlo con sweep-sources.mjs, no con este catálogo."
+    },
+    {
+      "name": "OpenMoji",
+      "license": "CC-BY-SA-4.0",
+      "nativeSize": "vector",
+      "why": "Igual que Arcticons: saltado por política vieja, medible con el barrido npm."
+    }
   ],
-
   "rejected": [
-    { "name": "Liberated Pixel Cup y su generador", "license": "CC-BY-SA-3.0 + GPL-3.0", "why": "Licenciado en dual, y el brazo GPL no se puede desactivar. Aparte de eso, son tiras de animación a 64x64: forma equivocada de todos modos. El generador universal añade términos por capa en CREDITS.csv y está deprecado." },
-    { "name": "OGA — Wyrmsun CC0 (over 900 items)", "license": "CC0-1.0", "why": "El nodo CC0 en sí está bien (quien lo subió aclara «I am NOT the author… I merely redistribute them»), pero el lote es mixto: tiles, GUI y animaciones que habría que separar a mano. Y existe un nodo hermano CC-BY-SA/GPL con nombre casi idéntico. Coste de auditoría mayor que su aporte." },
-    { "name": "OGA — pauliuw (skill/item/spell icons)", "license": "CC0 declarado", "why": "Al menos un icono es una foto encontrada sin atribuir; un comentario sin responder cuestiona el CC0 de todo el lote. Procedencia insuficiente." },
-    { "name": "Oryx Design Lab", "license": "propietaria", "why": "«NOT permitted to use the game artwork in part or in whole to create new game artwork» — la cláusula de derivados golpea directo a la conversión a nonograma." },
-    { "name": "Reiner's Tilesets", "license": "freeware", "why": "Prohíbe redistribuir los gráficos, «incluso recoloreados o modificados de otras formas»." },
-    { "name": "CraftPix freebies", "license": "propietaria", "why": "Prohíbe redistribuir el arte o versiones modificadas." },
-    { "name": "Shikashi's Fantasy Icons", "license": "prosa a medida", "why": "Contenido muy bueno (284 a 32x32) pero sin licencia nombrada ni concesión explícita de redistribución. No entra sin un permiso por escrito." },
-    { "name": "actuallyKron — 64 FREE Emoji Asset Pack", "license": "CC0 declarado", "why": "La misma página dice «Please don't re-distribute this assets pack». Contradicción sin resolver." },
-    { "name": "Kenney — packs a 8x8 (Micro Roguelike, Minimap, Pico-8 City/Platformer)", "license": "CC0-1.0", "why": "8x8 cabe de sobra pero es demasiado grueso para ser reconocible; solo servirían escalados 2x, que es fingir detalle." },
-    { "name": "Kenney — UI, Input Prompts, Cursor, Pattern, Playing Cards, Pixel Platformer Blocks, Pixel Line Platformer", "license": "CC0-1.0", "why": "Cromo de interfaz, texturas, rectángulos o arte de contorno (que umbraliza a anillos huecos, no a formas rellenas)." },
-    { "name": "Kenney — Animal Pack Redux / Onscreen Controls", "license": "CC0-1.0", "why": "Páginas heredadas sin enlace de descarga. Reemplazos vivos: Animal Pack Remastered y Mobile Controls." },
-    { "name": "Gridicons", "license": "GPL-2.0", "why": "GPL." },
-    { "name": "NES.icons", "license": "MIT", "why": "Los iconos están dibujados con box-shadow de CSS; no hay árbol de SVG ni PNG que rasterizar." },
-    { "name": "Famicons", "license": "MIT", "why": "El nombre engaña: es un fork de Ionicons, vectorial suave, no pixel art. Ya medido en el barrido: 25%." },
-    { "name": "FatCow Farm-Fresh", "license": "CC-BY-3.0", "why": "El propio autor lo llama «pixel smooth style»: antialiasing y brillos. Débil para 1 bit." }
-  ]
+    {
+      "name": "Liberated Pixel Cup y su generador",
+      "license": "CC-BY-SA-3.0 + GPL-3.0",
+      "why": "Licenciado en dual, y el brazo GPL no se puede desactivar. Aparte de eso, son tiras de animación a 64x64: forma equivocada de todos modos. El generador universal añade términos por capa en CREDITS.csv y está deprecado."
+    },
+    {
+      "name": "OGA — Wyrmsun CC0 (over 900 items)",
+      "license": "CC0-1.0",
+      "why": "El nodo CC0 en sí está bien (quien lo subió aclara «I am NOT the author… I merely redistribute them»), pero el lote es mixto: tiles, GUI y animaciones que habría que separar a mano. Y existe un nodo hermano CC-BY-SA/GPL con nombre casi idéntico. Coste de auditoría mayor que su aporte."
+    },
+    {
+      "name": "OGA — pauliuw (skill/item/spell icons)",
+      "license": "CC0 declarado",
+      "why": "Al menos un icono es una foto encontrada sin atribuir; un comentario sin responder cuestiona el CC0 de todo el lote. Procedencia insuficiente."
+    },
+    {
+      "name": "Oryx Design Lab",
+      "license": "propietaria",
+      "why": "«NOT permitted to use the game artwork in part or in whole to create new game artwork» — la cláusula de derivados golpea directo a la conversión a nonograma."
+    },
+    {
+      "name": "Reiner's Tilesets",
+      "license": "freeware",
+      "why": "Prohíbe redistribuir los gráficos, «incluso recoloreados o modificados de otras formas»."
+    },
+    {
+      "name": "CraftPix freebies",
+      "license": "propietaria",
+      "why": "Prohíbe redistribuir el arte o versiones modificadas."
+    },
+    {
+      "name": "Shikashi's Fantasy Icons",
+      "license": "prosa a medida",
+      "why": "Contenido muy bueno (284 a 32x32) pero sin licencia nombrada ni concesión explícita de redistribución. No entra sin un permiso por escrito."
+    },
+    {
+      "name": "actuallyKron — 64 FREE Emoji Asset Pack",
+      "license": "CC0 declarado",
+      "why": "La misma página dice «Please don't re-distribute this assets pack». Contradicción sin resolver."
+    },
+    {
+      "name": "Kenney — packs a 8x8 (Micro Roguelike, Minimap, Pico-8 City/Platformer)",
+      "license": "CC0-1.0",
+      "why": "8x8 cabe de sobra pero es demasiado grueso para ser reconocible; solo servirían escalados 2x, que es fingir detalle."
+    },
+    {
+      "name": "Kenney — UI, Input Prompts, Cursor, Pattern, Playing Cards, Pixel Platformer Blocks, Pixel Line Platformer",
+      "license": "CC0-1.0",
+      "why": "Cromo de interfaz, texturas, rectángulos o arte de contorno (que umbraliza a anillos huecos, no a formas rellenas)."
+    },
+    {
+      "name": "Kenney — Animal Pack Redux / Onscreen Controls",
+      "license": "CC0-1.0",
+      "why": "Páginas heredadas sin enlace de descarga. Reemplazos vivos: Animal Pack Remastered y Mobile Controls."
+    },
+    {
+      "name": "Gridicons",
+      "license": "GPL-2.0",
+      "why": "GPL."
+    },
+    {
+      "name": "NES.icons",
+      "license": "MIT",
+      "why": "Los iconos están dibujados con box-shadow de CSS; no hay árbol de SVG ni PNG que rasterizar."
+    },
+    {
+      "name": "Famicons",
+      "license": "MIT",
+      "why": "El nombre engaña: es un fork de Ionicons, vectorial suave, no pixel art. Ya medido en el barrido: 25%."
+    },
+    {
+      "name": "FatCow Farm-Fresh",
+      "license": "CC-BY-3.0",
+      "why": "El propio autor lo llama «pixel smooth style»: antialiasing y brillos. Débil para 1 bit."
+    },
+    {
+      "name": "PixyMoon — Cute RPG Icons",
+      "url": "https://pixymoon.itch.io/cute-rpg",
+      "license": "ninguna nombrada",
+      "why": "La pagina no tiene fila Asset license; la unica fuente es prosa a medida que exige credito y prohibe «sell this asset pack, not even modified». Sin licencia nombrada, 04 §2.4 lo marca distributable:false y queda fuera del build embebido de Fase 1, que es el artefacto de la fase. Mismo caso que Shikashi. Zip conservado sin extraer en _sources/piximoon/ con su PROVENANCE.json."
+    }
+  ],
+  "mergedDedupe": {
+    "date": "2026-08-07",
+    "sources": [
+      "kenney/1-bit-pack",
+      "fugue-icons"
+    ],
+    "inputs": 4610,
+    "acceptedSeparately": 1806,
+    "acceptedMerged": 1805,
+    "crossSourceDuplicates": 1,
+    "minDistance": 0.06,
+    "note": "La deduplicacion sobre el conjunto fusionado, que docs/06 marcaba como la restriccion que manda, cuesta UN puzle. Las dos fuentes casi no se solapan pese a ser ambas de tema RPG/interfaz, y el umbral por defecto de dedupe (0.06) es mas agresivo que el 0.04 que usa sweep-sources.mjs."
+  },
+  "selectionNote": [
+    "Medido el 2026-08-07 sobre Fugue: dedupe compara REJILLAS, no significados.",
+    "1219 puzles aceptados colapsan a 270 sujetos distintos, y 493 de ellos viven",
+    "en sujetos de cromo de interfaz (arrow 154, edit 58, control 39, ui 36).",
+    "La seleccion de los 100 necesita TOPE POR SUJETO y lista negra de cromo,",
+    "ademas del dedupe de rejilla. Los tiles de Kenney se nombran por posicion,",
+    "asi que su variedad de sujetos esta sin medir.",
+    "",
+    "Corolario de abastecimiento: priorizar VOCABULARIO distinto, no volumen.",
+    "Criaturas, animales, comida, plantas, vehiculos > otro set de iconos de UI."
+  ],
+  "subjectOverlap": {
+    "date": "2026-08-07",
+    "method": "primer sustantivo del nombre de archivo, normalizado",
+    "perSource": {
+      "nikoichu": {
+        "puzzles": 577,
+        "subjects": 234
+      },
+      "denzi": {
+        "puzzles": 520,
+        "subjects": 171
+      },
+      "dcss-monster": {
+        "puzzles": 871,
+        "subjects": 318
+      },
+      "dcss-item": {
+        "puzzles": 413,
+        "subjects": 126
+      },
+      "food": {
+        "puzzles": 108,
+        "subjects": 99
+      },
+      "fugue": {
+        "puzzles": 1219,
+        "subjects": 270
+      }
+    },
+    "unionSubjectsCC0": 857,
+    "sumSubjectsCC0": 948,
+    "lostToCrossSourceRepetition": 91,
+    "biggestOverlap": "denzi ∩ dcss-monster = 40 sujetos (dragon, eye, serpent). Esperable: el arte de DENZI esta parcialmente dentro de DCSS.",
+    "note": "Dentro de cada fuente hay 2.5x-3.3x puzles por sujeto; entre fuentes el solapamiento es solo del 9.6%. Es decir: la repeticion que hay que controlar es INTERNA, y la eleccion de fuentes con vocabulario distinto funciono."
+  },
+  "classifierFix": {
+    "date": "2026-08-07",
+    "where": "scripts/probes/probe-common.mjs, classifyRaster",
+    "symptom": "1-Bit Mystery Icons daba 0 de 45, todos «too dense (91% ink)».",
+    "cause": "La hoja TIENE canal alfa pero es 89.4% opaca: el fondo es un rectangulo pintado, no transparencia. classifyByAlphaWithClipping asume que lo opaco es figura, asi que leia el fondo entero como tinta.",
+    "fix": "Si hasAlpha pero la cuota de opacos supera 0.85, el canal alfa no lleva informacion de figura/fondo: se cae a classifyByBackground, que detecta el color de fondo desde el borde.",
+    "result": "Mystery pasa de 0% a 66.7%. Sin regresion: 16x16 Food sigue en 108 y Hexany sigue en 0 (o sea, lo de Hexany es contenido y no este bug).",
+    "generality": "Afecta a CUALQUIER hoja 1-bit exportada con fondo pintado, que es un formato comun."
+  },
+  "gridSizeExperiment": {
+    "date": "2026-08-07",
+    "source": "kacper/1-bit-icons",
+    "setup": "Los mismos 35 objetos dibujados por el autor a 8, 16 y 32 px, en estilo detail y simple. Comparacion controlada: solo cambia la fidelidad del dibujo.",
+    "result": {
+      "8_simple": 0.543,
+      "8_detail": 0.429,
+      "16_detail": 0.286,
+      "16_simple": 0.257,
+      "32_detail": 0.229,
+      "32_simple": 0.143
+    },
+    "finding": "La cuota CAE monotonamente al subir el tamano: 8px rinde el doble que 32px. Contradice la prediccion de la investigacion inicial, que descarto los packs de 8x8 de Kenney por «demasiado gruesos para ser reconocibles».",
+    "caveat": "IMPORTANTE: el pipeline mide JUGABILIDAD, no RECONOCIBILIDAD. Un dibujo mas grueso tiene menos pixeles aislados y menos bloques por linea, asi que pasa la puerta de jugabilidad mas facil — pero ninguna puerta comprueba que la figura siga siendo identificable. Este experimento demuestra que las dos cosas pueden apuntar en direcciones opuestas, y que la cuota de aceptacion NO se puede leer como calidad. Es un argumento a favor de mirar los candidatos a ojo antes de elegir los 100."
+  },
+  "svgRasterSizeExperiment": {
+    "date": "2026-08-07",
+    "question": "El barrido npm rasterizo TODO SVG a REFERENCE_SIZE=256, asi que natives era 0 en las 213 colecciones. Que pasa si se rasteriza al viewBox declarado cuando es <=35?",
+    "method": "Mismos archivos SVG, dos tamanos de rasterizado, pipeline completo con dedupe por defecto (0.06).",
+    "results": {
+      "hackernoon (578 svg, viewBox 24)": {
+        "at256": {
+          "rate": 0.633,
+          "kept": 366,
+          "gates": {
+            "fidelity": 69,
+            "logic": 44,
+            "playability": 72
+          },
+          "sizes": {
+            "25": 322
+          }
+        },
+        "native": {
+          "rate": 0.699,
+          "kept": 404,
+          "gates": {
+            "playability": 83,
+            "logic": 60
+          },
+          "sizes": {
+            "25": 389
+          }
+        }
+      },
+      "pixelarticons (877 svg, viewBox 24)": {
+        "at256": {
+          "rate": 0.43,
+          "kept": 377,
+          "gates": {
+            "playability": 273,
+            "logic": 8,
+            "fidelity": 23
+          },
+          "sizes": {
+            "10": 257,
+            "15": 45,
+            "20": 56
+          }
+        },
+        "native": {
+          "rate": 0.523,
+          "kept": 459,
+          "gates": {
+            "logic": 151,
+            "playability": 30
+          },
+          "sizes": {
+            "20": 379,
+            "25": 75
+          }
+        }
+      }
+    },
+    "finding": "Rasterizar al viewBox nativo sube la cuota en ambos (+6.6 y +9.3 puntos) y ELIMINA los rechazos por fidelidad, que es lo esperado: sin reduccion no hay fidelidad que perder.",
+    "counterFinding": "PERO no es una mejora estricta. En pixelarticons la ruta de 256 px produce 257 tableros de lado 10 y una curva mas facil (26/110/122/83/36), mientras que la nativa los empuja a lado 20 (379) y endurece la curva (21/72/137/98/131). Se ganan puzles y se pierden tableros pequenos.",
+    "recommendation": "No sustituir una ruta por la otra. Lo que maximiza cosecha Y diversidad de tamano es intentar AMBAS y quedarse con las dos salidas, dejando que dedupe resuelva el solapamiento. Requiere tocar src/raster.ts y src/pipeline.ts, asi que necesita build en Windows.",
+    "sweepDiscrepancy": "ADVERTENCIA SOBRE data/source-ranking.json: el barrido registro 65% para pixelarticons y 25% para hackernoon. Medidos desde sus repos por la MISMA ruta de 256 px dan 43.0% y 63.3%. Las dos cifras estan mal y en direcciones opuestas. Causas probables: muestra de 60 iconos, y dedupe a 0.04 en el barrido contra 0.06 en el probe. CONCLUSION: el ranking npm sirve para ordenar candidatos a grandes rasgos, NO como cifra fiable de ninguna coleccion concreta."
+  },
+  "pipelineTuningVerdict": {
+    "date": "2026-08-07",
+    "corpus": 17015,
+    "accepted": 7025,
+    "gates": {
+      "playability": 7067,
+      "duplicate": 2490,
+      "fidelity": 235,
+      "logic": 196
+    },
+    "playabilityCauses": {
+      "isolatedPixel": 4133,
+      "tooDense": 2536,
+      "tooSparse": 925,
+      "speck": 139,
+      "blocksPerLine": 85
+    },
+    "maxIsolatedExperiment": {
+      "dcss-monster-400": {
+        "0": 212,
+        "2": 257,
+        "3": 269,
+        "5": 278
+      },
+      "nikoichu-400": {
+        "0": 203,
+        "2": 215,
+        "3": 216,
+        "5": 222
+      },
+      "hexany-64": {
+        "0": 0,
+        "2": 0,
+        "3": 0,
+        "5": 0
+      }
+    },
+    "gotcha": "Pasar options.quality explicito ANULA la relajacion automatica de la ruta nativa. Por eso maxIsolated:0 explicito rinde MENOS que el default, aunque el default nominal tambien sea 0.",
+    "aggregateDifficulty": [
+      494,
+      2024,
+      2145,
+      1469,
+      893
+    ],
+    "aggregateLongestSide": {
+      "5": 47,
+      "10": 1504,
+      "15": 2287,
+      "20": 768,
+      "25": 746,
+      "30": 851,
+      "35": 822
+    },
+    "verdict": "NO refinar las puertas. Relajar el motivo de rechazo dominante compra +5-8% de puzles, casi todos de dificultad 4-5 con motas flotantes, sobre un corpus con 60x lo que pide Fase 1. Las distribuciones agregadas de dificultad y tamano estan sanas. La unica mejora medida que vale es la doble rasterizacion de SVG (ver svgRasterSizeExperiment), y es de prioridad baja porque ya sobra material raster. El hueco real —reconocibilidad y validacion de las etiquetas de dificultad— necesita ojos, no codigo."
+  }
 }

@@ -368,14 +368,19 @@ if the native path misbehaves, thresholding cannot be the suspect.
    `sweep-sources.mjs` does not match** — the regex lists 3.0 and 4.0 only.
    Decide whether 2.5 joins the list before any Silk-derived puzzle reaches a
    release, or drop the pack.
-3. **The Fugue exclusion is by basename, so it over-deletes.** The six
-   third-party names (`geotag`, `language`, `open-share`, `opml`, `share`,
-   `xfn`) are matched against the filename stem across `icons/`,
-   `icons-shadowless/` and `bonus/` — so up to ~18 files go, not 6, and a
-   legitimate unrelated Fugue icon sharing one of those generic stems would
-   go with them. That is the safe direction to err, and losing a couple of
-   icons out of 3 922 costs nothing, but don't read the log line as an exact
-   count.
+3. **The Fugue exclusion drops ~12 files, not 6.** The six third-party names
+   (`geotag`, `language`, `open-share`, `opml`, `share`, `xfn`) are matched on
+   the filename **stem, exactly** — so `share-document.png` is kept, and only
+   the literal `share.png` goes — but the match runs across both included
+   folders, so each name costs up to two files. Read the log line as "each of
+   these six names, everywhere it appears", not as a file count.
+
+   Related, and confirmed against the repo tree on 2026-08-07: the pack is
+   pulled from **`icons-shadowless/` + `bonus/` only, not `icons/`**. The
+   `icons/` set is the same art with a drop shadow baked in — anti-aliased
+   grey pixels, exactly the noise that muddies a 16 px binarisation — and
+   taking both folders would duplicate every icon just so `dedupe` could throw
+   half of them away. `src/` (vector sources) is excluded too.
 4. **Dungeon Crawl needs a provenance diff.** `github.com/crawl/tiles` keeps
    `TILES_UNDER_UNKNOWN_LICENSE.md`, tiles whose licensing is unclear and
    which the CC0 export is supposed to have already filtered. Snapshot that
@@ -411,14 +416,532 @@ and scraping around that is fragile and rude to hosts giving art away.
 node scripts/probes/fetch-pixel-sources.mjs --self-test
 ```
 
-17 assertions over the ZIP and tar readers — both hand-rolled on `node:zlib` to
+21 assertions over the ZIP and tar readers — both hand-rolled on `node:zlib` to
 keep the script dependency-free, and therefore the riskiest part of it — plus
-the extraction filters and the path-traversal guard. The archives are built in
-memory (deflate ZIP, stored ZIP, pax tarball with a >100-character path), so
-there are no fixtures to go stale and it runs anywhere Node does. `vitest` only
-covers `packages/`, which is why this is a flag rather than a test file.
+the extraction filters, the path-traversal guard, and the Kenney URL resolver.
+The archives are built in memory (deflate ZIP, stored ZIP, pax tarball with a
+>100-character path), so there are no fixtures to go stale and it runs anywhere
+Node does. `vitest` only covers `packages/`, which is why this is a flag rather
+than a test file.
 
-**Not verified:** the live Kenney page-scrape and the actual downloads, which
-need network from a real checkout. The pinned ZIP URLs are recorded as
-`zipFallback` in case the scrape breaks; Kenney rotates the hash in those URLs
-on every reupload, which is why the scrape exists at all.
+## Pixel art: the first pack, measured (2026-08-07)
+
+The 1-Bit Pack went through the real pipeline on a real checkout. Two things
+came out of it: a wrong assumption corrected, and the best numbers any source
+has produced.
+
+### The assumption that was wrong
+
+**Kenney packs do not ship individual sprites.** The 1-Bit Pack's ZIP contains
+only spritesheets, and the "1078 files" on the asset page counts tiles *inside*
+those sheets. The download was complete and correct; there were simply 16 files
+where 1 078 were expected, because there was nothing per-sprite to measure.
+
+The fix is `scripts/probes/slice-spritesheet.mjs`, which sits between the
+download and the probe. It is safe rather than clever: Kenney ships a
+`Tilesheet.txt` giving tile size, spacing and tile counts, and those numbers
+reconcile against the PNG's own dimensions to the pixel —
+`49 × 16 + 48 × 1 = 832`, `22 × 16 + 21 × 1 = 373`. The script **refuses to
+slice when that arithmetic doesn't close**, because a grid off by one pixel
+yields 1 078 sprites each carrying a sliver of its neighbour, and every gate
+downstream would accept them as plausible puzzles.
+
+```bash
+node scripts/probes/slice-spritesheet.mjs _sources/kenney/1-bit-pack
+# -> 1072 tiles written (2 blank, 4 duplicate, of 1078)
+node scripts/probes/probe-local-folder.mjs \
+  _sources/kenney/1-bit-pack/_tiles/monochrome-transparent \
+  --license CC0-1.0 --source "kenney/1-bit-pack" --author "Kenney"
+```
+
+Point the probe at `_tiles/<sheet>/`, not the pack root — the probe walks
+recursively and would otherwise also measure the sheets the tiles came from.
+
+### The numbers
+
+**587 puzzles accepted from 1 072 tiles — 54.8 %.** But the rate is not the
+interesting part. This is:
+
+| | 1-Bit Pack | Best of the npm sweep (`pixelarticons`) |
+|---|---|---|
+| Rejected by **fidelity** | **0 of 1 072** | 57 % of all rejections, globally |
+| Rejected by playability | 378 | — |
+| Rejected by logic | 11 | — |
+| Dropped as duplicates | 96 | — |
+| Difficulty 1→5 | **87 / 181 / 177 / 107 / 35** | 3 / 3 / 6 / 13 / 14 |
+| Longest side | 5→1, **10→67, 15→491**, 20→28 | 20→27, 25→2, 30→1, 35→3 |
+| Rectangular boards | **139 (24 %)** | 0 |
+
+Three things there matter more than the headline percentage.
+
+1. **The fidelity gate rejected nothing at all, and cannot.** Fidelity asks
+   "does this survive being reduced to a grid?" A 16×16 sprite used unscaled is
+   never reduced, so there is no fidelity to lose — the gate is vacuous by
+   construction rather than lenient. This is the **first source in the
+   project's history to take `fit.ts`'s native path**; `natives` was 0 across
+   all 213 npm collections. The pixel-art work in the section above was built
+   on the belief that this path would pay off, and it had never once fired
+   until now.
+2. **The small-board shortage is solved, without a hack.** The open problem was
+   "5×5 → 6, 10 → 93, 15 → 171" against 500-600 boards at each of 20/25/30/35,
+   with a note that the easy pack "probably needs to generate with `fit.maxSize`
+   limited". No longer: **558 of 587 boards have a longest side of 10 or 15**,
+   naturally, because that is the size the art was drawn at.
+3. **The difficulty curve arrives shaped.** `pixelarticons` skews hard to 4–5.
+   This pack gives 87 boards at difficulty 1 and 181 at 2 — the shallow end
+   that the three-pack curve actually needed and that nothing else supplied.
+   Revalidating `estimateDifficulty` (open decision 6) now has a corpus worth
+   revalidating against.
+
+Also worth noting: **118 of the 587 needed repair edits** to reach pure
+logical solvability, and only 11 tiles failed the logic gate outright. Without
+`repair.ts` those 118 would be losses; the repairer is carrying about a fifth
+of this pack.
+
+One source, one pack, 587 puzzles against the ~100 Fase 1 asks for. **Sourcing
+is over as a problem.** What remains is selection — and the note in "Picking
+sources for the three packs" about deduplicating over the *merged* set, not
+per collection, is now the binding constraint.
+
+## Pixel art: the second pack, and the merge (2026-08-07)
+
+Fugue Icons, downloaded on a real checkout and measured the same way.
+
+### One more duplication trap, and it cost 3 points
+
+The first run gave **1 221 of 3 882 (31.5 %)** — and two subfolders came back
+at *exactly* 0 %, which is never coincidence. The cause: Fugue ships every
+icon twice, shadowed and shadowless, **at two levels**. Excluding the
+top-level `icons/` (as the catalogue already did) left `bonus/`'s own pair
+intact, and alphabetical order handed the win to the shadowed variant —
+`bonus/icons-shadowless-24` scored 0 of 249, all of them dropped as duplicates
+of `bonus/icons-24`.
+
+That is backwards. The shadow is baked-in anti-aliased grey, precisely the
+noise that muddies a 16 px binarisation. Narrowing `include` to the three
+shadowless folders and dropping `bonus/animated/` (animation frames — the only
+two that passed were a 20×5 marching-ants selection border and a spinner):
+
+| | files | accepted | rate |
+|---|---:|---:|---:|
+| With the duplicated folders | 3 882 | 1 221 | 31.5 % |
+| **Shadowless only** | **3 538** | **1 219** | **34.5 %** |
+
+344 wasted files removed, 2 puzzles lost, and the clean art now wins.
+
+**The general lesson, twice over now:** an icon set that ships variants — with
+and without shadow, colour and monochrome, packed and padded — will silently
+route the *worse* variant into the corpus if the include list is written by
+eye. Both times it showed up as a subfolder at a suspiciously round 0 %.
+Check the per-folder acceptance breakdown, not just the headline rate.
+
+### The numbers
+
+**1 219 accepted of 3 538 — 34.5 %.** A lower rate than the 1-Bit Pack's
+54.8 %, but a **larger absolute harvest: 1 219 against 587.**
+
+| | Fugue Icons | Kenney 1-Bit Pack |
+|---|---:|---:|
+| Accepted | **1 219** (34.5 %) | 587 (54.8 %) |
+| Difficulty 1→5 | 176 / 468 / 343 / 160 / 72 | 87 / 181 / 177 / 107 / 35 |
+| Longest side | 10→133, **15→782**, 20→264, 25→25, 30→11 | 10→67, **15→491**, 20→28 |
+| Rectangular | 464 (38 %) | 139 (24 %) |
+| Needed repair | 240 | 118 |
+| Rejected by fidelity | **2** | **0** |
+
+Fidelity rejected 2 of 3 538 — the native path is doing the same work it did
+for Kenney. The difficulty curve has the same healthy shape, and 915 of the
+1 219 boards have a longest side of 10 or 15.
+
+### The merge costs one puzzle
+
+`docs/06` flagged deduplicating over the **merged** set as the binding
+constraint, on the reasoning that every icon library has a heart, a star and a
+house. Measured, on the union of both packs:
+
+| | |
+|---|---:|
+| Input images | 4 610 |
+| Accepted, measured separately | 1 806 |
+| Accepted, measured merged | **1 805** |
+| **Cross-source duplicates** | **1** |
+
+One. `dedupe`'s default `minDistance` of 0.06 is *stricter* than the 0.04
+`sweep-sources.mjs` uses, so this isn't a lenient threshold flattering the
+result.
+
+### …and that number means much less than it looks
+
+**`dedupe` compares grids, not meanings.** Kenney's heart and Fugue's heart
+differ by a few pixels, so `gridDistance` puts them well past 0.06 and both
+survive. "1 cross-source duplicate" therefore says nothing about how many
+*subjects* repeat — and for a game whose reward is the revealed picture
+(RF-BIB-4), the subject is what the player actually experiences as repetition.
+
+Fugue's filenames are descriptive (`heart--plus.png`, `arrow-090.png`), so the
+first token is a usable proxy for the subject. Counting them:
+
+| | |
+|---|---:|
+| Accepted puzzles | 1 219 |
+| **Distinct subjects** | **270** |
+| …of which are pictures, not UI chrome | 203 |
+| Puzzles living inside chrome subjects | 493 |
+
+The distribution is brutal: **`arrow` alone accounts for 154 puzzles, 12.6 % of
+the pack.** Then `edit` 58, `control` 39, `ui` 36, `layer` 16. 86 subjects with
+five or more variants hold 867 of the 1 219. Only 97 subjects appear once.
+
+Yield under a per-subject cap, which is what selection will actually need:
+
+| Cap per subject | All subjects | Chrome subjects removed |
+|---|---:|---:|
+| 1 | 270 | **203** |
+| 2 | 443 | 338 |
+| 3 | 582 | 447 |
+| 5 | 782 | 605 |
+
+So Fugue's honest contribution is **~203 distinct pictures**, not 1 219. Still
+twice what Fase 1 needs, and the picture vocabulary is genuinely good — acorn,
+anvil, balloon, bandaid, bell, brain, bread, broom, bug, cake, candle, church,
+compass, cookie, crown, curtain, ghost, hourglass, lighthouse, piano, rainbow,
+robot, rocket, skull, snowman, trophy, umbrella, windmill. But the headline
+count was measuring the wrong thing.
+
+**Consequences for selection, and for which source comes next:**
+
+- Selection needs a **cap per subject plus a chrome blocklist**, not just grid
+  dedupe. Grid dedupe cannot see that four of your hundred puzzles are arrows.
+- Kenney's tiles are named positionally (`r00c08.png`), so this analysis
+  **cannot be run on them** — their subject variety is unmeasured and would
+  need eyeballing or a classifier.
+- **The scarce resource is distinct subjects, not puzzles.** That reverses the
+  sourcing priority: another 16×16 desktop icon set adds volume in the
+  vocabulary we already have too much of. `famfamfam-silk` is exactly that —
+  same era, same size, same desktop-metaphor vocabulary as Fugue — and should
+  be demoted or dropped rather than measured. What is worth adding is material
+  with a *different* vocabulary: creatures, animals, food, plants, tools,
+  vehicles. Dungeon Crawl, DENZI, 16x16 Food and Hexany's monsters are exactly
+  that, and all four are CC0.
+
+**Two sources, 1 805 puzzles, but roughly 200-300 distinct pictures.** Enough
+for Fase 1's ~100 with room to choose, and the remaining sourcing question is
+about variety, not volume.
+
+## Pixel art: everything measured (2026-08-07)
+
+Eleven packs, 17 338 images on disk, all through the real pipeline.
+
+| Source | Licence | Files | Accepted | Rate |
+|---|---|---:|---:|---:|
+| **DCSS `monster/`** | CC0 | 1 282 | **871** | **67.9 %** |
+| **16x16 Food** | CC0 | 188 | 108 | **57.4 %** |
+| Kenney 1-Bit Pack | CC0 | 1 072 | 587 | 54.8 % |
+| DCSS `player/` | CC0 | 975 | 463 | 47.5 % |
+| Kenney Pixel Shmup | CC0 | 24 | 11 | 45.8 % |
+| DCSS `item/` | CC0 | 957 | 413 | 43.2 % |
+| DCSS `gui/` | CC0 | 500 | 209 | 41.8 % |
+| Nikoichu 1-bit Icons | CC0 | 1 476 | 577 | 39.1 % |
+| DENZI | CC0 | 1 361 | 520 | 38.2 % |
+| DCSS `effect/` | CC0 | 238 | 91 | 38.2 % |
+| DCSS `misc/` | CC0 | 582 | 208 | 35.7 % |
+| Fugue Icons | CC-BY-3.0 | 3 538 | 1 219 | 34.5 % |
+| Kenney Tiny Dungeon | CC0 | 132 | 42 | 31.8 % |
+| Kenney 1-Bit Platformer | CC0 | 800 | 208 | 26.0 % |
+| Kenney Monochrome RPG | CC0 | 136 | 35 | 25.7 % |
+| Kenney Food Expansion | CC0 | 112 | 12 | 10.7 % |
+| **Hexany's Monsters** | CC0 | 64 | **0** | **0 %** |
+| DCSS `dungeon/` | CC0 | 1 483 | — | not measured (terrain) |
+
+**~3 850 CC0 puzzles**, plus 1 219 more under CC-BY from Fugue.
+
+Three results worth more than the totals:
+
+**DCSS monsters beat everything, including the old npm benchmark.** 67.9 %
+against `pixelarticons`' 65 %. Monsters are ideal nonogram subjects: one
+creature, filled silhouette, drawn to read at 32×32.
+
+**Hexany scored 0 of 64, and it isn't a bug.** All 64 died on playability —
+`3 isolated pixel(s), 9 blocks in one line`. The art is 1-bit creatures drawn
+with eyes, speckles and texture, and that fineness simply doesn't survive as a
+nonogram. A genuine content mismatch, recorded so nobody re-downloads it.
+
+**Kenney's Food Expansion managed 10.7 %**, the worst of the lot, despite
+being the pack the original research called "best keeper-ratio in the entire
+catalogue". The food is drawn small inside its tile, so there is very little
+ink. Predicting yield by eye keeps being wrong; measuring keeps being cheap.
+
+### Subject overlap across sources: the real answer
+
+The earlier grid-dedupe result (1 duplicate) measured the wrong thing. Now
+that five sources have descriptive filenames, the subject question can be
+answered directly:
+
+| Source | Puzzles | Distinct subjects | Puzzles per subject |
+|---|---:|---:|---:|
+| DCSS `monster/` | 871 | 318 | 2.7× |
+| Fugue | 1 219 | 270 | 4.5× |
+| Nikoichu | 577 | 234 | 2.5× |
+| DENZI | 520 | 171 | 3.0× |
+| DCSS `item/` | 413 | 126 | 3.3× |
+| **16x16 Food** | 108 | **99** | **1.1×** |
+
+| | |
+|---|---:|
+| Sum of per-source subjects (CC0 only) | 948 |
+| **Distinct subjects in the union** | **857** |
+| Lost to cross-source repetition | 91 (9.6 %) |
+
+So the repetition to worry about is **internal**, not cross-source: each
+source repeats its own subjects 2.5–4.5×, but the sources barely repeat each
+other. Choosing packs for *different vocabulary* rather than volume worked
+exactly as intended.
+
+The largest cross-source overlap is **DENZI ∩ DCSS monsters, 40 subjects**
+(dragon, eye, serpent) — expected, and predicted by OGA's own page, which says
+DENZI's art is partly *inside* Dungeon Crawl. Worth deduping those two against
+each other specifically.
+
+**16x16 Food is the standout at 1.1×** — 99 distinct subjects from 108
+puzzles, almost no internal repetition, in the everyday vocabulary that both
+icon sets and roguelikes lack.
+
+**857 distinct CC0 subjects against the ~100 Fase 1 needs.** Fase 1 can now be
+built entirely from CC0 material, which makes H6 (the credits screen) a
+choice rather than a blocker.
+
+## Three packs with no provenance, resolved (2026-08-07)
+
+Three folders showed up under `_sources/` without a `PROVENANCE.json` — they
+were downloaded by hand, so nothing recorded where they came from. Under `04`
+§2.4 that alone bars them from a release. Licences traced back to their pages
+and recorded:
+
+| Pack | Licence | Evidence |
+|---|---|---|
+| **VEXED — Bit Bonanza** | CC0-1.0 | Four independent statements agree: the title `(1Bit, CC0, Free)`, the `Asset license` row, the prose *"These assets are CC0, use them in commercial projects modify tiles as you wish"*, and the author replying in comments *"credit is appreciated but not required"*. |
+| **vurmux — Urizen 1Bit** | CC0-1.0 | `Asset license` row plus a prose `License:` section, followed by *"Credits are not required, but highly appreciated :)"*. |
+| **Darkmoonfire — 1-Bit Mystery Icons** | **CC-BY-SA-4.0** | OGA `License(s)` field, plus `Copyright/Attribution Notice: "1-Bit Mystery Icons by Darkmoonfire"`. |
+
+**Do not treat these as one bucket.** Two are public domain; the third is
+copyleft with a mandatory attribution string and ShareAlike on derivatives.
+(SA is permitted by policy — see the ShareAlike note above — but it is a
+materially different obligation.)
+
+One provenance trap found in the process: the extracted folder is named
+`Bit-Bonanza-10x10-v-5.0` while a `Bountiful-Bits-v-3.1.zip` sits beside it.
+Those are **two different packs by the same author**, both CC0. The licence was
+initially checked against the wrong one; the folder's own `README.txt` says
+"Bit Bonanza" and declares no licence at all, which is what caught it.
+
+### A classifier gap, found by a 0 %
+
+Mystery Icons scored **0 of 45**, every one rejected as `too dense (91% ink)`.
+Not a content problem — a real bug in `classifyRaster`:
+
+> The sheet **has an alpha channel but is 89.4 % opaque.** Its background is a
+> painted dark rectangle, not transparency. `classifyByAlphaWithClipping`
+> treats opaque as figure, so it read the entire background as ink.
+
+`hasAlpha` is necessary but not sufficient. When nearly everything is opaque
+the alpha channel carries no figure/ground information, and the right move is
+the border-colour detection `classifyByBackground` already implements. Fixed
+with an opaque-share cutoff of 0.85.
+
+| | Before | After |
+|---|---:|---:|
+| Mystery Icons | 0 % | **66.7 %** |
+| 16x16 Food (control) | 57.4 % | 57.4 % |
+| Hexany (control) | 0 % | 0 % |
+
+No regression, and Hexany staying at 0 confirms its failure is genuinely the
+art's fineness rather than this bug. **The gap affects any 1-bit sheet exported
+with a painted background**, which is a common format — this was worth more
+than the 30 puzzles that triggered it.
+
+### And the pack that solves the easy tier
+
+| Source | Licence | Files | Accepted | Rate | Longest side |
+|---|---|---:|---:|---:|---|
+| **Urizen 1Bit** | CC0 | 5 540 | **1 821** | 32.9 % | 5→21, **10→803**, 15→997 |
+| **Bit Bonanza** | CC0 | 1 223 | 540 | 44.2 % | 5→8, **10→532** |
+| Mystery Icons | CC-BY-SA | 45 | 30 | 66.7 % | 20→30 |
+
+**Urizen is the largest single harvest in the project — 1 821 puzzles**, more
+than Fugue's 1 219. Its geometry was recovered rather than guessed: tile 12,
+spacing 1, margin 1 reconciles `2679 = 206·12 + 205·1 + 2` and
+`651 = 50·12 + 49·1 + 2` exactly, and yields 5 540 non-blank tiles against the
+author's advertised "5500+".
+
+**Bit Bonanza is drawn at 10×10**, so 532 of its 540 puzzles land at longest
+side 10 and 8 at 5×5. For context, before these two sources the *entire*
+project had 6 boards at 5×5 and 93 at side 10. Together they contribute
+**1 364 boards of side 10 or under** — the easy tier is no longer a problem,
+and `fit.maxSize` never needed touching.
+
+Worth recording: two people have already built nonograms from Bit Bonanza — a
+published picross book and the game *Do You Like Picross* — both with the
+author's blessing in the comments. Independent confirmation that 10×10 1-bit
+game sprites are the right shape for this.
+
+## The acceptance rate is not a quality score (2026-08-07)
+
+Kacper Woźniak's **1-Bit Icons** (CC0-1.0, verified: `Asset license` row *and*
+prose agree) turned out to be the cleanest controlled experiment the project
+has: **the same 35 objects, drawn by the same author at 8, 16 and 32 px**, in
+two styles. Only the drawing's fidelity changes.
+
+| Sheet | Accepted / 35 | Rate |
+|---|---:|---:|
+| **8 px simple** | 19 | **54.3 %** |
+| 8 px detail | 15 | 42.9 % |
+| 16 px detail | 10 | 28.6 % |
+| 16 px simple | 9 | 25.7 % |
+| 32 px detail | 8 | 22.9 % |
+| 32 px simple | 5 | 14.3 % |
+
+**The rate falls monotonically as the art gets bigger — 8 px yields double what
+32 px does.** That directly contradicts the original research, which dismissed
+Kenney's 8×8 packs as "too coarse to be recognisable".
+
+The explanation matters more than the result:
+
+> **The pipeline measures playability, not recognisability.** Coarser art has
+> fewer isolated pixels and fewer blocks per line, so it sails through the
+> playability gate. *No gate anywhere checks that the figure is still
+> identifiable.*
+
+So a high acceptance rate can mean "this reduces to a clean, solvable grid" and
+say nothing about whether the player will recognise a lantern when they finish
+it. The two can point in opposite directions, and here they do. **Read every
+rate in this document with that caveat**, and look at candidates by eye before
+committing them to the hundred.
+
+The pack itself is small — 40 tiles, 35 non-blank, and the *same* objects in
+all twelve sheets, so its ceiling is 35 subjects no matter which sheet wins.
+
+## The npm ranking is not a reliable number (2026-08-07)
+
+`pixelarticons` was the sweep's declared champion at 65 %. Measured properly
+from its own repo (MIT, 877 SVGs with a 24×24 viewBox):
+
+| | Rate | Accepted | Longest side | Difficulty 1→5 |
+|---|---:|---:|---|---|
+| At 256 px (the sweep's path) | **43.0 %** | 377 | **10→257**, 20→56 | 26/110/122/83/36 |
+| At its native viewBox | **52.3 %** | 459 | **20→379**, 25→75 | 21/72/137/98/131 |
+
+**The 65 % does not reproduce.** The same in reverse for HackerNoon: the sweep
+recorded 25 %, and the same 256 px path against its repo gives 63.3 %. Two
+numbers wrong, in opposite directions. Likely causes: a 60-icon sample, and
+`dedupe` at 0.04 in the sweep versus 0.06 in the probe.
+
+> **`data/source-ranking.json` is useful for ranking candidates roughly, not as
+> a trustworthy figure for any specific collection.** Anything headed for the
+> hundred must be measured from its own source.
+
+**On rasterising at the native viewBox:** it raises the rate for both sets
+(+6.6 and +9.3 points) and **eliminates fidelity rejections** — expected, since
+without reduction there is no fidelity to lose. But it is **not a strict
+improvement**: for `pixelarticons` the 256 px path produces 257 boards at side
+10 and an easier curve, while the native path pushes them to side 20 and hardens
+the curve. You gain puzzles and lose small boards.
+
+So the recommendation is **not** to replace one path with the other, but to try
+both and keep both outputs, letting `dedupe` sort out the overlap. That touches
+`src/raster.ts` and `src/pipeline.ts`, so it needs a Windows build — pending.
+
+Aside: **HackerNoon via its 16 px PNGs scores 75.2 %**, the highest rate in the
+catalogue. But it is CC-BY-4.0, so admitting it makes H6 blocking again.
+
+## Does the pipeline need tuning? Measured: no (2026-08-07)
+
+17 015 images through the real pipeline is enough to answer with data.
+
+| Gate | Rejections | % of all |
+|---|---:|---:|
+| **Playability** | **7 067** | **41.5 %** |
+| Duplicate | 2 490 | 14.6 % |
+| Fidelity | 235 | 1.4 % |
+| Logic | 196 | 1.2 % |
+| *Accepted* | *7 025* | *41.3 %* |
+
+Fidelity and logic barely reject anything now — the native path and the
+repairer between them. Playability rejects as many as get accepted, and its
+dominant cause is **isolated pixels: 4 133**, then `too dense` (2 536) and
+`too sparse` (925).
+
+Relaxing that threshold on the already-fitted board:
+
+| `maxIsolated` | DCSS monster (400) | Nikoichu (400) | Hexany (64) |
+|---|---:|---:|---:|
+| 0 | 212 | 203 | 0 |
+| **2 ≈ current default** | **257** | **215** | **0** |
+| 3 | 269 | 216 | 0 |
+| 5 | 278 | 222 | 0 |
+
+Going from 2 to 5 buys **+5 to +8 %** more puzzles, and the difficulty split
+shows almost all of them land at 4–5: speckled boards with floating dots, the
+tedious kind. Against a corpus already holding 60× what Fase 1 needs, that is a
+bad trade. **The gates are well tuned. Leave them alone.**
+
+> **Worth not rediscovering:** passing an explicit `options.quality`
+> **overrides the native path's automatic relaxation**. That is why the
+> `maxIsolated: 0` row above scores *worse* than the default, even though the
+> nominal default is also 0.
+
+Hexany survives none of these settings, confirming its 0 % was the art, not the
+configuration.
+
+**Aggregate distributions are healthy** across 7 025 accepted puzzles:
+
+- **Difficulty** 7.0 / 28.8 / 30.5 / 20.9 / 12.7 % — a bell centred on 3. This
+  is also the first evidence that `estimateDifficulty`, rewritten against
+  random puzzles, produces a sane spread on *image-derived* ones. Open decision
+  6 is half-answered: the shape is right. Whether the **labels** are right —
+  that a "1" actually feels easy — still needs someone to play them.
+- **Size** 21 % at side 10, 33 % at 15, the rest spread to 35.
+
+**The one measured pipeline improvement worth having** is the dual SVG
+rasterisation above: try 256 px *and* the native viewBox, keep both outputs.
+But it only applies to SVG sources, and with ~6 240 CC0 puzzles of raster
+origin it is no longer a bottleneck. Low priority.
+
+**The real gap is not in conversion.** No gate measures recognisability, and
+nothing validates that a "difficulty 1" feels easy. Both need eyes, not code.
+The leverage has moved from the pipeline to **selection**.
+
+## One pack rejected on licence (2026-08-07)
+
+**PixyMoon — Cute RPG Icons** (`pixymoon.itch.io/cute-rpg`) is out.
+
+The itch page has **no `Asset license` row at all**, so the only licence source
+is hand-written prose: *"You can use it on your project, personal or
+commercial… Credits to PixyMoon"* / *"You cannot: Sell this asset pack, not
+even modified."*
+
+No named licence means `04` §2.4 applies: the puzzle enters as
+`distributable: false` and is blocked from every output path, including the
+embedded-library build that *is* the Fase 1 artefact. On top of that, the
+anti-redistribution clause sits badly with shipping the art inside a repo that
+anyone may fork. Same verdict as Shikashi's Fantasy Icons: good content,
+insufficient licence.
+
+The ZIP is kept unextracted under `_sources/piximoon/` with a `PROVENANCE.json`
+recording the decision, so a future session doesn't rediscover and measure it.
+
+A tell worth remembering: the pack tags itself `1-bit` and `Low-poly` while
+being a bright multicolour 16×16 icon set. When a page's own metadata is that
+careless, trust the prose over the tags — and where they conflict, trust
+neither without asking.
+
+### Still not verified
+
+The live Kenney page-scrape shipped broken: it looked for `href="….zip"` and
+found nothing, silently falling back to the pinned URL. The link is really
+there — it hangs off a "Continue without donating…" anchor inside a donation
+interstitial. The resolver now matches any `.zip` in the document and prefers
+the filename mentioning the page's slug, with the real markup (plus a decoy
+bundle link, single quotes, and a relative href) covered in `--self-test`. It
+has still not run against the live page; the pinned `zipFallback` URLs remain,
+and Kenney rotates the hash in them on every reupload, which is why the scrape
+exists at all.
